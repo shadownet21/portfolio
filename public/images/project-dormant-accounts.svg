@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Suivi des comptes inactifs et dormants</title>
+  <desc id="desc">Illustration d'un tableau de bord réglementaire avec statistiques, horloge d'inactivité, compte financier et relance d'un membre.</desc>
+  <defs>
+    <linearGradient id="bg2" x1="92" y1="45" x2="1105" y2="751" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#071B33"/>
+      <stop offset="1" stop-color="#153E63"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="188" y1="145" x2="892" y2="656" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7FBFF"/>
+      <stop offset="1" stop-color="#DCEEF8"/>
+    </linearGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FBBF24"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <filter id="shadow2" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#020A13" flood-opacity=".4"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="800" rx="40" fill="url(#bg2)"/>
+  <circle cx="1080" cy="78" r="230" fill="#2B8CBE" opacity=".12"/>
+  <circle cx="72" cy="735" r="260" fill="#2563EB" opacity=".11"/>
+  <path d="M0 642c244-125 379 75 612-18 202-80 344 8 588 66v110H0Z" fill="#071527" opacity=".54"/>
+
+  <!-- Tableau de bord -->
+  <g filter="url(#shadow2)">
+    <rect x="116" y="106" width="780" height="556" rx="38" fill="url(#screen)" stroke="#77B8D7" stroke-width="4"/>
+    <path d="M154 106h704a38 38 0 0 1 38 38v58H116v-58a38 38 0 0 1 38-38Z" fill="#10395C"/>
+    <circle cx="164" cy="154" r="10" fill="#FB7185"/><circle cx="196" cy="154" r="10" fill="#FBBF24"/><circle cx="228" cy="154" r="10" fill="#4ADE80"/>
+    <rect x="271" y="143" width="232" height="21" rx="10" fill="#D7F1FB" opacity=".8"/>
+
+    <!-- Cartes de statistiques -->
+    <rect x="158" y="238" width="202" height="116" rx="22" fill="#FFFFFF"/>
+    <circle cx="207" cy="296" r="27" fill="#DBEAFE"/>
+    <path d="M207 278v20l14 9" fill="none" stroke="#2563EB" stroke-width="7" stroke-linecap="round"/>
+    <rect x="250" y="266" width="72" height="13" rx="6" fill="#9BB7C9"/>
+    <rect x="250" y="293" width="52" height="25" rx="8" fill="#2563EB"/>
+
+    <rect x="383" y="238" width="202" height="116" rx="22" fill="#FFFFFF"/>
+    <circle cx="432" cy="296" r="27" fill="#FEF3C7"/>
+    <path d="M432 275v24m0 15v1" stroke="#F59E0B" stroke-width="8" stroke-linecap="round"/>
+    <rect x="475" y="266" width="72" height="13" rx="6" fill="#9BB7C9"/>
+    <rect x="475" y="293" width="52" height="25" rx="8" fill="#F59E0B"/>
+
+    <rect x="608" y="238" width="246" height="116" rx="22" fill="#FFFFFF"/>
+    <circle cx="657" cy="296" r="27" fill="#DCFCE7"/>
+    <path d="m643 296 10 10 20-23" fill="none" stroke="#22C55E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="700" y="266" width="112" height="13" rx="6" fill="#9BB7C9"/>
+    <rect x="700" y="293" width="78" height="25" rx="8" fill="#22C55E"/>
+
+    <!-- Graphique -->
+    <rect x="158" y="386" width="426" height="226" rx="24" fill="#FFFFFF"/>
+    <g stroke="#D5E5ED" stroke-width="2"><path d="M200 438h340M200 487h340M200 536h340M200 585h340"/></g>
+    <path d="M209 556c58-7 74-61 125-50 52 12 65-84 120-61 39 16 58-37 83-55" fill="none" stroke="#2588D8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M209 556c58-7 74-61 125-50 52 12 65-84 120-61 39 16 58-37 83-55v195H209Z" fill="#38BDF8" opacity=".12"/>
+    <g fill="#2588D8"><circle cx="209" cy="556" r="8"/><circle cx="334" cy="506" r="8"/><circle cx="454" cy="445" r="8"/><circle cx="537" cy="390" r="8"/></g>
+
+    <!-- Liste de relances -->
+    <rect x="608" y="386" width="246" height="226" rx="24" fill="#FFFFFF"/>
+    <g transform="translate(636 420)"><circle cx="22" cy="22" r="22" fill="#DBEAFE"/><circle cx="22" cy="17" r="8" fill="#377DA8"/><path d="M9 38c3-11 23-11 26 0" fill="#377DA8"/><rect x="58" y="8" width="118" height="12" rx="6" fill="#789CB1"/><rect x="58" y="31" width="82" height="9" rx="4" fill="#C1D5E0"/></g>
+    <g transform="translate(636 491)"><circle cx="22" cy="22" r="22" fill="#FEF3C7"/><circle cx="22" cy="17" r="8" fill="#C78612"/><path d="M9 38c3-11 23-11 26 0" fill="#C78612"/><rect x="58" y="8" width="118" height="12" rx="6" fill="#789CB1"/><rect x="58" y="31" width="82" height="9" rx="4" fill="#C1D5E0"/></g>
+    <g transform="translate(636 562)"><circle cx="22" cy="22" r="22" fill="#DCFCE7"/><circle cx="22" cy="17" r="8" fill="#26935A"/><path d="M9 38c3-11 23-11 26 0" fill="#26935A"/><rect x="58" y="8" width="118" height="12" rx="6" fill="#789CB1"/><rect x="58" y="31" width="82" height="9" rx="4" fill="#C1D5E0"/></g>
+  </g>
+
+  <!-- Horloge réglementaire et relance -->
+  <g filter="url(#shadow2)">
+    <circle cx="927" cy="466" r="169" fill="#0B2946" stroke="#4D93BA" stroke-width="5"/>
+    <circle cx="927" cy="466" r="126" fill="#123B5C" stroke="#A7DDF7" stroke-width="7"/>
+    <g stroke="#BFE9FA" stroke-width="7" stroke-linecap="round"><path d="M927 354v16M927 562v16M815 466h16M1023 466h16"/></g>
+    <path d="M927 466v-67M927 466l57 35" fill="none" stroke="#FBBF24" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="927" cy="466" r="15" fill="#FBBF24"/>
+    <circle cx="1041" cy="590" r="82" fill="url(#amber)" stroke="#FFE8A3" stroke-width="6"/>
+    <path d="M1001 574c17 17 61 30 79 0M1006 566l23-22a17 17 0 0 1 24-1l14 14a17 17 0 0 1 0 24l-21 21" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

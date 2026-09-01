@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Outil Python de transformation Excel vers SQL Server</title>
+  <desc id="desc">Un fichier Excel traverse un moteur de validation Python pour produire un script de correction SQL Server contrôlé.</desc>
+  <defs>
+    <linearGradient id="bg" x1="62" y1="36" x2="1137" y2="770" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#071B33"/>
+      <stop offset="1" stop-color="#153E63"/>
+    </linearGradient>
+    <linearGradient id="py" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="sql" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#020A13" flood-opacity=".42"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="800" rx="40" fill="url(#bg)"/>
+  <circle cx="1080" cy="85" r="235" fill="#2588D8" opacity=".12"/>
+  <circle cx="66" cy="742" r="270" fill="#16A34A" opacity=".08"/>
+  <path d="M0 652c216-114 374 63 582-14 230-85 357 11 618 72v90H0Z" fill="#061527" opacity=".56"/>
+
+  <!-- Connecteurs du pipeline -->
+  <g fill="none" stroke="#77D1F3" stroke-width="8" stroke-linecap="round" opacity=".9">
+    <path d="M352 400h118"/>
+    <path d="M730 400h118"/>
+  </g>
+  <g fill="#77D1F3">
+    <path d="m466 381 34 19-34 19Z"/>
+    <path d="m844 381 34 19-34 19Z"/>
+  </g>
+
+  <!-- Fichier Excel -->
+  <g filter="url(#shadow)">
+    <path d="M105 164h205l78 78v386a30 30 0 0 1-30 30H105a30 30 0 0 1-30-30V194a30 30 0 0 1 30-30Z" fill="#F7FBFF"/>
+    <path d="M310 164v78h78" fill="#CDE9F5"/>
+    <rect x="75" y="164" width="92" height="494" rx="30" fill="#16864B"/>
+    <path d="m97 330 49 87-49 87M146 330l-49 87 49 87" fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round"/>
+    <g fill="#A9C7D5">
+      <rect x="198" y="296" width="135" height="16" rx="8"/>
+      <rect x="198" y="343" width="135" height="16" rx="8"/>
+      <rect x="198" y="390" width="135" height="16" rx="8"/>
+      <rect x="198" y="437" width="135" height="16" rx="8"/>
+      <rect x="198" y="484" width="135" height="16" rx="8"/>
+      <rect x="198" y="531" width="91" height="16" rx="8"/>
+    </g>
+    <g stroke="#D8E8EF" stroke-width="3"><path d="M187 326h158M187 373h158M187 420h158M187 467h158M187 514h158"/><path d="M238 278v276M292 278v276"/></g>
+  </g>
+
+  <!-- Moteur Python -->
+  <g filter="url(#shadow)">
+    <rect x="486" y="205" width="270" height="390" rx="42" fill="#0B2946" stroke="#3E83B0" stroke-width="4"/>
+    <circle cx="621" cy="335" r="96" fill="url(#py)"/>
+    <path d="M577 291c0-23 17-39 42-39h44v37h-54v17h76c21 0 36 17 36 38v31h-39v-28H578c-21 0-37-17-37-38v-18Z" fill="#DCEEFF"/>
+    <circle cx="644" cy="270" r="7" fill="#1D4ED8"/>
+    <path d="M665 379c0 23-17 39-42 39h-44v-37h54v-17h-76c-21 0-36-17-36-38v-31h39v28h104c21 0 37 17 37 38v18Z" fill="#FCD34D"/>
+    <circle cx="598" cy="400" r="7" fill="#A56B08"/>
+
+    <rect x="530" y="469" width="182" height="76" rx="18" fill="#061C31"/>
+    <path d="m555 506 17 17 31-34" fill="none" stroke="#4ADE80" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="620" y="490" width="64" height="10" rx="5" fill="#B9D8E7"/>
+    <rect x="620" y="515" width="45" height="9" rx="4" fill="#648DA5"/>
+  </g>
+
+  <!-- SQL Server -->
+  <g filter="url(#shadow)">
+    <rect x="861" y="157" width="268" height="500" rx="38" fill="#F5FAFD"/>
+    <rect x="894" y="200" width="202" height="182" rx="24" fill="#0B2946"/>
+    <ellipse cx="995" cy="236" rx="72" ry="27" fill="#67D2F6"/>
+    <path d="M923 236v91c0 15 32 27 72 27s72-12 72-27v-91" fill="url(#sql)"/>
+    <ellipse cx="995" cy="282" rx="72" ry="27" fill="#287CC5" stroke="#9DE6FC" stroke-width="4"/>
+    <ellipse cx="995" cy="327" rx="72" ry="27" fill="#2164A8" stroke="#9DE6FC" stroke-width="4"/>
+    <ellipse cx="995" cy="236" rx="72" ry="27" fill="none" stroke="#D8F7FF" stroke-width="4"/>
+
+    <rect x="894" y="410" width="202" height="178" rx="22" fill="#E7F2F7"/>
+    <g fill="none" stroke="#2B668A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m928 456-19 18 19 18"/>
+      <path d="m1062 456 19 18-19 18"/>
+    </g>
+    <path d="m1015 445-39 61" stroke="#2588D8" stroke-width="9" stroke-linecap="round"/>
+    <rect x="925" y="535" width="141" height="12" rx="6" fill="#8AAFC2"/>
+  </g>
+
+  <!-- Sécurité / contrôle -->
+  <g filter="url(#shadow)">
+    <circle cx="808" cy="593" r="73" fill="#0B2946" stroke="#A7E7FB" stroke-width="6"/>
+    <path d="M808 550c22 15 40 16 40 16v35c0 25-18 42-40 52-22-10-40-27-40-52v-35s18-1 40-16Z" fill="#22C55E"/>
+    <path d="m788 601 14 14 28-32" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

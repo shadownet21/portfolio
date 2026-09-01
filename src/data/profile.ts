@@ -11,7 +11,7 @@ export const experiences: Experience[] = [
   {
     organization: "FUCEC-TOGO",
     role: { fr: "Support informatique et développeur web", en: "IT Support and Web Developer" },
-    period: { fr: "Février 2022 — septembre 2025", en: "February 2022 — September 2025" },
+    period: { fr: "Novembre 2020 — septembre 2025", en: "February 2022 — September 2025" },
     responsibilities: [
       { fr: "Développement et maintenance d’applications web internes", en: "Development and maintenance of internal web applications" },
       { fr: "Assistance technique aux utilisateurs et support d’applications métiers", en: "Technical user assistance and business application support" },
@@ -19,8 +19,40 @@ export const experiences: Experience[] = [
       { fr: "Diagnostic et résolution d’incidents", en: "Incident diagnosis and resolution" },
       { fr: "Gestion des droits et accès", en: "Rights and access management" },
       { fr: "Documentation technique", en: "Technical documentation" },
+      { fr: "Formation des utilisateurs", en: "Users formation" },
     ],
   },
+  {
+  organization: "FLASH PRODUCTION",
+
+  role: {
+    fr: "Développeur web full stack",
+    en: "Full-Stack Web Developer",
+  },
+  period: {
+    fr: "Juillet 2018 — juillet 2020",
+    en: "July 2018 — July 2020",
+  },
+
+  responsibilities: [
+    {
+      fr: "Conception et développement d’une plateforme de gestion des commandes et de fidélisation client, automatisant le suivi des activités quotidiennes",
+      en: "Designed and developed an order management and customer loyalty platform that automated daily activity tracking",
+    },
+    {
+      fr: "Développement d’une solution de gestion de projets intégrant la planification des ressources, le suivi des stocks et la production de statistiques en temps réel",
+      en: "Developed a project management solution integrating resource planning, inventory tracking and real-time statistics",
+    },
+    {
+      fr: "Organisation et suivi des tâches de l’équipe selon une méthodologie Agile afin de favoriser le respect des échéances",
+      en: "Organized and monitored team tasks using an Agile methodology to support on-time delivery",
+    },
+    {
+      fr: "Mise en œuvre des procédures de sauvegarde et contribution à la sécurisation des données et des applications",
+      en: "Implemented backup procedures and contributed to securing data and applications",
+    },
+  ],
+},
   {
     organization: "GMSI",
     role: { fr: "Gestion informatique et bases de données", en: "IT and database management" },

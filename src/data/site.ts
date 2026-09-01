@@ -1,9 +1,9 @@
 import type { NavItem } from "@/types/content";
 
 export const PLACEHOLDERS = {
-  github: "URL_GITHUB_A_REMPLACER",
-  linkedin: "URL_LINKEDIN_A_REMPLACER",
-  email: "EMAIL_A_REMPLACER",
+  github: "https://github.com/shadownet21/",
+  linkedin: "www.linkedin.com/in/marc-maurice-freeman-324816394",
+  email: "birkhofxy@gmail.com",
   cv: "URL_CV_A_REMPLACER",
 } as const;
 
