@@ -18,6 +18,7 @@ export const experiences: Experience[] = [
       { fr: "Administration SQL Server et MySQL", en: "SQL Server and MySQL administration" },
       { fr: "Diagnostic et résolution d’incidents", en: "Incident diagnosis and resolution" },
       { fr: "Gestion des droits et accès", en: "Rights and access management" },
+      { fr: "Câblages réseaux", en: "Network cabling" },
       { fr: "Documentation technique", en: "Technical documentation" },
       { fr: "Formation des utilisateurs", en: "Users formation" },
     ],
@@ -67,18 +68,95 @@ export const experiences: Experience[] = [
   },
 ];
 
-export const education: Education[] = [
+export const education = [
   {
-    institution: "CyberCap — Initiative Avenir, Montréal",
-    program: { fr: "Formation intensive", en: "Intensive training program" },
-    period: { fr: "Avril — octobre 2026", en: "April — October 2026" },
+    institution: "CyberCap — Initiative Avenir, Montréal, Québec",
+
+    program: {
+      fr: "Formation spécialisée en technologies de l’information",
+      en: "Specialized Information Technology Training",
+    },
+
+    period: {
+      fr: "Avril — octobre 2026",
+      en: "April — October 2026",
+    },
+
     topics: [
-      { fr: "Programmation web", en: "Web programming" },
-      { fr: "Cybersécurité", en: "Cybersecurity" },
-      { fr: "Intelligence artificielle", en: "Artificial intelligence" },
-      { fr: "Linux", en: "Linux" },
-      { fr: "Réseaux informatiques", en: "Computer networking" },
+      {
+        fr: "Développement logiciel et programmation web",
+        en: "Software development and web programming",
+      },
+      {
+        fr: "Cybersécurité",
+        en: "Cybersecurity",
+      },
+      {
+        fr: "Intelligence artificielle",
+        en: "Artificial intelligence",
+      },
+      {
+        fr: "Linux",
+        en: "Linux",
+      },
+      {
+        fr: "Réseaux informatiques",
+        en: "Computer networking",
+      },
     ],
   },
-  // Ajoutez les diplômes futurs ici en respectant l’interface Education.
+
+  {
+    institution: "ESGIS — Lomé, Togo",
+
+    program: {
+      fr: "Baccalauréat en informatique, réseaux et télécommunications — Architecture logicielle",
+      en: "Bachelor’s Degree in Computer Science, Networks and Telecommunications — Software Architecture",
+    },
+
+    period: {
+      fr: "Septembre 2017 — juillet 2018",
+      en: "September 2017 — July 2018",
+    },
+
+    topics: [
+      {
+        fr: "Informatique",
+        en: "Computer science",
+      },
+      {
+        fr: "Réseaux et télécommunications",
+        en: "Networks and telecommunications",
+      },
+      {
+        fr: "Architecture logicielle",
+        en: "Software architecture",
+      },
+    ],
+  },
+
+  {
+    institution: "CIFOP — Lomé, Togo",
+
+    program: {
+      fr: "Brevet de technicien supérieur — Développeur d’applications",
+      en: "Advanced Technician Diploma — Application Development",
+    },
+
+    period: {
+      fr: "Septembre 2015 — juillet 2016",
+      en: "September 2015 — July 2016",
+    },
+
+    topics: [
+      {
+        fr: "Développement d’applications",
+        en: "Application development",
+      },
+      {
+        fr: "Informatique de gestion",
+        en: "Business computing",
+      },
+    ],
+  },
 ];
