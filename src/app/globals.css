@@ -204,6 +204,10 @@ button {
   background: #061a38;
 }
 
+.profile-image {
+  border-radius: 10px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

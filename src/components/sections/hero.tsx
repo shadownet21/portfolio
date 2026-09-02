@@ -72,7 +72,7 @@ export function Hero({ locale }: { locale: Locale }) {
 
         <div className="profile-image-wrapper">
           <img
-            src="/images/profile.jpg"
+            src="/images/profile.png"
             alt="Photo de profil"
             className="profile-image"
           />
