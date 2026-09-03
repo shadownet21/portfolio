@@ -74,8 +74,6 @@ npm start          # serveur de production
 - Compétences et niveaux : `src/data/skills.ts`
 - Textes de sections : `src/components/sections`
 
-Recherchez `_A_REMPLACER` et `À compléter` avant publication. Ces libellés sont volontaires : aucune URL, statistique ou expérience n’a été inventée.
-
 ### Ajouter le CV
 
 Déposez le PDF dans `public/documents`, puis remplacez `URL_CV_A_REMPLACER` par un chemin comme `/documents/marc-maurice-freeman-cv.pdf`.
@@ -86,13 +84,8 @@ Déposez les fichiers optimisés dans `public/images`, puis modifiez la proprié
 
 ### Configurer les liens
 
-Remplacez au minimum :
-
-- `URL_GITHUB_A_REMPLACER`
-- `URL_LINKEDIN_A_REMPLACER`
-- `EMAIL_A_REMPLACER`
-- `URL_CV_A_REMPLACER`
-- `NEXT_PUBLIC_SITE_URL` dans un fichier `.env.local` ou dans les variables Vercel
+- Url GitHub : https://github.com/shadownet21/
+- Url LinkedIn : www.linkedin.com/in/marc-maurice-freeman-324816394
 
 Les liens et champs temporaires sont masqués dans l’interface publique. Le formulaire de contact apparaît après configuration du courriel; il utilise `mailto:` et ne promet aucun envoi serveur.
 
