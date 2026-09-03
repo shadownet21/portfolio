@@ -2,6 +2,39 @@
 
 Portfolio bilingue (français/anglais) destiné aux recruteurs du Québec et du Canada. Il présente un profil hybride en support TI, développement web, bases de données, cybersécurité et analyse fonctionnelle.
 
+## Aperçu
+
+> Le portfolio est actuellement disponible en environnement local et sera prochainement mis en ligne.
+
+L’interface propose une navigation bilingue, un thème sombre soigné et une présentation structurée du parcours, des projets et des compétences.
+
+[![Page d’accueil du portfolio](public/images/screenshots/1.png)](public/images/screenshots/1.png)
+
+### Profil et domaines d’expertise
+
+<p>
+  <a href="public/images/screenshots/2.png"><img src="public/images/screenshots/2.png" alt="Présentation du parcours, des valeurs et des langues" width="49%"></a>
+  <a href="public/images/screenshots/3.png"><img src="public/images/screenshots/3.png" alt="Domaines d’expertise en développement, support, bases de données et sécurité" width="49%"></a>
+</p>
+
+### Projets sélectionnés
+
+<p>
+  <a href="public/images/screenshots/4.png"><img src="public/images/screenshots/4.png" alt="Projets de gestion financière et bancaire" width="49%"></a>
+  <a href="public/images/screenshots/5.png"><img src="public/images/screenshots/5.png" alt="Projets d’automatisation, de développement web et d’intelligence artificielle" width="49%"></a>
+</p>
+
+### Expérience et compétences
+
+<p>
+  <a href="public/images/screenshots/6.png"><img src="public/images/screenshots/6.png" alt="Expérience professionnelle et formation" width="49%"></a>
+  <a href="public/images/screenshots/7.png"><img src="public/images/screenshots/7.png" alt="Compétences techniques classées par domaine et niveau de pratique" width="49%"></a>
+</p>
+
+### Contact
+
+[![Section de contact du portfolio](public/images/screenshots/8.png)](public/images/screenshots/8.png)
+
 ## Technologies
 
 - Next.js 16 avec App Router et React 19
