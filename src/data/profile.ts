@@ -72,7 +72,7 @@ export const experiences: Experience[] = [
     responsibilities: [],
   },
   {
-    organization: { fr: "Réseau de plus de 100 points de service", en: "Network of more than 100 service locations" },
+    organization: { fr: "Réseau de plus de 120 points de service", en: "Network of more than 100 service locations" },
     role: { fr: "Support informatique", en: "IT Support" },
     period: { fr: "À compléter", en: "To be completed" },
     responsibilities: [],
