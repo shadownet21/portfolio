@@ -1,3 +1,5 @@
+import { ArrowRight } from "lucide-react";
+
 import { projects } from "@/data/projects";
 import type { Locale } from "@/types/content";
 import { Reveal } from "@/components/ui/reveal";
@@ -50,7 +52,6 @@ export function Projects({ locale }: { locale: Locale }) {
         {/* =========================
             AUTRES RÉALISATIONS
         ========================== */}
-
         {secondaryProjects.length > 0 && (
           <>
             <Reveal direction="up" duration={0.7} distance={25}>
@@ -74,6 +75,25 @@ export function Projects({ locale }: { locale: Locale }) {
             </div>
           </>
         )}
+
+        {/* =========================
+            APPEL À L'ACTION
+        ========================== */}
+        <Reveal direction="up" delay={0.1} duration={0.75} distance={30}>
+          <div className="mt-16 text-center">
+            <p className="muted mx-auto mb-5 max-w-xl text-base md:text-lg">
+              {fr
+                ? "Un projet, une opportunité ou simplement envie d’échanger ?"
+                : "Have a project, an opportunity, or simply want to connect?"}
+            </p>
+
+            <a href="#contact" className="button-primary">
+              {fr ? "Contactez-moi" : "Contact me"}
+
+              <ArrowRight size={18} aria-hidden="true" />
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
