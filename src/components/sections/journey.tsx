@@ -120,42 +120,35 @@ export function Journey({ locale }: { locale: Locale }) {
               </h3>
             </Reveal>
 
-            {education.map((item, index) => (
-              /*
-               * Reveal gère uniquement l'animation
-               * d'apparition au scroll.
-               */
-              <Reveal
-                key={item.institution}
-                direction="right"
-                distance={40}
-                duration={0.75}
-                delay={0.1 + index * 0.1}
-              >
-                {/*
-                 * La carte est maintenant séparée
-                 * pour que son hover CSS ne soit
-                 * pas en conflit avec Framer Motion.
-                 */}
-                <div className="card p-6 md:p-8">
-                  <p className="eyebrow">{item.period[locale]}</p>
+            <div className="space-y-6">
+              {education.map((item, index) => (
+                <Reveal
+                  key={item.institution}
+                  direction="right"
+                  distance={40}
+                  duration={0.75}
+                  delay={0.1 + index * 0.1}
+                >
+                  <div className="card p-6 md:p-8">
+                    <p className="eyebrow">{item.period[locale]}</p>
 
-                  <h4 className="mt-3 text-xl font-extrabold">
-                    {item.institution}
-                  </h4>
+                    <h4 className="mt-3 text-xl font-extrabold">
+                      {item.institution}
+                    </h4>
 
-                  <p className="muted mt-1">{item.program[locale]}</p>
+                    <p className="muted mt-1">{item.program[locale]}</p>
 
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {item.topics.map((topic) => (
-                      <span key={topic.fr} className="tag">
-                        {topic[locale]}
-                      </span>
-                    ))}
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {item.topics.map((topic) => (
+                        <span key={topic.fr} className="tag">
+                          {topic[locale]}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </div>
