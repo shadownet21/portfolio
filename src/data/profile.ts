@@ -11,7 +11,7 @@ export const experiences: Experience[] = [
   {
     organization: "FUCEC-TOGO",
     role: { fr: "Support informatique et développeur web", en: "IT Support and Web Developer" },
-    period: { fr: "Novembre 2020 — septembre 2025", en: "February 2022 — September 2025" },
+    period: { fr: "Novembre 2020 — septembre 2025", en: "November 2020 — September 2025" },
     responsibilities: [
       { fr: "Analyser les besoins des utilisateurs et collaborer avec les équipes métiers et techniques pour définir des solutions adaptées aux opérations.", en: "Analyze user needs and collaborate with business and technical teams to define solutions suited to operational needs." },
       { fr: "Participer au cycle complet des projets technologiques : analyse, développement, tests, déploiement, mise en production et soutien aux utilisateurs.", en: "Contribute throughout the technology project lifecycle: analysis, development, testing, deployment, production rollout and user support." },
@@ -72,14 +72,14 @@ export const experiences: Experience[] = [
     responsibilities: [],
   },
   {
-    organization: "Réseau de plus de 100 points de service",
+    organization: { fr: "Réseau de plus de 100 points de service", en: "Network of more than 100 service locations" },
     role: { fr: "Support informatique", en: "IT Support" },
     period: { fr: "À compléter", en: "To be completed" },
     responsibilities: [],
   },
 ];
 
-export const education = [
+export const education: Education[] = [
   {
     institution: "CyberCap — Initiative Avenir, Montréal, Québec",
 

@@ -1,6 +1,6 @@
 # Portfolio professionnel — Marc Maurice Freeman
 
-Portfolio bilingue (français/anglais) destiné aux recruteurs du Québec et du Canada. Il présente un profil hybride en support TI, développement web, bases de données, cybersécurité et analyse fonctionnelle.
+Portfolio bilingue (français/anglais) destiné aux recruteurs du Québec et du Canada. Il présente un profil hybride en support TI, développement web, bases de données, cybersécurité, analyse fonctionnelle et gestion de projets junior.
 
 ## Aperçu
 
@@ -10,25 +10,27 @@ L’interface propose une navigation bilingue, un thème sombre soigné et une p
 
 [![Page d’accueil du portfolio](public/images/screenshots/1.png)](public/images/screenshots/1.png)
 
+Captures de la version française en thème sombre, actualisées le 9 septembre 2026. Elles présentent notamment les tâches de développement et de coordination de projets, ainsi que les compétences Microsoft Planner et Trello.
+
 ### Profil et domaines d’expertise
 
 <p>
-  <a href="public/images/screenshots/2.png"><img src="public/images/screenshots/2.png" alt="Présentation du parcours, des valeurs et des langues" width="49%"></a>
-  <a href="public/images/screenshots/3.png"><img src="public/images/screenshots/3.png" alt="Domaines d’expertise en développement, support, bases de données et sécurité" width="49%"></a>
+  <a href="public/images/screenshots/2.png"><img src="public/images/screenshots/2.png" alt="Présentation du parcours, des valeurs et des langues" width="100%"></a>
+  <a href="public/images/screenshots/3.png"><img src="public/images/screenshots/3.png" alt="Domaines d’expertise en développement, support, bases de données, sécurité, gestion de projets junior et tests" width="100%"></a>
 </p>
 
 ### Projets sélectionnés
 
 <p>
-  <a href="public/images/screenshots/4.png"><img src="public/images/screenshots/4.png" alt="Projets de gestion financière et bancaire" width="49%"></a>
-  <a href="public/images/screenshots/5.png"><img src="public/images/screenshots/5.png" alt="Projets d’automatisation, de développement web et d’intelligence artificielle" width="49%"></a>
+  <a href="public/images/screenshots/4.png"><img src="public/images/screenshots/4.png" alt="Projets sélectionnés : finance, automatisation, développement web et intelligence artificielle" width="100%"></a>
+  <a href="public/images/screenshots/5.png"><img src="public/images/screenshots/5.png" alt="Autres réalisations : applications internes, sites web et outils de gestion" width="100%"></a>
 </p>
 
 ### Expérience et compétences
 
 <p>
-  <a href="public/images/screenshots/6.png"><img src="public/images/screenshots/6.png" alt="Expérience professionnelle et formation" width="49%"></a>
-  <a href="public/images/screenshots/7.png"><img src="public/images/screenshots/7.png" alt="Compétences techniques classées par domaine et niveau de pratique" width="49%"></a>
+  <a href="public/images/screenshots/6.png"><img src="public/images/screenshots/6.png" alt="Expérience en développement et coordination de projets, stages académiques et formation" width="100%"></a>
+  <a href="public/images/screenshots/7.png"><img src="public/images/screenshots/7.png" alt="Compétences techniques et gestion de projets : planification, coordination, Microsoft Planner et Trello" width="100%"></a>
 </p>
 
 ### Contact

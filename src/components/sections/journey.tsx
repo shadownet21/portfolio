@@ -30,7 +30,7 @@ export function Journey({ locale }: { locale: Locale }) {
             <div className="relative border-l border-[var(--border)] pl-7">
               {experiences.map((item, index) => (
                 <Reveal
-                  key={`${item.organization}-${item.role.fr}`}
+                  key={`${(typeof item.organization === "string" ? item.organization : item.organization[locale])}-${item.role.fr}`}
                   className="relative mb-8 last:mb-0"
                   delay={index * 0.05}
                 >
@@ -45,7 +45,7 @@ export function Journey({ locale }: { locale: Locale }) {
                     {item.role[locale]}
                   </h4>
                   <p className="muted mt-1 font-semibold">
-                    {item.organization}
+                    {(typeof item.organization === "string" ? item.organization : item.organization[locale])}
                   </p>
                   {item.responsibilities.length ? (
                     <ul className="muted mt-4 grid gap-2 text-sm leading-6">

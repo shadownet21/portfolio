@@ -1,6 +1,20 @@
-import type { SkillGroup, SkillLevel } from "@/types/content";
+import type { Skill, SkillGroup, SkillLevel } from "@/types/content";
 
-const skills = (level: SkillLevel, names: string[]) => names.map((name) => ({ name, level }));
+const translatedNames: Record<string, string> = {
+  "Analyse fonctionnelle": "Functional analysis",
+  "Documentation technique": "Technical documentation",
+  "Résolution de problèmes": "Problem solving",
+  "Planification des tâches": "Task planning",
+  "Suivi des priorités": "Priority tracking",
+  "Suivi des livrables": "Deliverable tracking",
+  "Coordination métiers / TI": "Business / IT coordination",
+  "Suivi des demandes": "Request tracking",
+  "Tests fonctionnels": "Functional testing",
+  "Suivi des anomalies": "Defect tracking",
+  "Accompagnement des utilisateurs": "User support"
+};
+
+const skills = (level: SkillLevel, names: string[]): Skill[] => names.map((name) => ({ name, level, ...(translatedNames[name] ? { label: { fr: name, en: translatedNames[name] } } : {}) }));
 
 export const skillGroups: SkillGroup[] = [
   {

@@ -26,7 +26,7 @@ export interface Project {
 }
 
 export interface Experience {
-  organization: string;
+  organization: string | LocalizedText;
   role: LocalizedText;
   period: LocalizedText;
   responsibilities: LocalizedText[];
@@ -41,6 +41,7 @@ export interface Education {
 
 export interface Skill {
   name: string;
+  label?: LocalizedText;
   level: SkillLevel;
 }
 

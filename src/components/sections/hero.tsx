@@ -16,7 +16,7 @@ export function Hero({ locale }: { locale: Locale }) {
         }
       : {
           intro:
-            "Information technology professional with more than four years of experience in IT support, web application development and database administration. I enjoy turning business needs into reliable, practical and maintainable solutions.",
+            "Information technology professional with more than four years of experience in IT support, web application development and database administration. I enjoy turning business needs into reliable, practical and maintainable solutions. I also want to apply this experience in a junior project manager role, contributing to work organization and deliverable tracking.",
           projects: "View my projects",
           cv: "Download my résumé",
           contact: "Contact me",
@@ -73,7 +73,7 @@ export function Hero({ locale }: { locale: Locale }) {
         <div className="profile-image-wrapper">
           <img
             src="/images/profile.png"
-            alt="Photo de profil"
+            alt={locale === "fr" ? "Portrait de Marc Maurice Freeman" : "Portrait of Marc Maurice Freeman"}
             className="profile-image"
           />
 
@@ -83,7 +83,9 @@ export function Hero({ locale }: { locale: Locale }) {
         <div className="profile-info">
           <h2 className="profile-name">MMF</h2>
 
-          <p className="profile-role">Web Developer · IT Support · Data</p>
+          <p className="profile-role">
+            {locale === "fr" ? "Développement web · Support TI · Données · Gestion de projets" : "Web Development · IT Support · Data · Project Management"}
+          </p>
         </div>
       </Reveal>
     </section>

@@ -32,7 +32,7 @@ export function ProjectCard({ project, locale, compact = false }: { project: Pro
             {!isPending(project.impact[locale]) ? <div><h4 className="font-extrabold">{fr ? "Impact" : "Impact"}</h4><p className="muted mt-1">{project.impact[locale]}</p></div> : null}
           </div>
         </details> : null}
-        {visibleTechnologies.length ? <div className="mt-5 flex flex-wrap gap-2">{visibleTechnologies.map((technology) => <span className="tag" key={technology}>{technology}</span>)}</div> : null}
+        {visibleTechnologies.length ? <div className="mt-5 flex flex-wrap gap-2">{visibleTechnologies.map((technology) => <span className="tag" key={technology}>{technology === "API IA" && !fr ? "AI API" : technology}</span>)}</div> : null}
         {(link(project.projectUrl, "demo") || link(project.githubUrl, "github")) ? <div className="mt-6 flex flex-wrap gap-3">{link(project.projectUrl, "demo")}{link(project.githubUrl, "github")}</div> : null}
       </div>
     </article>

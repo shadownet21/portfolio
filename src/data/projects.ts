@@ -401,7 +401,7 @@ export const projects: Project[] = [
     slug: "garage-revelation",
     title: { fr: "Garage La Révélation", en: "Garage La Révélation" },
     category: { fr: "Applications web de gestions", en: "Management web applications" },
-    summary: { fr: "Solutions web consacrées à la gestion des services d’un garage automobile.(Casse, garage, boutique).", en: "Web solution for managing or presenting an automotive garage’s services." },
+    summary: { fr: "Solutions web consacrées à la gestion des services d’un garage automobile.(Casse, garage, boutique).", en: "Web solutions for managing an automotive business’s services, including its salvage yard, repair shop and retail store." },
     problem: pending,
     solution: pending,
     technologies: ["PHP", "Laravel", "JavaScript", "jQuery", "AJAX", "SQL Server", "MySQL", "Bootstrap"],
