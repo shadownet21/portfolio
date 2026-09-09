@@ -7,52 +7,93 @@ import { isPending } from "@/data/site";
 
 export function Journey({ locale }: { locale: Locale }) {
   const fr = locale === "fr";
+
   return (
     <section id="experience" className="section-space">
       <div className="container-shell">
-        <SectionHeading
-          eyebrow={fr ? "Expérience & formation" : "Experience & education"}
-          title={
-            fr
-              ? "Un parcours construit sur le terrain"
-              : "A journey built through hands-on work"
-          }
-        />
+        {/* TITRE DE LA SECTION */}
+        <Reveal direction="up" duration={0.8} distance={35}>
+          <SectionHeading
+            eyebrow={fr ? "Expérience & formation" : "Experience & education"}
+            title={
+              fr
+                ? "Un parcours construit sur le terrain"
+                : "A journey built through hands-on work"
+            }
+          />
+        </Reveal>
+
         <div className="grid gap-12 lg:grid-cols-2">
+          {/* =========================
+              EXPÉRIENCE
+          ========================== */}
           <div>
-            <h3 className="mb-6 flex items-center gap-3 text-xl font-extrabold">
-              <BriefcaseBusiness
-                className="text-[var(--brand)]"
-                aria-hidden="true"
-              />
-              {fr ? "Expérience professionnelle" : "Professional experience"}
-            </h3>
+            <Reveal direction="left" duration={0.7} distance={40}>
+              <h3 className="mb-6 flex items-center gap-3 text-xl font-extrabold">
+                <BriefcaseBusiness
+                  className="text-[var(--brand)]"
+                  aria-hidden="true"
+                />
+
+                {fr ? "Expérience professionnelle" : "Professional experience"}
+              </h3>
+            </Reveal>
+
+            {/* TIMELINE */}
             <div className="relative border-l border-[var(--border)] pl-7">
               {experiences.map((item, index) => (
                 <Reveal
-                  key={`${(typeof item.organization === "string" ? item.organization : item.organization[locale])}-${item.role.fr}`}
+                  key={`${
+                    typeof item.organization === "string"
+                      ? item.organization
+                      : item.organization[locale]
+                  }-${item.role.fr}`}
+                  direction="left"
+                  distance={30}
+                  duration={0.7}
+                  delay={index * 0.08}
                   className="relative mb-8 last:mb-0"
-                  delay={index * 0.05}
                 >
+                  {/* POINT TIMELINE */}
                   <span
-                    className="absolute -left-[2.14rem] top-1 h-3 w-3 rounded-full bg-[var(--brand)] ring-4 ring-[var(--background)]"
+                    className="
+                      absolute
+                      -left-[2.14rem]
+                      top-1
+                      h-3
+                      w-3
+                      rounded-full
+                      bg-[var(--brand)]
+                      ring-4
+                      ring-[var(--background)]
+                    "
                     aria-hidden="true"
                   />
+
                   {!isPending(item.period[locale]) ? (
                     <p className="eyebrow">{item.period[locale]}</p>
                   ) : null}
+
                   <h4 className="mt-2 text-lg font-extrabold">
                     {item.role[locale]}
                   </h4>
+
                   <p className="muted mt-1 font-semibold">
-                    {(typeof item.organization === "string" ? item.organization : item.organization[locale])}
+                    {typeof item.organization === "string"
+                      ? item.organization
+                      : item.organization[locale]}
                   </p>
+
                   {item.responsibilities.length ? (
                     <ul className="muted mt-4 grid gap-2 text-sm leading-6">
                       {item.responsibilities.map((responsibility) => (
                         <li
                           key={responsibility.fr}
-                          className="before:mr-2 before:text-[var(--brand)] before:content-['—']"
+                          className="
+                              before:mr-2
+                              before:text-[var(--brand)]
+                              before:content-['—']
+                            "
                         >
                           {responsibility[locale]}
                         </li>
@@ -63,24 +104,55 @@ export function Journey({ locale }: { locale: Locale }) {
               ))}
             </div>
           </div>
+
+          {/* =========================
+              FORMATION
+          ========================== */}
           <div>
-            <h3 className="mb-6 flex items-center gap-3 text-xl font-extrabold">
-              <GraduationCap className="text-[var(--brand)]" />
-              {fr ? "Formation" : "Education"}
-            </h3>
-            {education.map((item) => (
-              <Reveal key={item.institution} className="card p-6 md:p-8">
-                <p className="eyebrow">{item.period[locale]}</p>
-                <h4 className="mt-3 text-xl font-extrabold">
-                  {item.institution}
-                </h4>
-                <p className="muted mt-1">{item.program[locale]}</p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {item.topics.map((topic) => (
-                    <span key={topic.fr} className="tag">
-                      {topic[locale]}
-                    </span>
-                  ))}
+            <Reveal direction="right" duration={0.7} distance={40}>
+              <h3 className="mb-6 flex items-center gap-3 text-xl font-extrabold">
+                <GraduationCap
+                  className="text-[var(--brand)]"
+                  aria-hidden="true"
+                />
+
+                {fr ? "Formation" : "Education"}
+              </h3>
+            </Reveal>
+
+            {education.map((item, index) => (
+              /*
+               * Reveal gère uniquement l'animation
+               * d'apparition au scroll.
+               */
+              <Reveal
+                key={item.institution}
+                direction="right"
+                distance={40}
+                duration={0.75}
+                delay={0.1 + index * 0.1}
+              >
+                {/*
+                 * La carte est maintenant séparée
+                 * pour que son hover CSS ne soit
+                 * pas en conflit avec Framer Motion.
+                 */}
+                <div className="card p-6 md:p-8">
+                  <p className="eyebrow">{item.period[locale]}</p>
+
+                  <h4 className="mt-3 text-xl font-extrabold">
+                    {item.institution}
+                  </h4>
+
+                  <p className="muted mt-1">{item.program[locale]}</p>
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {item.topics.map((topic) => (
+                      <span key={topic.fr} className="tag">
+                        {topic[locale]}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </Reveal>
             ))}
