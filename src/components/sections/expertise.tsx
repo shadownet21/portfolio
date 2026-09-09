@@ -1,4 +1,4 @@
-import { Code2, Database, Headphones, ShieldCheck } from "lucide-react";
+import { ClipboardList, Code2, Database, Headphones, ListChecks, ShieldCheck } from "lucide-react";
 import type { Locale } from "@/types/content";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -35,6 +35,22 @@ const items = [
       fr: "Linux, contrôle des accès, sauvegardes, principes de cybersécurité, réseaux TCP/IP et virtualisation.", 
       en: "Linux, access control, backups, cybersecurity principles, TCP/IP networking and virtualization." 
     } 
+  },
+  {
+    icon: ClipboardList,
+    title: { fr: "Gestion de projets junior", en: "Junior Project Management" },
+    text: {
+      fr: "Analyse des besoins, planification des tâches, coordination des équipes métiers et techniques, suivi des priorités et des livrables.",
+      en: "Requirements analysis, task planning, coordination of business and technical teams, and tracking of priorities and deliverables."
+    }
+  },
+  {
+    icon: ListChecks,
+    title: { fr: "Tests et mise en production", en: "Testing and Production Rollout" },
+    text: {
+      fr: "Planification des tests fonctionnels, suivi des anomalies et de leur correction, participation aux déploiements et accompagnement des utilisateurs.",
+      en: "Functional test planning, defect and fix tracking, deployment participation and user support."
+    }
   },
 ];
 

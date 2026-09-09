@@ -22,4 +22,17 @@ export const skillGroups: SkillGroup[] = [
   },
   { category: { fr: "Outils", en: "Tools" }, skills: [...skills("professional", ["Git", "GitHub", "VS Code"]), ...skills("operational", ["Docker", "Power BI", "WordPress"])] },
   { category: { fr: "Méthodes", en: "Methods" }, skills: [...skills("professional", ["Analyse fonctionnelle", "Documentation technique", "Résolution de problèmes"]), ...skills("operational", ["Agile", "UML"])] },
+  {
+    category: { fr: "Planification de projets", en: "Project planning" },
+    skills: [
+      ...skills("operational", ["Planification des tâches", "Suivi des priorités", "Suivi des livrables"]),
+      ...skills("learning", ["Microsoft Planner", "Trello"]),
+    ],
+  },
+  {
+    category: { fr: "Coordination et livraison", en: "Coordination and delivery" },
+    skills: [
+      ...skills("operational", ["Coordination métiers / TI", "Suivi des demandes", "Tests fonctionnels", "Suivi des anomalies", "Accompagnement des utilisateurs"]),
+    ],
+  },
 ];

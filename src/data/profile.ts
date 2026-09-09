@@ -13,14 +13,14 @@ export const experiences: Experience[] = [
     role: { fr: "Support informatique et développeur web", en: "IT Support and Web Developer" },
     period: { fr: "Novembre 2020 — septembre 2025", en: "February 2022 — September 2025" },
     responsibilities: [
-      { fr: "Développement et maintenance d’applications web internes", en: "Development and maintenance of internal web applications" },
-      { fr: "Assistance technique aux utilisateurs et support d’applications métiers", en: "Technical user assistance and business application support" },
-      { fr: "Administration SQL Server et MySQL", en: "SQL Server and MySQL administration" },
-      { fr: "Diagnostic et résolution d’incidents", en: "Incident diagnosis and resolution" },
-      { fr: "Gestion des droits et accès", en: "Rights and access management" },
-      { fr: "Câblages réseaux", en: "Network cabling" },
-      { fr: "Documentation technique", en: "Technical documentation" },
-      { fr: "Formation des utilisateurs", en: "Users formation" },
+      { fr: "Analyser les besoins des utilisateurs et collaborer avec les équipes métiers et techniques pour définir des solutions adaptées aux opérations.", en: "Analyze user needs and collaborate with business and technical teams to define solutions suited to operational needs." },
+      { fr: "Participer au cycle complet des projets technologiques : analyse, développement, tests, déploiement, mise en production et soutien aux utilisateurs.", en: "Contribute throughout the technology project lifecycle: analysis, development, testing, deployment, production rollout and user support." },
+      { fr: "Coordonner les interventions des équipes métiers et techniques, suivre les demandes et contribuer au respect des priorités et des livrables.", en: "Coordinate business and technical team activities, track requests and help meet priorities and deliverables." },
+      { fr: "Planifier et réaliser les tests fonctionnels, diagnostiquer les anomalies et coordonner leur correction avant les mises en production.", en: "Plan and perform functional tests, diagnose defects and coordinate fixes before production releases." },
+      { fr: "Concevoir, développer et maintenir des applications internes pour la gestion des crédits, des comptes dormants et le traitement de données provenant de 123 sites d’activité.", en: "Design, develop and maintain internal applications for loan management, dormant accounts and data processing across 123 business locations." },
+      { fr: "Rédiger des procédures, de la documentation technique et des consignes pour faciliter la communication avec les utilisateurs et l’équipe informatique.", en: "Write procedures, technical documentation and instructions to support clear communication with users and the IT team." },
+      { fr: "Former et accompagner les utilisateurs lors des mises à jour logicielles et des activités de sensibilisation à la cybersécurité à l’échelle nationale.", en: "Train and support users during software updates and nationwide cybersecurity awareness activities." },
+      { fr: "Assurer le soutien technique N1/N2 et résoudre les incidents pour maintenir la continuité des opérations.", en: "Provide L1/L2 technical support and resolve incidents to maintain operational continuity." },
     ],
   },
   {
@@ -54,6 +54,17 @@ export const experiences: Experience[] = [
     },
   ],
 },
+  {
+    organization: "FUCEC-TOGO, Garage La Révolution, École Cours Lumière, EcoHub — Togo",
+    role: { fr: "Analyste-développeur Web (stages académiques)", en: "Web Analyst and Developer (Academic Internships)" },
+    period: { fr: "2017 — 2018", en: "2017 — 2018" },
+    responsibilities: [
+      { fr: "Recueillir et analyser les besoins des utilisateurs pour concevoir des solutions web de gestion.", en: "Gather and analyze user needs to design web-based management solutions." },
+      { fr: "Participer au développement, aux tests, à l’installation et au déploiement des solutions.", en: "Contribute to solution development, testing, installation and deployment." },
+      { fr: "Collaborer avec les utilisateurs lors de la mise en service et assurer le soutien de premier niveau des solutions et équipements.", en: "Collaborate with users during rollout and provide first-level support for solutions and equipment." },
+    ],
+  },
+
   {
     organization: "GMSI",
     role: { fr: "Gestion informatique et bases de données", en: "IT and database management" },

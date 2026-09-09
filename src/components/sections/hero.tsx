@@ -9,7 +9,7 @@ export function Hero({ locale }: { locale: Locale }) {
     locale === "fr"
       ? {
           intro:
-            "Professionnel des technologies de l’information avec plus de quatre années d’expérience en support informatique, développement d’applications web et administration de bases de données. J’aime transformer les besoins métier en solutions fiables, pratiques et maintenables.",
+            "Professionnel des technologies de l’information avec plus de quatre années d’expérience en support informatique, développement d’applications web et administration de bases de données. J’aime transformer les besoins métier en solutions fiables, pratiques et maintenables. Je souhaite également mettre cette expérience à profit dans un rôle de gestionnaire de projets junior, en contribuant à l’organisation du travail et au suivi des livrables.",
           projects: "Voir mes projets",
           cv: "Télécharger mon CV",
           contact: "Me contacter",
