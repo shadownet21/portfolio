@@ -61,7 +61,7 @@ export function Projects({ locale }: { locale: Locale }) {
               {secondaryProjects.map((project, index) => (
                 <Reveal
                   key={project.slug}
-                  direction="scale"
+                  direction="up"
                   delay={Math.min(index * 0.06, 0.18)}
                   duration={0.7}
                   className="h-full [&>*]:h-full"
