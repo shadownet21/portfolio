@@ -1,1 +1,108 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="t"><title id="t">Illustration abstraite CV et intelligence artificielle</title><defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#071a36"/><stop offset="1" stop-color="#2055a2"/></linearGradient></defs><rect width="800" height="520" fill="url(#g)"/><rect x="195" y="70" width="310" height="390" rx="18" fill="#f7f9fc"/><circle cx="275" cy="170" r="42" fill="#4a8cff"/><g stroke="#8ca0ba" stroke-width="12" stroke-linecap="round"><path d="M345 145h105M345 185h75M245 260h210M245 310h210M245 360h150"/></g><g fill="#70a8ff"><circle cx="575" cy="190" r="18"/><circle cx="625" cy="250" r="11"/><circle cx="570" cy="315" r="14"/></g><g stroke="#70a8ff" stroke-width="4"><path d="M575 190l50 60-55 65"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Application de génération de CV assistée par intelligence artificielle</title>
+  <desc id="desc">Une application analyse les informations professionnelles d’un candidat avec une intelligence artificielle et génère un CV structuré.</desc>
+  <defs>
+    <linearGradient id="background" x1="110" y1="70" x2="1090" y2="730" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07182E"/>
+      <stop offset="1" stop-color="#123B61"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EAF3FB"/>
+    </linearGradient>
+    <linearGradient id="ai" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#55C2FF"/>
+      <stop offset="1" stop-color="#3159E8"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="17" stdDeviation="20" flood-color="#020A13" flood-opacity=".30"/>
+    </filter>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="800" rx="42" fill="url(#background)"/>
+  <circle cx="1088" cy="90" r="225" fill="#2F80ED" opacity=".11"/>
+  <circle cx="95" cy="742" r="245" fill="#7C5CFC" opacity=".09"/>
+  <g opacity=".08" stroke="#D8ECFF">
+    <path d="M70 120h1060M70 200h1060M70 280h1060M70 360h1060M70 440h1060M70 520h1060M70 600h1060M70 680h1060"/>
+    <path d="M120 70v660M240 70v660M360 70v660M480 70v660M600 70v660M720 70v660M840 70v660M960 70v660M1080 70v660"/>
+  </g>
+
+  <!-- Informations du candidat -->
+  <g filter="url(#shadow)">
+    <rect x="105" y="205" width="280" height="390" rx="32" fill="url(#paper)"/>
+    <rect x="105" y="205" width="280" height="62" rx="32" fill="#0B2947"/>
+    <path d="M105 237h280v30H105Z" fill="#0B2947"/>
+    <circle cx="145" cy="236" r="11" fill="#4A8CFF"/>
+    <rect x="169" y="228" width="115" height="16" rx="8" fill="#C6E1F5"/>
+    <circle cx="171" cy="326" r="35" fill="#CDE4F5"/>
+    <circle cx="171" cy="316" r="12" fill="#6D91AA"/>
+    <path d="M147 346c5-16 14-23 24-23s19 7 24 23" fill="#6D91AA"/>
+    <rect x="225" y="306" width="119" height="13" rx="6.5" fill="#315D7C"/>
+    <rect x="225" y="334" width="88" height="10" rx="5" fill="#90ADBF"/>
+    <g fill="#2F80ED">
+      <circle cx="141" cy="405" r="9"/><circle cx="141" cy="461" r="9"/><circle cx="141" cy="517" r="9"/>
+    </g>
+    <g fill="#50738B">
+      <rect x="164" y="393" width="173" height="12" rx="6"/><rect x="164" y="416" width="129" height="9" rx="4.5" fill="#A4BBCB"/>
+      <rect x="164" y="449" width="151" height="12" rx="6"/><rect x="164" y="472" width="112" height="9" rx="4.5" fill="#A4BBCB"/>
+      <rect x="164" y="505" width="164" height="12" rx="6"/><rect x="164" y="528" width="135" height="9" rx="4.5" fill="#A4BBCB"/>
+    </g>
+  </g>
+
+  <!-- Connecteurs -->
+  <g fill="none" stroke="#78CDF7" stroke-width="6" stroke-linecap="round">
+    <path d="M385 400h103"/><path d="M712 400h102"/>
+  </g>
+  <g fill="#78CDF7"><path d="m476 384 28 16-28 16Z"/><path d="m802 384 28 16-28 16Z"/></g>
+
+  <!-- Moteur IA -->
+  <g filter="url(#shadow)">
+    <rect x="488" y="270" width="224" height="260" rx="48" fill="#0A2947" stroke="#4E89B5" stroke-width="3"/>
+    <circle cx="600" cy="400" r="82" fill="url(#ai)" opacity=".23" filter="url(#glow)"/>
+    <circle cx="600" cy="400" r="65" fill="url(#ai)"/>
+    <path d="M576 365h48a20 20 0 0 1 20 20v38a20 20 0 0 1-20 20h-48a20 20 0 0 1-20-20v-38a20 20 0 0 1 20-20Z" fill="#EAF6FF"/>
+    <circle cx="581" cy="400" r="7" fill="#3159E8"/><circle cx="619" cy="400" r="7" fill="#3159E8"/>
+    <path d="M581 422c12 8 26 8 38 0" fill="none" stroke="#3159E8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M600 347v18M547 400h9M644 400h9M563 363l13 13M637 363l-13 13" stroke="#9EE7FC" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="600" cy="342" r="6" fill="#9EE7FC"/>
+    <path d="m671 318 5 13 13 5-13 5-5 13-5-13-13-5 13-5Z" fill="#F7C948"/>
+    <path d="m526 467 4 10 10 4-10 4-4 10-4-10-10-4 10-4Z" fill="#9EE7FC"/>
+  </g>
+
+  <!-- CV généré -->
+  <g filter="url(#shadow)">
+    <path d="M850 165h201l69 69v401a30 30 0 0 1-30 30H850a30 30 0 0 1-30-30V195a30 30 0 0 1 30-30Z" fill="url(#paper)"/>
+    <path d="M1051 165v69h69" fill="#C9E3F5"/>
+    <rect x="820" y="165" width="72" height="500" rx="30" fill="#0B2947"/>
+    <circle cx="856" cy="253" r="22" fill="#5EA7FF"/>
+    <circle cx="856" cy="246" r="7" fill="#EAF6FF"/><path d="M843 267c3-9 8-13 13-13s10 4 13 13" fill="#EAF6FF"/>
+    <rect x="838" y="311" width="36" height="7" rx="3.5" fill="#9DC9E8"/>
+    <rect x="838" y="335" width="29" height="6" rx="3" fill="#608EAE"/>
+    <rect x="838" y="359" width="34" height="6" rx="3" fill="#608EAE"/>
+    <rect x="838" y="421" width="36" height="7" rx="3.5" fill="#9DC9E8"/>
+    <rect x="838" y="445" width="31" height="6" rx="3" fill="#608EAE"/>
+    <rect x="838" y="469" width="27" height="6" rx="3" fill="#608EAE"/>
+    <rect x="928" y="253" width="134" height="17" rx="8.5" fill="#234F70"/>
+    <rect x="928" y="286" width="92" height="10" rx="5" fill="#7E9DB4"/>
+    <rect x="928" y="347" width="112" height="13" rx="6.5" fill="#2F80ED"/>
+    <rect x="928" y="381" width="146" height="9" rx="4.5" fill="#7595AC"/>
+    <rect x="928" y="405" width="126" height="9" rx="4.5" fill="#AEC3D1"/>
+    <rect x="928" y="429" width="151" height="9" rx="4.5" fill="#AEC3D1"/>
+    <rect x="928" y="484" width="96" height="13" rx="6.5" fill="#2F80ED"/>
+    <rect x="928" y="518" width="151" height="9" rx="4.5" fill="#7595AC"/>
+    <rect x="928" y="542" width="128" height="9" rx="4.5" fill="#AEC3D1"/>
+    <rect x="928" y="566" width="143" height="9" rx="4.5" fill="#AEC3D1"/>
+    <rect x="928" y="609" width="64" height="18" rx="9" fill="#DCECF7"/><rect x="1002" y="609" width="77" height="18" rx="9" fill="#DCECF7"/>
+  </g>
+
+  <!-- Validation -->
+  <g transform="translate(796 605)" filter="url(#shadow)">
+    <circle r="48" fill="#0A2947" stroke="#A5ECFF" stroke-width="4"/>
+    <path d="M0-27c15 10 26 10 26 10V5c0 17-11 28-26 35C-15 33-26 22-26 5v-22s11 0 26-10Z" fill="#22C55E"/>
+    <path d="m-13 6 9 9 19-21" fill="none" stroke="#FFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
