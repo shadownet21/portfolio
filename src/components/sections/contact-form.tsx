@@ -2,50 +2,94 @@
 
 import { FormEvent, useState } from "react";
 import { Mail } from "lucide-react";
-import { PLACEHOLDERS, isPlaceholder } from "@/data/site";
+
 import type { Locale } from "@/types/content";
+
+type FormStatus = "idle" | "sending" | "success" | "error" | "rate-limit";
 
 export function ContactForm({ locale }: { locale: Locale }) {
   const fr = locale === "fr";
 
-  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<FormStatus>("idle");
 
-  const unavailable = isPlaceholder(PLACEHOLDERS.email);
-
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const form = new FormData(event.currentTarget);
-
-    // Honeypot anti-spam
-    if (form.get("website")) return;
-
-    if (unavailable) {
-      setMessage(
-        fr
-          ? "Le courriel doit d’abord être configuré dans src/data/site.ts."
-          : "The email address must first be configured in src/data/site.ts.",
-      );
-
+    if (status === "sending") {
       return;
     }
 
-    const subject = encodeURIComponent(String(form.get("subject")));
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
 
-    const body = encodeURIComponent(
-      `${fr ? "Nom" : "Name"}: ${form.get("name")}
-${fr ? "Courriel" : "Email"}: ${form.get("email")}
+    /*
+     * Honeypot.
+     * Un humain ne doit jamais remplir ce champ.
+     */
+    if (form.get("website")) {
+      return;
+    }
 
-${form.get("message")}`,
-    );
+    setStatus("sending");
 
-    window.location.href = `mailto:${PLACEHOLDERS.email}?subject=${subject}&body=${body}`;
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
 
-    setMessage(
-      fr
-        ? "Votre application de courriel va s’ouvrir. Aucun message n’est envoyé automatiquement."
-        : "Your email application will open. No message is sent automatically.",
-    );
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          name: form.get("name"),
+          email: form.get("email"),
+          subject: form.get("subject"),
+          message: form.get("message"),
+          website: form.get("website"),
+        }),
+      });
+
+      if (response.status === 429) {
+        setStatus("rate-limit");
+        return;
+      }
+
+      if (!response.ok) {
+        setStatus("error");
+        return;
+      }
+
+      setStatus("success");
+
+      formElement.reset();
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  function getStatusMessage() {
+    switch (status) {
+      case "sending":
+        return fr ? "Envoi du message..." : "Sending message...";
+
+      case "success":
+        return fr
+          ? "Merci ! Votre message a été envoyé avec succès."
+          : "Thank you! Your message has been sent successfully.";
+
+      case "rate-limit":
+        return fr
+          ? "Trop de tentatives. Veuillez réessayer plus tard."
+          : "Too many attempts. Please try again later.";
+
+      case "error":
+        return fr
+          ? "Une erreur est survenue. Veuillez réessayer."
+          : "Something went wrong. Please try again.";
+
+      default:
+        return "";
+    }
   }
 
   return (
@@ -53,9 +97,9 @@ ${form.get("message")}`,
       className="card h-full p-6 md:p-8"
       onSubmit={submit}
       aria-label={fr ? "Formulaire de contact" : "Contact form"}
-      aria-describedby="form-note"
+      aria-describedby="form-note form-status"
     >
-      {/* NOM + EMAIL */}
+      {/* NOM + COURRIEL */}
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="grid gap-2 text-sm font-bold">
           {fr ? "Nom" : "Name"}
@@ -63,6 +107,9 @@ ${form.get("message")}`,
           <input
             required
             name="name"
+            type="text"
+            minLength={2}
+            maxLength={80}
             autoComplete="name"
             className="surface min-h-12 rounded-lg px-3"
           />
@@ -75,6 +122,7 @@ ${form.get("message")}`,
             required
             type="email"
             name="email"
+            maxLength={254}
             autoComplete="email"
             className="surface min-h-12 rounded-lg px-3"
           />
@@ -88,50 +136,67 @@ ${form.get("message")}`,
         <input
           required
           name="subject"
+          type="text"
+          minLength={2}
+          maxLength={150}
           className="surface min-h-12 rounded-lg px-3"
         />
       </label>
 
       {/* MESSAGE */}
       <label className="mt-5 grid gap-2 text-sm font-bold">
-        {fr ? "Message" : "Message"}
-
+        Message
         <textarea
           required
           name="message"
           rows={5}
           minLength={20}
+          maxLength={5000}
           className="surface rounded-lg p-3"
         />
       </label>
 
       {/* HONEYPOT ANTI-SPAM */}
-      <label className="absolute -left-[9999px]" aria-hidden="true">
-        Website
-        <input name="website" tabIndex={-1} autoComplete="off" />
-      </label>
+      <div className="absolute -left-[9999px]" aria-hidden="true">
+        <label>
+          Website
+          <input name="website" type="text" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
 
       {/* INFORMATION */}
       <p id="form-note" className="muted mt-4 text-sm">
         {fr
-          ? "Ce formulaire prépare un courriel dans votre application. Il ne transmet aucune donnée à un serveur."
-          : "This form prepares an email in your mail application. It sends no data to a server."}
+          ? "Vos informations sont utilisées uniquement pour répondre à votre message."
+          : "Your information is used only to respond to your message."}
       </p>
 
       {/* BOUTON */}
-      <button className="button-primary mt-6" type="submit">
+      <button
+        className="button-primary mt-6"
+        type="submit"
+        disabled={status === "sending"}
+        aria-busy={status === "sending"}
+      >
         <Mail size={18} aria-hidden="true" />
 
-        {fr ? "Préparer le courriel" : "Prepare email"}
+        {status === "sending"
+          ? fr
+            ? "Envoi..."
+            : "Sending..."
+          : fr
+            ? "Envoyer le message"
+            : "Send message"}
       </button>
 
-      {/* MESSAGE DE STATUT */}
+      {/* ÉTAT DU FORMULAIRE */}
       <p
-        className="mt-4 text-sm font-semibold"
+        id="form-status"
+        className="mt-4 min-h-5 text-sm font-semibold"
         role="status"
         aria-live="polite"
       >
-        {message}
+        {getStatusMessage()}
       </p>
     </form>
   );

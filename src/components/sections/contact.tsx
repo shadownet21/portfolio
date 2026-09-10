@@ -1,6 +1,6 @@
-import { CodeXml, ContactRound, Mail, MapPin } from "lucide-react";
+import { CodeXml, ContactRound, MapPin } from "lucide-react";
 
-import { PLACEHOLDERS, isPlaceholder } from "@/data/site";
+import { PLACEHOLDERS } from "@/data/site";
 import type { Locale } from "@/types/content";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SafeLink } from "@/components/ui/safe-link";
@@ -9,8 +9,6 @@ import { ContactForm } from "./contact-form";
 
 export function Contact({ locale }: { locale: Locale }) {
   const fr = locale === "fr";
-
-  const hasEmail = !isPlaceholder(PLACEHOLDERS.email);
 
   const opportunities = fr
     ? [
@@ -29,9 +27,7 @@ export function Contact({ locale }: { locale: Locale }) {
   return (
     <section id="contact" className="section-space">
       <div className="container-shell">
-        {/* =========================
-            TITRE
-        ========================== */}
+        {/* TITRE */}
         <Reveal direction="up" duration={0.8} distance={35}>
           <SectionHeading
             eyebrow="Contact"
@@ -48,13 +44,9 @@ export function Contact({ locale }: { locale: Locale }) {
           />
         </Reveal>
 
-        <div
-          className={`grid gap-7 ${
-            hasEmail ? "lg:grid-cols-[.78fr_1.22fr]" : "max-w-2xl"
-          }`}
-        >
+        <div className="grid gap-7 lg:grid-cols-[.78fr_1.22fr]">
           {/* =========================
-              INFORMATIONS CONTACT
+              INFORMATIONS
           ========================== */}
           <Reveal
             direction="left"
@@ -93,21 +85,6 @@ export function Contact({ locale }: { locale: Locale }) {
                   Longueuil, Québec
                 </span>
 
-                {/* EMAIL */}
-                <SafeLink
-                  className="flex items-center gap-3"
-                  href={`mailto:${PLACEHOLDERS.email}`}
-                  label={fr ? "Envoyer un courriel" : "Send an email"}
-                >
-                  <Mail
-                    className="text-[var(--brand)]"
-                    size={20}
-                    aria-hidden="true"
-                  />
-
-                  {PLACEHOLDERS.email}
-                </SafeLink>
-
                 {/* LINKEDIN */}
                 <SafeLink
                   className="flex items-center gap-3"
@@ -144,17 +121,15 @@ export function Contact({ locale }: { locale: Locale }) {
           {/* =========================
               FORMULAIRE
           ========================== */}
-          {hasEmail ? (
-            <Reveal
-              direction="right"
-              delay={0.12}
-              duration={0.85}
-              distance={45}
-              className="h-full"
-            >
-              <ContactForm locale={locale} />
-            </Reveal>
-          ) : null}
+          <Reveal
+            direction="right"
+            delay={0.12}
+            duration={0.85}
+            distance={45}
+            className="h-full"
+          >
+            <ContactForm locale={locale} />
+          </Reveal>
         </div>
       </div>
     </section>
