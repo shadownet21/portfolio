@@ -10,7 +10,7 @@ L’interface propose une navigation bilingue, un thème sombre soigné et une p
 
 [![Page d’accueil du portfolio](public/images/screenshots/1.png)](public/images/screenshots/1.png)
 
-Captures de la version française en thème sombre, actualisées le 9 septembre 2026. Elles présentent notamment les tâches de développement et de coordination de projets, ainsi que les compétences Microsoft Planner et Trello.
+Captures de la version française en thème sombre, actualisées le 10 septembre 2026 depuis le site local. Elles présentent les sections actuelles du portfolio, les nouvelles images des projets et les marqueurs « Anonymisé » des applications internes FUCEC-TOGO et des deux projets Flash Production.
 
 ### Profil et domaines d’expertise
 
