@@ -1,101 +1,114 @@
 # Portfolio professionnel — Marc Maurice Freeman
 
-Portfolio bilingue (français/anglais) destiné aux recruteurs du Québec et du Canada. Il présente un profil hybride en support TI, développement web, bases de données, cybersécurité, analyse fonctionnelle et gestion de projets junior.
+Portfolio bilingue français/anglais consacré au développement web, au support TI, aux données et à la coordination de projets. Interface responsive, thèmes clair et sombre et études de cas consultables à la demande.
 
 ## Aperçu
 
-> Le portfolio est actuellement disponible en environnement local et sera prochainement mis en ligne.
+Captures de la version locale compilée, actualisées le **11 septembre 2026**.
 
-L’interface propose une navigation bilingue, un thème sombre soigné et une présentation structurée du parcours, des projets et des compétences.
+[![Accueil du portfolio](public/images/screenshots/redesign-home.png)](public/images/screenshots/redesign-home.png)
 
-[![Page d’accueil du portfolio](public/images/screenshots/1.png)](public/images/screenshots/1.png)
+<details>
+<summary>Projets et compétences</summary>
 
-Captures de la version française en thème sombre, actualisées le 10 septembre 2026 depuis le site local. Elles présentent les sections actuelles du portfolio, les nouvelles images des projets et les marqueurs « Anonymisé » des applications internes FUCEC-TOGO et des deux projets Flash Production.
+[![Grilles des douze projets et accès aux études de cas](public/images/screenshots/redesign-projects.png)](public/images/screenshots/redesign-projects.png)
 
-### Profil et domaines d’expertise
+[![Compétences et filtre par niveau, dont informatique décisionnelle](public/images/screenshots/redesign-skills.png)](public/images/screenshots/redesign-skills.png)
 
-<p>
-  <a href="public/images/screenshots/2.png"><img src="public/images/screenshots/2.png" alt="Présentation du parcours, des valeurs et des langues" width="100%"></a>
-  <a href="public/images/screenshots/3.png"><img src="public/images/screenshots/3.png" alt="Domaines d’expertise en développement, support, bases de données, sécurité, gestion de projets junior et tests" width="100%"></a>
-</p>
+</details>
 
-### Projets sélectionnés
+### Galerie des applications
 
-<p>
-  <a href="public/images/screenshots/4.png"><img src="public/images/screenshots/4.png" alt="Projets sélectionnés : finance, automatisation, développement web et intelligence artificielle" width="100%"></a>
-  <a href="public/images/screenshots/5.png"><img src="public/images/screenshots/5.png" alt="Autres réalisations : applications internes, sites web et outils de gestion" width="100%"></a>
-</p>
+[![Capture de code des crédits radiés présentée dans un laptop gamer](public/images/screenshots/gallery-laptop.png)](public/images/screenshots/gallery-laptop.png)
 
-### Expérience et compétences
+<details>
+<summary>Aperçu mobile</summary>
 
-<p>
-  <a href="public/images/screenshots/6.png"><img src="public/images/screenshots/6.png" alt="Expérience en développement et coordination de projets, stages académiques et formation" width="100%"></a>
-  <a href="public/images/screenshots/7.png"><img src="public/images/screenshots/7.png" alt="Compétences techniques et gestion de projets : planification, coordination, Microsoft Planner et Trello" width="100%"></a>
-</p>
+<img src="public/images/screenshots/redesign-mobile.png" alt="Portfolio sur mobile : navigation et carte du puzzle" width="390">
 
-### Contact
+</details>
 
-[![Section de contact du portfolio](public/images/screenshots/8.png)](public/images/screenshots/8.png)
+## Expérience utilisateur
 
-## Technologies
+- Logos officiels GitHub et LinkedIn, conservés localement.
+- Navigation avec section active, progression du défilement et transitions respectant la préférence de réduction des mouvements.
+- Deux grilles de six projets, résumés compacts et détails accessibles par « Voir l’étude de cas ».
+- Filtres de compétences : expérience professionnelle, pratique opérationnelle et apprentissage. « Tout voir » restaure les neuf catégories, dont l’informatique décisionnelle.
+- Aperçus réels de Gel, Crédits radiés et ECI. Galeries avec boutons, sélection directe, flèches du clavier, fermeture par Échap et restitution du focus.
+- Capture de code PHP des crédits radiés intégrée dans un laptop gamer responsive construit en CSS.
 
-- Next.js 16 avec App Router et React 19
-- TypeScript en mode strict
-- Tailwind CSS 4
-- Framer Motion et Lucide React
-- Vitest et Testing Library
-- ESLint avec les règles Next.js Core Web Vitals
+## Projet puzzle
 
-## Installation
+Le [jeu de puzzle](https://github.com/shadownet21/jeupuzzle) dispose d’une carte et d’une étude de cas bilingues : trois images, niveaux progressifs, glisser-déposer souris/tactile, aimantation, chronomètre, pause, indices et confettis.
 
-Prérequis : une version LTS récente de Node.js et npm.
+La description repose sur le [README.txt de la version publique](https://github.com/shadownet21/jeupuzzle/blob/main/README.txt), consulté le 11 septembre 2026. Le développement assisté par Claude et Codex (OpenAI) est mentionné discrètement. Le lien de démonstration reste masqué tant qu’une URL publique de jeu n’est pas configurée.
+
+Le site FRIG’AUTO utilise [https://frigauto.com](https://frigauto.com).
+
+## Installation et lancement
+
+Prérequis : Node.js compatible avec les versions du projet et npm.
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-Ouvrez ensuite `http://localhost:3000`. La racine redirige vers la version française; la version anglaise est accessible à `/en`.
+Ouvrir `http://localhost:3000/fr` ou `http://localhost:3000/en`.
 
-## Commandes
+Pour servir la dernière version en production, **recompiler avant de lancer le serveur** :
 
 ```bash
-npm run dev        # serveur de développement
-npm run typecheck  # vérification TypeScript
-npm run lint       # analyse ESLint
-npm test           # tests automatisés
-npm run build      # compilation de production
-npm start          # serveur de production
+npm run build
+npm start
 ```
 
-## Personnalisation
+`npm start` sert les fichiers déjà compilés dans `.next` ; il ne recompile pas les modifications du code.
 
-- Coordonnées, CV et URL principales : `src/data/site.ts`
-- Projets et liens de démonstration : `src/data/projects.ts`
-- Expériences, valeurs et formations : `src/data/profile.ts`
-- Compétences et niveaux : `src/data/skills.ts`
-- Textes de sections : `src/components/sections`
+## Vérifications
 
-### Ajouter le CV
+```bash
+npm run lint
+npm test
+npm run build
+npm run typecheck
+```
 
-Déposez le PDF dans `public/documents`, puis remplacez `URL_CV_A_REMPLACER` par un chemin comme `/documents/marc-maurice-freeman-cv.pdf`.
+Contrôle du 11 septembre 2026 : ESLint sans avertissement, huit tests réussis, compilation et TypeScript réussis. Parcours Chromium vérifié à 1440 × 1000 et 390 × 844 : français/anglais, thèmes, filtres, galeries, clavier, réduction des mouvements et absence d’erreurs JavaScript ou de ressources HTTP.
 
-### Ajouter ou remplacer les images
+Le détail des dix demandes et de leur vérification figure dans le [compte rendu UI/UX](docs/UI-REVIEW.md).
 
-Déposez les fichiers optimisés dans `public/images`, puis modifiez la propriété `image` du projet concerné. Les SVG actuels sont des illustrations temporaires locales et légères.
+## Technologies et personnalisation
 
-### Configurer les liens
+Next.js 16, React 19, TypeScript, Tailwind CSS 4, Framer Motion, Lucide React, Resend, Vitest et Testing Library.
 
-- Url GitHub : https://github.com/shadownet21/
-- Url LinkedIn : www.linkedin.com/in/marc-maurice-freeman-324816394
+| Contenu | Fichier |
+|---|---|
+| Coordonnées, liens et CV | `src/data/site.ts` |
+| Projets, couvertures et galeries | `src/data/projects.ts` |
+| Compétences et niveaux | `src/data/skills.ts` |
+| Expériences et formations | `src/data/profile.ts` |
+| Galerie et navigation clavier | `src/components/ui/project-gallery.tsx` |
+| Styles et laptop | `src/app/globals.css` |
 
-Les liens et champs temporaires sont masqués dans l’interface publique. Le formulaire de contact apparaît après configuration du courriel; il utilise `mailto:` et ne promet aucun envoi serveur.
+Pour une galerie, renseigner `gallery` avec un chemin local `src` et une légende `caption` en français et en anglais. `presentation: "laptop"` active l’encadrement du code. Déposer les captures sélectionnées dans `public/images`.
 
-## Déploiement sur Vercel
+Les captures de connexion servent de couverture lorsqu’elles existent. ECI utilise son tableau de bord, car les images fournies ne contiennent pas d’écran de connexion. Les captures non sélectionnées ne sont pas ajoutées au dépôt par cette mise à jour.
 
-1. Importez le dépôt dans Vercel.
-2. Conservez le preset Next.js et les commandes détectées automatiquement.
-3. Définissez `NEXT_PUBLIC_SITE_URL` avec le domaine public final. Sur Vercel, le projet peut aussi utiliser automatiquement `VERCEL_PROJECT_PRODUCTION_URL`.
-4. Déployez, puis contrôlez les métadonnées et les liens avec le domaine final.
+### Formulaire de contact
 
-Le projet ne requiert ni base de données ni secret pour cette première version. Les fichiers `.env*` sont ignorés, sauf `.env.example`.
+Le formulaire appelle `/api/contact`, qui utilise Resend. Configurer côté serveur :
+
+- `RESEND_API_KEY`
+- `CONTACT_EMAIL`
+- `CONTACT_FROM_EMAIL`
+
+Les secrets restent dans l’environnement, jamais dans Git. Aucun courriel n’a été envoyé pendant les contrôles de cette mise à jour.
+
+### Déploiement
+
+Importer le dépôt sur Vercel avec le preset Next.js. Configurer les variables du formulaire et `NEXT_PUBLIC_SITE_URL` avec le domaine final ; le projet peut aussi utiliser `VERCEL_PROJECT_PRODUCTION_URL`. Lancer la compilation puis vérifier les liens et métadonnées du site déployé.
+
+### Origine des logos
+
+Assets téléchargés depuis les [ressources officielles GitHub](https://brand.github.com/foundations/logo) et [LinkedIn](https://brand.linkedin.com/downloads). Les logos sont la propriété de leurs marques respectives.
