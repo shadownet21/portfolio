@@ -104,7 +104,7 @@ export const projects: Project[] = [
       { fr: "Journalisation des opérations", en: "Operation logging" },
     ],
     impact: pending,
-    image: "/images/project-fund-freezing.svg",
+    image: "/images/Gel/Connexion.png",
     projectUrl: PLACEHOLDERS.github,
     githubUrl: PLACEHOLDERS.github,
     status: { fr: "Étude de cas anonymisée", en: "Anonymized case study" },
@@ -187,7 +187,7 @@ export const projects: Project[] = [
       en: "Strengthened credit risk control across the network, improved information sharing between agencies and reduced the risk of granting a new loan to a member with repayment incidents without prior verification.",
     },
 
-    image: "/images/project-written-off-loans.svg",
+    image: "/images/credits-radies/auth.png",
 
     projectUrl: "APPLICATION_INTERNE_NON_PUBLIQUE",
 
@@ -289,7 +289,7 @@ export const projects: Project[] = [
       en: "Improved regulatory monitoring of accounts without activity, centralized network-wide statistics and more proactive outreach before dormant account funds are transferred to the BCEAO.",
     },
 
-    image: "/images/project-dormant-accounts.svg",
+    image: "/images/eci/ACCUEIL.png",
 
     projectUrl: "APPLICATION_INTERNE_NON_PUBLIQUE",
 
