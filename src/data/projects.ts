@@ -214,6 +214,7 @@ export const projects: Project[] = [
   },
   {
     "src": "/images/credits-radies/credits radies.png",
+ "presentation": "laptop",
     "caption": {
       "fr": "Extrait de code PHP : affichage des cr?dits radi?s",
       "en": "PHP code excerpt: displaying written-off loans"

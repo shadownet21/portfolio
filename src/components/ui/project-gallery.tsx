@@ -45,7 +45,12 @@ export function ProjectGallery({ project, locale }: { project: Project; locale: 
         </div>
         <figure className="p-3 md:p-6">
           <div className="gallery-stage">
-            <Image key={slide.src} src={slide.src} alt={slide.caption[locale]} width={1600} height={1100} sizes="(max-width: 768px) 95vw, 1000px" className="gallery-image" />
+            <div className={slide.presentation === "laptop" ? "gaming-laptop" : ""}>
+              <div className={slide.presentation === "laptop" ? "laptop-screen" : ""}>
+                <Image key={slide.src} src={slide.src} alt={slide.caption[locale]} width={1600} height={1100} sizes="(max-width: 768px) 95vw, 1000px" className="gallery-image" />
+              </div>
+              {slide.presentation === "laptop" ? <div className="laptop-base" aria-hidden="true"><div className="laptop-keyboard" /><div className="laptop-trackpad" /></div> : null}
+            </div>
           </div>
           <figcaption className="mt-4 text-center text-sm" aria-live="polite">{index + 1} / {slides.length} ? {slide.caption[locale]}</figcaption>
         </figure>
