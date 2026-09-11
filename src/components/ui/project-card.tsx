@@ -40,21 +40,21 @@ export function ProjectCard({
     );
   return (
     <article
-      className={`card overflow-hidden ${compact ? "flex h-full flex-col" : "grid lg:grid-cols-[.78fr_1.22fr]"}`}
+      className={`card project-card overflow-hidden ${compact ? "flex h-full flex-col" : "grid lg:grid-cols-[.78fr_1.22fr]"}`}
     >
-      <div className="relative aspect-[3/2] w-full overflow-hidden">
+      <div className="relative aspect-[16/10] w-full overflow-hidden">
         <Image
           src={project.image}
           alt={project.title[locale]}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-          className="object-contain p-5"
+          className={project.image.endsWith(".svg") ? "project-cover object-contain p-5" : "project-cover object-contain p-2"}
           unoptimized={project.image.endsWith(".svg")}
         />
       </div>
       <div className={`${compact ? "flex flex-1 flex-col p-6" : "p-6 md:p-8"}`}>
         <div className="flex flex-wrap items-center gap-2">
-          <span className="eyebrow">{project.category[locale]}</span>
+          <span className="text-xs font-bold text-[var(--brand)]">{project.category[locale]}</span>
           {project.confidential ? (
             <span className="tag">
               <LockKeyhole className="mr-1" size={13} />
@@ -67,7 +67,7 @@ export function ProjectCard({
         >
           {project.title[locale]}
         </h3>
-        <p className="muted mt-3 leading-7">{project.summary[locale]}</p>
+        <p className="muted mt-3 line-clamp-3 text-sm leading-6">{project.summary[locale]}</p>
         {hasDetails ? (
           <details className="mt-5 border-t border-[var(--border)] pt-4">
             <summary className="cursor-pointer font-bold text-[var(--brand)]">
@@ -114,7 +114,7 @@ export function ProjectCard({
         {project.aiAssistance ? <p className="muted mt-4 text-xs leading-5">{project.aiAssistance[locale]}</p> : null}
         {visibleTechnologies.length ? (
           <div className="mt-5 flex flex-wrap gap-2">
-            {visibleTechnologies.map((technology) => (
+            {visibleTechnologies.slice(0, 3).map((technology) => (
               <span className="tag" key={technology}>
                 {technology === "API IA" && !fr ? "AI API" : technology}
               </span>
@@ -123,7 +123,7 @@ export function ProjectCard({
         ) : null}
         {link(project.projectUrl, "demo") ||
         link(project.githubUrl, "github") ? (
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-auto flex flex-wrap gap-2 pt-5">
             {link(project.projectUrl, "demo")}
             {link(project.githubUrl, "github")}
           </div>

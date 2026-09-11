@@ -23,18 +23,18 @@ export function Projects({ locale }: { locale: Locale }) {
             title={
               fr
                 ? "Des solutions ancrées dans des besoins concrets"
-                : "Solutions grounded in real needs"
+                : "From ideas to applications"
             }
             description={
               fr
                 ? "Applications métier, produits web et initiatives techniques. Les informations confidentielles sont volontairement anonymisées."
-                : "Business applications, web products and technical initiatives. Confidential information is intentionally anonymized."
+                : "Explore the interfaces. Discover the decisions behind each project."
             }
           />
         </Reveal>
 
         {/* PROJETS PRINCIPAUX */}
-        <div className="mt-10 grid grid-cols-1 items-stretch gap-6 md:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 xl:grid-cols-3">
           {featuredProjects.map((project, index) => (
             <Reveal
               key={project.slug}

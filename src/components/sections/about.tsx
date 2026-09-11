@@ -45,14 +45,14 @@ export function About({ locale }: { locale: Locale }) {
             >
               <p>
                 {fr
-                  ? "Mon parcours relie le support TI et le développement web : maintien d’applications métiers, création d’outils internes, exploitation de bases de données et accompagnement quotidien des utilisateurs. J’y apporte également une approche de gestionnaire de projets junior, axée sur la planification des tâches, le suivi des priorités et la coordination des échanges pour contribuer à la réussite des projets."
-                  : "My path connects IT support and web development: maintaining business applications, building internal tools, working with databases and supporting users day to day. I also bring a junior project management approach, focused on task planning, priority tracking and communication coordination to help projects succeed."}
+                  ? "Je relie d?veloppement web, support TI et donn?es pour simplifier le quotidien des ?quipes. Planification, priorit?s et coordination compl?tent mon approche."
+                  : "I connect web development, IT support and data to simplify everyday work. Planning, priorities and coordination complete my approach."}
               </p>
 
               <p>
                 {fr
                   ? "Installé à Longueuil, je poursuis en 2026 une formation CyberCap à Montréal couvrant la programmation, les réseaux, la cybersécurité et l’intelligence artificielle. Mon objectif est de contribuer avec rigueur au marché technologique québécois."
-                  : "Based in Longueuil, I am completing CyberCap training in Montréal in 2026, covering programming, networking, cybersecurity and artificial intelligence. My goal is to contribute rigorously to Québec’s technology sector."}
+                  : "Based in Longueuil, I am continuing my CyberCap training in Montr?al: programming, networking, cybersecurity and AI."}
               </p>
             </Reveal>
 

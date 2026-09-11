@@ -85,7 +85,7 @@ export function Journey({ locale }: { locale: Locale }) {
                   </p>
 
                   {item.responsibilities.length ? (
-                    <ul className="muted mt-4 grid gap-2 text-sm leading-6">
+                    <details className="mt-4"><summary className="cursor-pointer text-sm font-bold text-[var(--brand)]">{fr ? "Missions et contributions" : "Responsibilities and contributions"}</summary><ul className="muted mt-3 grid gap-2 text-sm leading-6">
                       {item.responsibilities.map((responsibility) => (
                         <li
                           key={responsibility.fr}
@@ -98,7 +98,7 @@ export function Journey({ locale }: { locale: Locale }) {
                           {responsibility[locale]}
                         </li>
                       ))}
-                    </ul>
+                    </ul></details>
                   ) : null}
                 </Reveal>
               ))}

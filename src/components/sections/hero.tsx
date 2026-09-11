@@ -16,7 +16,7 @@ export function Hero({ locale }: { locale: Locale }) {
         }
       : {
           intro:
-            "Information technology professional with more than four years of experience in IT support, web application development and database administration. I enjoy turning business needs into reliable, practical and maintainable solutions. I also want to apply this experience in a junior project manager role, contributing to work organization and deliverable tracking.",
+            "Over four years building web applications, supporting users and making data reliable. Practical solutions, from requirements to delivery.",
           projects: "View my projects",
           cv: "Download my résumé",
           contact: "Contact me",
