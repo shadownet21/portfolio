@@ -11,8 +11,8 @@ export const SITE = {
   location: "Longueuil, Québec, Canada",
 
   role: {
-    fr: "Technicien Support TI | Développeur Web",
-    en: "IT Support Technician | Web Developer",
+    fr: "Technicien Support TI | Développeur Web | Gestion de projets",
+    en: "IT Support Technician | Web Developer | Project Management",
   },
 
   signature: {
