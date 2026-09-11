@@ -30,6 +30,7 @@ Captures de la version locale compilée, actualisées le **11 septembre 2026**.
 
 ## Expérience utilisateur
 
+- Portrait recomposé en vingt pièces de puzzle en environ deux secondes : une animation par chargement, déclenchée quand la photo devient visible, avec image statique si les mouvements sont réduits.
 - Logos officiels GitHub et LinkedIn, conservés localement.
 - Navigation avec section active, progression du défilement et transitions respectant la préférence de réduction des mouvements.
 - Deux grilles de six projets, résumés compacts et détails accessibles par « Voir l’étude de cas ».

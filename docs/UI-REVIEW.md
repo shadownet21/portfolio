@@ -37,3 +37,9 @@ Seules les sept captures sélectionnées des trois applications sont ajoutées a
 La compilation locale est actualisée. Un serveur de production déjà lancé doit être redémarré pour servir cette version. Cette intervention comprend le push du dépôt du portfolio ; elle ne constitue pas une vérification d’un déploiement public.
 
 Aucun envoi de formulaire de contact n’a été effectué. Les contrôles navigateur ont été exécutés avec une installation temporaire de Playwright dans .git/ui-tools, sans ajout de dépendance au package du portfolio.
+
+## Ajout : portrait en puzzle
+
+Le portrait de l’accueil se recompose en vingt pièces aux contours emboîtés, puis laisse place à l’image originale sans joints. L’animation dure environ 1,85 seconde et joue une seule fois par chargement ; un rafraîchissement permet de la revoir. Une arrivée sur une autre section attend le retour au portrait. Sur mobile, elle démarre lorsque la photo entre suffisamment dans le champ visible.
+
+Contrôles Chromium : premier chargement, rafraîchissement, retour par défilement sans répétition, lien direct vers les projets, écran mobile, préférence de réduction des mouvements et navigateur sans JavaScript. Les huit tests existants, ESLint et la compilation avec TypeScript passent. Le fichier photo original n’est pas modifié.

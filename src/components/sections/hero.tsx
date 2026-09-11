@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { PuzzlePortrait } from "@/components/ui/puzzle-portrait";
 import { ArrowDownRight, Download, Mail, MapPin } from "lucide-react";
 import { PLACEHOLDERS, SITE } from "@/data/site";
 import type { Locale } from "@/types/content";
@@ -89,28 +89,11 @@ export function Hero({ locale }: { locale: Locale }) {
       {/* =========================
           PHOTO / PROFIL
       ========================== */}
-      <Reveal
-        direction="right"
-        delay={0.2}
-        duration={1}
-        distance={60}
-        className="profile-card"
-      >
+      <div className="profile-card">
         <div className="profile-glow" />
 
         <div className="profile-image-wrapper">
-          <Image
-            src="/images/profile.png"
-            width={900}
-            height={1141}
-            priority
-            alt={
-              locale === "fr"
-                ? "Portrait de Marc Maurice Freeman"
-                : "Portrait of Marc Maurice Freeman"
-            }
-            className="profile-image"
-          />
+          <PuzzlePortrait alt={locale === "fr" ? "Portrait de Marc Maurice Freeman" : "Portrait of Marc Maurice Freeman"} />
 
           <span className="profile-status" />
         </div>
@@ -124,7 +107,7 @@ export function Hero({ locale }: { locale: Locale }) {
               : "Web Development · IT Support · Data · Project Management"}
           </p>
         </div>
-      </Reveal>
+      </div>
     </section>
   );
 }
