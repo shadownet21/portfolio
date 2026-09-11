@@ -1,94 +1,45 @@
+"use client";
+import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { skillGroups } from "@/data/skills";
 import type { Locale, SkillLevel } from "@/types/content";
-import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-
 const levelStyles: Record<SkillLevel, string> = {
   professional: "border-blue-600/30 bg-blue-600/10 text-[var(--brand-strong)]",
-  operational:
-    "border-teal-600/30 bg-teal-600/10 text-[var(--skill-operational)]",
+  operational: "border-teal-600/30 bg-teal-600/10 text-[var(--skill-operational)]",
   learning: "border-amber-600/30 bg-amber-500/10 text-[var(--skill-learning)]",
 };
-
 export function Skills({ locale }: { locale: Locale }) {
   const fr = locale === "fr";
-
-  const labels: Record<SkillLevel, string> = {
-    professional: fr ? "Expérience professionnelle" : "Professional experience",
-    operational: fr ? "Pratique opérationnelle" : "Working knowledge",
+  const [selected, setSelected] = useState<SkillLevel | "all">("all");
+  const reduced = useReducedMotion();
+  const labels: Record<SkillLevel | "all", string> = {
+    all: fr ? "Tout voir" : "Show all",
+    professional: fr ? "Exp?rience professionnelle" : "Professional experience",
+    operational: fr ? "Pratique op?rationnelle" : "Working knowledge",
     learning: fr ? "En apprentissage" : "Learning",
   };
-
-  return (
-    <section id="competences" className="section-alt section-space">
-      <div className="container-shell">
-        {/* TITRE */}
-        <Reveal direction="up" duration={0.8} distance={35}>
-          <SectionHeading
-            eyebrow={fr ? "Compétences" : "Skills"}
-            title={
-              fr
-                ? "Des outils choisis selon le problème"
-                : "Tools selected for the problem"
-            }
-            description={
-              fr
-                ? "Les niveaux reflètent l’usage professionnel ou actuel, sans pourcentages arbitraires."
-                : "Levels reflect professional or current usage, without arbitrary percentages."
-            }
-          />
-        </Reveal>
-
-        {/* LÉGENDE */}
-        <Reveal direction="left" delay={0.1} duration={0.7} distance={35}>
-          <div
-            className="mb-8 flex flex-wrap gap-3"
-            aria-label={fr ? "Légende des niveaux" : "Skill level legend"}
-          >
-            {(["professional", "operational", "learning"] as SkillLevel[]).map(
-              (level) => (
-                <span
-                  key={level}
-                  className={`rounded-full border px-3 py-1 text-xs font-bold ${levelStyles[level]}`}
-                >
-                  {labels[level]}
-                </span>
-              ),
-            )}
-          </div>
-        </Reveal>
-
-        {/* GROUPES DE COMPÉTENCES */}
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {skillGroups.map((group, index) => (
-            <Reveal
-              key={group.category.fr}
-              direction="scale"
-              delay={index * 0.07}
-              duration={0.7}
-              className="h-full"
-            >
-              <div className="card h-full p-6">
-                <h3 className="text-lg font-extrabold">
-                  {group.category[locale]}
-                </h3>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
-                    <span
-                      key={skill.name}
-                      className={`rounded-md border px-2.5 py-1.5 text-sm font-semibold ${levelStyles[skill.level]}`}
-                      title={labels[skill.level]}
-                    >
-                      {skill.label?.[locale] ?? skill.name}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+  const groups = skillGroups.map(group => ({ ...group, skills: group.skills.filter(skill => selected === "all" || skill.level === selected) })).filter(group => group.skills.length);
+  const count = groups.reduce((total, group) => total + group.skills.length, 0);
+  return <section id="competences" className="section-alt section-space">
+    <div className="container-shell">
+      <SectionHeading eyebrow={fr ? "Comp?tences" : "Skills"} title={fr ? "Mes outils, en pratique" : "My tools, in practice"} description={fr ? "Choisissez un niveau pour explorer les comp?tences associ?es." : "Choose a level to explore the related skills."} />
+      <div className="mb-4 flex flex-wrap gap-3" role="group" aria-label={fr ? "Filtrer par niveau de ma?trise" : "Filter by proficiency"}>
+        {(["all", "professional", "operational", "learning"] as const).map(level => <button key={level} type="button" aria-pressed={selected === level} aria-controls="skill-results" onClick={() => setSelected(level === selected ? "all" : level)} className={`skill-filter rounded-full border px-4 py-3 text-sm font-bold ${level === "all" ? "border-[var(--border)]" : levelStyles[level]}`}>{labels[level]}</button>)}
       </div>
-    </section>
-  );
+      <p className="muted mb-6 text-sm" role="status" aria-live="polite">{count} {fr ? "comp?tences affich?es" : "skills shown"} ? {labels[selected]}</p>
+      <motion.div layout={!reduced} id="skill-results" className="grid items-start gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <AnimatePresence mode="popLayout">
+          {groups.map(group => <motion.div layout={!reduced} key={group.category.fr} initial={{ opacity: 0, y: reduced ? 0 : 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: reduced ? 1 : .97 }} transition={{ duration: reduced ? 0 : .2 }} className="card p-6">
+            <h3 className="text-lg font-extrabold">{group.category[locale]}</h3>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <AnimatePresence mode="popLayout">
+                {group.skills.map(skill => <motion.span layout={!reduced} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: reduced ? 0 : .15 }} key={skill.name} className={`rounded-md border px-2.5 py-1.5 text-sm font-semibold ${levelStyles[skill.level]}`} title={labels[skill.level]}>{skill.label?.[locale] ?? skill.name}</motion.span>)}
+              </AnimatePresence>
+            </div>
+          </motion.div>)}
+        </AnimatePresence>
+      </motion.div>
+    </div>
+  </section>;
 }

@@ -424,3 +424,7 @@ button {
 .project-card:hover .project-cover { transform: scale(1.025); }
 .project-card > div:first-child { background: var(--surface-muted); border-bottom: 1px solid var(--border); }
 .project-card summary { min-height: 36px; }
+
+.skill-filter { transition: box-shadow .2s, transform .2s; }
+.skill-filter[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--brand); }
+.skill-filter:hover { transform: translateY(-2px); }
