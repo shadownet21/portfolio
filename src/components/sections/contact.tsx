@@ -1,4 +1,5 @@
-import { CodeXml, ContactRound, MapPin } from "lucide-react";
+import { BrandIcon } from "@/components/ui/brand-icon";
+import { MapPin } from "lucide-react";
 
 import { PLACEHOLDERS } from "@/data/site";
 import type { Locale } from "@/types/content";
@@ -92,7 +93,7 @@ export function Contact({ locale }: { locale: Locale }) {
                   label="LinkedIn"
                   newTab
                 >
-                  <ContactRound
+                  <BrandIcon brand="linkedin"
                     className="text-[var(--brand)]"
                     size={20}
                     aria-hidden="true"
@@ -107,7 +108,7 @@ export function Contact({ locale }: { locale: Locale }) {
                   label="GitHub"
                   newTab
                 >
-                  <CodeXml
+                  <BrandIcon brand="github"
                     className="text-[var(--brand)]"
                     size={20}
                     aria-hidden="true"

@@ -405,3 +405,7 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+.github-dark { display: none; }
+[data-theme="dark"] .github-light { display: none; }
+[data-theme="dark"] .github-dark { display: block; }

@@ -1,4 +1,5 @@
-import { CodeXml, ExternalLink, LockKeyhole } from "lucide-react";
+import { BrandIcon } from "@/components/ui/brand-icon";
+import { ExternalLink, LockKeyhole } from "lucide-react";
 import Image from "next/image";
 import { isPending, isPlaceholder } from "@/data/site";
 import type { Locale, Project } from "@/types/content";
@@ -33,7 +34,7 @@ export function ProjectCard({
         rel="noreferrer"
         aria-label={`${kind === "github" ? "GitHub" : fr ? "Démonstration" : "Demo"} — ${project.title[locale]}`}
       >
-        {kind === "github" ? <CodeXml size={17} /> : <ExternalLink size={17} />}
+        {kind === "github" ? <BrandIcon brand="github" size={17} /> : <ExternalLink size={17} />}
         {kind === "github" ? "GitHub" : fr ? "Démo" : "Demo"}
       </a>
     );
