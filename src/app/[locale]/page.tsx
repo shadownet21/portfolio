@@ -1,3 +1,4 @@
+import { SITE } from "@/data/site";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { About } from "@/components/sections/about";
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `/${value}`, languages: { "fr-CA": "/fr", "en-CA": "/en", "x-default": "/fr" } },
     openGraph: {
       title: fr ? "Marc Maurice Freeman — Support TI & Développeur Web" : "Marc Maurice Freeman — IT Support & Web Developer",
-      description: fr ? "Résoudre. Développer. Optimiser. Innover." : "Solve. Build. Optimize. Innovate.",
+      description: SITE.signature[value],
       url: `/${value}`,
       locale: fr ? "fr_CA" : "en_CA",
       alternateLocale: fr ? ["en_CA"] : ["fr_CA"],

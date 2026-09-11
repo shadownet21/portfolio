@@ -30,6 +30,8 @@ Captures de la version locale compilée, actualisées le **11 septembre 2026**.
 
 ## Expérience utilisateur
 
+Le titre d’accueil inclut « Gestion de projets » / « Project Management ». La signature conserve quatre verbes : « Résoudre. Développer. Optimiser. Coordonner. » / « Solve. Build. Optimize. Coordinate. ».
+
 - Portrait initialement invisible, puis recomposé en vingt pièces de puzzle en environ deux secondes : une animation par chargement, déclenchée après la fin réelle des six animations du texte et lorsque la photo devient visible, avec image statique si les mouvements sont réduits.
 - Logos officiels GitHub et LinkedIn, conservés localement.
 - Navigation avec section active, progression du défilement et transitions respectant la préférence de réduction des mouvements.

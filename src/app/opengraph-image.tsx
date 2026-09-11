@@ -1,3 +1,4 @@
+import { SITE } from "@/data/site";
 import { ImageResponse } from "next/og";
 
 export const alt =
@@ -34,7 +35,7 @@ export default function OpenGraphImage() {
         Marc Maurice Freeman
       </div>
       <div style={{ fontSize: 34, marginTop: 28 }}>
-        Résoudre. Développer. Optimiser. Innover.
+        {SITE.signature.fr}
       </div>
     </div>,
     size,

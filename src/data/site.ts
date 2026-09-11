@@ -16,8 +16,8 @@ export const SITE = {
   },
 
   signature: {
-    fr: "Résoudre. Développer. Optimiser. Innover.",
-    en: "Solve. Build. Optimize. Innovate.",
+    fr: "Résoudre. Développer. Optimiser. Coordonner.",
+    en: "Solve. Build. Optimize. Coordinate.",
   },
 } as const;
 
