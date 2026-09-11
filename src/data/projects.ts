@@ -542,7 +542,7 @@ export const projects: Project[] = [
     ],
     impact: pending,
     image: "/images/logo.png",
-    projectUrl: "frigauto.com",
+    projectUrl: "https://frigauto.com",
     githubUrl: "URL_GITHUB_FRIGAUTO_A_REMPLACER",
     status: pending,
     featured: false,
