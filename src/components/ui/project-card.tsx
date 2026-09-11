@@ -1,3 +1,4 @@
+import { ProjectGallery } from "@/components/ui/project-gallery";
 import { BrandIcon } from "@/components/ui/brand-icon";
 import { ExternalLink, LockKeyhole } from "lucide-react";
 import Image from "next/image";
@@ -26,7 +27,7 @@ export function ProjectCard({
     visibleFeatures.length > 0 ||
     !isPending(project.impact[locale]);
   const link = (href: string, kind: "demo" | "github") =>
-    isPlaceholder(href) ? null : (
+    !/^https?:\/\//.test(href) || isPlaceholder(href) ? null : (
       <a
         className="button-secondary"
         href={href}
@@ -121,9 +122,10 @@ export function ProjectCard({
             ))}
           </div>
         ) : null}
-        {link(project.projectUrl, "demo") ||
+        {project.gallery?.length || link(project.projectUrl, "demo") ||
         link(project.githubUrl, "github") ? (
           <div className="mt-auto flex flex-wrap gap-2 pt-5">
+            <ProjectGallery project={project} locale={locale} />
             {link(project.projectUrl, "demo")}
             {link(project.githubUrl, "github")}
           </div>

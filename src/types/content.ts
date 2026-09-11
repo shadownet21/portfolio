@@ -18,6 +18,7 @@ export interface Project {
   features: LocalizedText[];
   impact: LocalizedText;
   image: string;
+  gallery?: { src: string; caption: LocalizedText; presentation?: "laptop" }[];
   projectUrl: string;
   githubUrl: string;
   status: LocalizedText;

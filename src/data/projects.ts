@@ -105,6 +105,22 @@ export const projects: Project[] = [
     ],
     impact: pending,
     image: "/images/Gel/Connexion.png",
+ gallery: [
+  {
+    "src": "/images/Gel/Connexion.png",
+    "caption": {
+      "fr": "Connexion ? la gestion du gel de fonds",
+      "en": "Funds-freeze management sign-in"
+    }
+  },
+  {
+    "src": "/images/Gel/Accueil-Uploader.png",
+    "caption": {
+      "fr": "Importation des fichiers de virement",
+      "en": "Transfer file import"
+    }
+  }
+],
     projectUrl: PLACEHOLDERS.github,
     githubUrl: PLACEHOLDERS.github,
     status: { fr: "Étude de cas anonymisée", en: "Anonymized case study" },
@@ -188,6 +204,22 @@ export const projects: Project[] = [
     },
 
     image: "/images/credits-radies/auth.png",
+ gallery: [
+  {
+    "src": "/images/credits-radies/auth.png",
+    "caption": {
+      "fr": "Connexion ? la gestion des cr?dits radi?s",
+      "en": "Written-off loans sign-in"
+    }
+  },
+  {
+    "src": "/images/credits-radies/credits radies.png",
+    "caption": {
+      "fr": "Extrait de code PHP : affichage des cr?dits radi?s",
+      "en": "PHP code excerpt: displaying written-off loans"
+    }
+  }
+],
 
     projectUrl: "APPLICATION_INTERNE_NON_PUBLIQUE",
 
@@ -290,6 +322,29 @@ export const projects: Project[] = [
     },
 
     image: "/images/eci/ACCUEIL.png",
+ gallery: [
+  {
+    "src": "/images/eci/ACCUEIL.png",
+    "caption": {
+      "fr": "Tableau de bord des comptes inactifs et dormants",
+      "en": "Inactive and dormant accounts dashboard"
+    }
+  },
+  {
+    "src": "/images/eci/Menus.png",
+    "caption": {
+      "fr": "Navigation et suivi des membres",
+      "en": "Navigation and member tracking"
+    }
+  },
+  {
+    "src": "/images/eci/Menus admin coopec.png",
+    "caption": {
+      "fr": "Navigation de l?administration des agences",
+      "en": "Branch administration navigation"
+    }
+  }
+],
 
     projectUrl: "APPLICATION_INTERNE_NON_PUBLIQUE",
 

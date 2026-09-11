@@ -428,3 +428,12 @@ button {
 .skill-filter { transition: box-shadow .2s, transform .2s; }
 .skill-filter[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--brand); }
 .skill-filter:hover { transform: translateY(-2px); }
+
+.project-dialog { margin: auto; width: min(1100px, calc(100vw - 1rem)); max-width: none; max-height: 94dvh; padding: 0; border: 1px solid var(--border); border-radius: 1.3rem; color: var(--text); background: var(--surface); overflow: auto; }
+.project-dialog::backdrop { background: rgb(3 10 23 / .8); backdrop-filter: blur(6px); }
+.project-dialog[open] { animation: menu-in .2s ease-out; }
+.gallery-stage { display: grid; place-items: center; background: #111820; border-radius: .75rem; padding: .75rem; min-height: 180px; }
+.gallery-image { width: 100%; height: min(52dvh, 580px); object-fit: contain; animation: menu-in .2s ease-out; }
+.gallery-dot { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); font-size: .8rem; font-weight: 700; }
+.gallery-dot[aria-pressed="true"] { background: var(--brand); color: var(--surface); }
+body:has(.project-dialog[open]) { overflow: hidden; }
