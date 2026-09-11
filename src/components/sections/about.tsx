@@ -45,14 +45,14 @@ export function About({ locale }: { locale: Locale }) {
             >
               <p>
                 {fr
-                  ? "Je relie d?veloppement web, support TI et donn?es pour simplifier le quotidien des ?quipes. Planification, priorit?s et coordination compl?tent mon approche."
+                  ? "Je relie développement web, support TI et données pour simplifier le quotidien des équipes. Planification, priorités et coordination complètent mon approche."
                   : "I connect web development, IT support and data to simplify everyday work. Planning, priorities and coordination complete my approach."}
               </p>
 
               <p>
                 {fr
-                  ? "Installé à Longueuil, je poursuis en 2026 une formation CyberCap à Montréal couvrant la programmation, les réseaux, la cybersécurité et l’intelligence artificielle. Mon objectif est de contribuer avec rigueur au marché technologique québécois."
-                  : "Based in Longueuil, I am continuing my CyberCap training in Montr?al: programming, networking, cybersecurity and AI."}
+                  ? "À Longueuil, je poursuis ma formation CyberCap à Montréal : programmation, réseaux, cybersécurité et IA."
+                  : "Based in Longueuil, I am continuing my CyberCap training in Montréal: programming, networking, cybersecurity and AI."}
               </p>
             </Reveal>
 

@@ -6,25 +6,24 @@ const pending = { fr: "À compléter", en: "To be completed" } as const;
 export const projects: Project[] = [
 {
   "slug": "jeu-puzzle",
- aiAssistance: { fr: "D?velopp? avec l?assistance de Claude et de Codex (OpenAI).", en: "Developed with assistance from Claude and Codex (OpenAI)." },
   "title": {
-    "fr": "Puzzle ? jouer, assembler, progresser",
-    "en": "Puzzle ? play, assemble, progress"
+    "fr": "Puzzle · jouer, assembler, progresser",
+    "en": "Puzzle · play, assemble, progress"
   },
   "category": {
-    "fr": "Jeu interactif ? Web",
-    "en": "Interactive game ? Web"
+    "fr": "Jeu interactif · Web",
+    "en": "Interactive game · Web"
   },
   "summary": {
-    "fr": "Un puzzle tactile contre la montre, avec une difficult? qui ?volue ? chaque niveau.",
+    "fr": "Un puzzle tactile contre la montre, avec une difficulté qui évolue à chaque niveau.",
     "en": "A touch-friendly puzzle against the clock, with increasingly challenging levels."
   },
   "problem": {
-    "fr": "Cr?er un jeu de puzzle jouable ? la souris comme au toucher, avec des r?gles simples et une progression motivante.",
+    "fr": "Créer un jeu de puzzle jouable à la souris comme au toucher, avec des règles simples et une progression motivante.",
     "en": "Create a puzzle playable with a mouse or touch, with simple rules and engaging progression."
   },
   "solution": {
-    "fr": "Un prototype HTML, CSS et JavaScript utilisant les Pointer Events pour d?placer les pi?ces et Web Audio pour le retour sonore.",
+    "fr": "Un prototype HTML, CSS et JavaScript utilisant les Pointer Events pour déplacer les pièces et Web Audio pour le retour sonore.",
     "en": "An HTML, CSS and JavaScript prototype using Pointer Events to move pieces and Web Audio for sound feedback."
   },
   "technologies": [
@@ -36,19 +35,19 @@ export const projects: Project[] = [
   ],
   "features": [
     {
-      "fr": "Trois images au choix ; grilles 3 ? 3, puis 4 ? 4, 5 ? 5 et plus.",
-      "en": "Three images; grids progressing from 3 ? 3 to 4 ? 4, 5 ? 5 and beyond."
+      "fr": "Trois images au choix ; grilles 3 × 3, puis 4 × 4, 5 × 5 et plus.",
+      "en": "Three images; grids progressing from 3 × 3 to 4 × 4, 5 × 5 and beyond."
     },
     {
-      "fr": "Aimantation et verrouillage des pi?ces au bon emplacement.",
+      "fr": "Aimantation et verrouillage des pièces au bon emplacement.",
       "en": "Pieces snap and lock into the correct position."
     },
     {
-      "fr": "Deux minutes au premier niveau, puis une minute de plus par niveau ; pause du chronom?tre.",
+      "fr": "Deux minutes au premier niveau, puis une minute de plus par niveau ; pause du chronomètre.",
       "en": "Two minutes at level one, then one additional minute per level; timer pause."
     },
     {
-      "fr": "Indice de trois secondes, confettis ? la victoire et possibilit? de rejouer.",
+      "fr": "Indice de trois secondes, confettis à la victoire et possibilité de rejouer.",
       "en": "Three-second hint, victory confetti and replay option."
     }
   ],
@@ -63,7 +62,11 @@ export const projects: Project[] = [
     "fr": "Prototype",
     "en": "Prototype"
   },
-  "featured": true
+  "featured": true,
+  "aiAssistance": {
+    "fr": "Développé avec l’assistance de Claude et de Codex (OpenAI).",
+    "en": "Developed with assistance from Claude and Codex (OpenAI)."
+  }
 },
   {
     slug: "gestion-gel-fonds",
@@ -109,7 +112,7 @@ export const projects: Project[] = [
   {
     "src": "/images/Gel/Connexion.png",
     "caption": {
-      "fr": "Connexion ? la gestion du gel de fonds",
+      "fr": "Connexion à la gestion du gel de fonds",
       "en": "Funds-freeze management sign-in"
     }
   },
@@ -208,7 +211,7 @@ export const projects: Project[] = [
   {
     "src": "/images/credits-radies/auth.png",
     "caption": {
-      "fr": "Connexion ? la gestion des cr?dits radi?s",
+      "fr": "Connexion à la gestion des crédits radiés",
       "en": "Written-off loans sign-in"
     }
   },
@@ -216,7 +219,7 @@ export const projects: Project[] = [
     "src": "/images/credits-radies/credits radies.png",
  "presentation": "laptop",
     "caption": {
-      "fr": "Extrait de code PHP : affichage des cr?dits radi?s",
+      "fr": "Extrait de code PHP : affichage des crédits radiés",
       "en": "PHP code excerpt: displaying written-off loans"
     }
   }
@@ -341,7 +344,7 @@ export const projects: Project[] = [
   {
     "src": "/images/eci/Menus admin coopec.png",
     "caption": {
-      "fr": "Navigation de l?administration des agences",
+      "fr": "Navigation de l’administration des agences",
       "en": "Branch administration navigation"
     }
   }
@@ -523,7 +526,7 @@ export const projects: Project[] = [
     projectUrl: "URL_DEMO_CV_IA_A_REMPLACER",
     githubUrl: "https://github.com/shadownet21/",
     status: { fr: "À compléter", en: "To be completed" },
-    featured: true,
+    featured: false,
   },
 
   {

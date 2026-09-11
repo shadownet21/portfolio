@@ -19,9 +19,9 @@ describe("public portfolio interface", () => {
     expect(screen.queryByText("À compléter")).not.toBeInTheDocument();
   });
 
-  it("hides the contact form until an email address is configured", () => {
+  it("renders the configured contact fields without placeholder text", () => {
     render(<Contact locale="fr" />);
-    expect(screen.queryByRole("form")).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Envoyer/i })).toBeInTheDocument();
     expect(screen.queryByText("EMAIL_A_REMPLACER")).not.toBeInTheDocument();
   });
 

@@ -37,10 +37,19 @@ export function ProjectGallery({ project, locale }: { project: Project; locale: 
     <dialog ref={dialog} className="project-dialog" aria-labelledby={titleId}
       onClose={() => { restoreScroll(); trigger.current?.focus(); }}
       onClick={event => { if (event.target === event.currentTarget) dialog.current?.close(); }}
-      onKeyDown={event => { if (event.key === "ArrowRight") { event.preventDefault(); move(1); } if (event.key === "ArrowLeft") { event.preventDefault(); move(-1); } }}>
+      onKeyDown={event => {
+        if (event.key === "ArrowRight") { event.preventDefault(); move(1); }
+        if (event.key === "ArrowLeft") { event.preventDefault(); move(-1); }
+        if (event.key === "Tab") {
+          const buttons = Array.from(event.currentTarget.querySelectorAll<HTMLButtonElement>("button:not(:disabled)"));
+          const first = buttons[0], last = buttons.at(-1);
+          if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+          else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+        }
+      }}>
       <div className="gallery-panel">
         <div className="flex items-start justify-between gap-4 border-b border-[var(--border)] p-4 md:p-6">
-          <div><p className="eyebrow">{fr ? "Aper?u du projet" : "Project preview"}</p><h2 id={titleId} className="mt-2 text-lg font-extrabold md:text-2xl">{project.title[locale]}</h2></div>
+          <div><p className="eyebrow">{fr ? "Aperçu du projet" : "Project preview"}</p><h2 id={titleId} className="mt-2 text-lg font-extrabold md:text-2xl">{project.title[locale]}</h2></div>
           <button type="button" className="button-secondary shrink-0 !p-3" onClick={() => dialog.current?.close()} aria-label={fr ? "Fermer la galerie" : "Close gallery"}><X size={20} aria-hidden="true" /></button>
         </div>
         <figure className="p-3 md:p-6">
@@ -52,10 +61,10 @@ export function ProjectGallery({ project, locale }: { project: Project; locale: 
               {slide.presentation === "laptop" ? <div className="laptop-base" aria-hidden="true"><div className="laptop-keyboard" /><div className="laptop-trackpad" /></div> : null}
             </div>
           </div>
-          <figcaption className="mt-4 text-center text-sm" aria-live="polite">{index + 1} / {slides.length} ? {slide.caption[locale]}</figcaption>
+          <figcaption className="mt-4 text-center text-sm" aria-live="polite">{index + 1} / {slides.length} · {slide.caption[locale]}</figcaption>
         </figure>
         <div className="flex items-center justify-between gap-3 px-4 pb-4 md:px-6">
-          <button type="button" className="button-secondary" onClick={() => move(-1)} disabled={slides.length < 2} aria-label={fr ? "Interface pr?c?dente" : "Previous interface"}><ChevronLeft size={18} aria-hidden="true" /><span className="hidden sm:inline">{fr ? "Pr?c?dente" : "Previous"}</span></button>
+          <button type="button" className="button-secondary" onClick={() => move(-1)} disabled={slides.length < 2} aria-label={fr ? "Interface précédente" : "Previous interface"}><ChevronLeft size={18} aria-hidden="true" /><span className="hidden sm:inline">{fr ? "Précédente" : "Previous"}</span></button>
           <div className="flex flex-wrap justify-center gap-2" role="group" aria-label={fr ? "Choisir une interface" : "Choose an interface"}>
             {slides.map((item, number) => <button key={item.src} type="button" className="gallery-dot" aria-pressed={number === index} aria-label={`${number + 1} ? ${item.caption[locale]}`} onClick={() => setIndex(number)}>{number + 1}</button>)}
           </div>

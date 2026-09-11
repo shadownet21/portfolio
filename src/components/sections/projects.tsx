@@ -22,12 +22,12 @@ export function Projects({ locale }: { locale: Locale }) {
             eyebrow={fr ? "Projets sélectionnés" : "Selected projects"}
             title={
               fr
-                ? "Des solutions ancrées dans des besoins concrets"
+                ? "Des idées aux applications"
                 : "From ideas to applications"
             }
             description={
               fr
-                ? "Applications métier, produits web et initiatives techniques. Les informations confidentielles sont volontairement anonymisées."
+                ? "Explorez les interfaces. Découvrez les choix derrière chaque projet."
                 : "Explore the interfaces. Discover the decisions behind each project."
             }
           />

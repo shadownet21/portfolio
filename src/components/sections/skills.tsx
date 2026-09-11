@@ -15,19 +15,19 @@ export function Skills({ locale }: { locale: Locale }) {
   const reduced = useReducedMotion();
   const labels: Record<SkillLevel | "all", string> = {
     all: fr ? "Tout voir" : "Show all",
-    professional: fr ? "Exp?rience professionnelle" : "Professional experience",
-    operational: fr ? "Pratique op?rationnelle" : "Working knowledge",
+    professional: fr ? "Expérience professionnelle" : "Professional experience",
+    operational: fr ? "Pratique opérationnelle" : "Working knowledge",
     learning: fr ? "En apprentissage" : "Learning",
   };
   const groups = skillGroups.map(group => ({ ...group, skills: group.skills.filter(skill => selected === "all" || skill.level === selected) })).filter(group => group.skills.length);
   const count = groups.reduce((total, group) => total + group.skills.length, 0);
   return <section id="competences" className="section-alt section-space">
     <div className="container-shell">
-      <SectionHeading eyebrow={fr ? "Comp?tences" : "Skills"} title={fr ? "Mes outils, en pratique" : "My tools, in practice"} description={fr ? "Choisissez un niveau pour explorer les comp?tences associ?es." : "Choose a level to explore the related skills."} />
-      <div className="mb-4 flex flex-wrap gap-3" role="group" aria-label={fr ? "Filtrer par niveau de ma?trise" : "Filter by proficiency"}>
+      <SectionHeading eyebrow={fr ? "Compétences" : "Skills"} title={fr ? "Mes outils, en pratique" : "My tools, in practice"} description={fr ? "Choisissez un niveau pour explorer les compétences associées." : "Choose a level to explore the related skills."} />
+      <div className="mb-4 flex flex-wrap gap-3" role="group" aria-label={fr ? "Filtrer par niveau de maîtrise" : "Filter by proficiency"}>
         {(["all", "professional", "operational", "learning"] as const).map(level => <button key={level} type="button" aria-pressed={selected === level} aria-controls="skill-results" onClick={() => setSelected(level === selected ? "all" : level)} className={`skill-filter rounded-full border px-4 py-3 text-sm font-bold ${level === "all" ? "border-[var(--border)]" : levelStyles[level]}`}>{labels[level]}</button>)}
       </div>
-      <p className="muted mb-6 text-sm" role="status" aria-live="polite">{count} {fr ? "comp?tences affich?es" : "skills shown"} ? {labels[selected]}</p>
+      <p className="muted mb-6 text-sm" role="status" aria-live="polite">{count} {fr ? "compétences affichées" : "skills shown"} · {labels[selected]}</p>
       <motion.div layout={!reduced} id="skill-results" className="grid items-start gap-5 md:grid-cols-2 xl:grid-cols-3">
         <AnimatePresence mode="popLayout">
           {groups.map(group => <motion.div layout={!reduced} key={group.category.fr} initial={{ opacity: 0, y: reduced ? 0 : 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: reduced ? 1 : .97 }} transition={{ duration: reduced ? 0 : .2 }} className="card p-6">

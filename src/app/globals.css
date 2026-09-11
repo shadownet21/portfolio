@@ -441,7 +441,12 @@ body:has(.project-dialog[open]) { overflow: hidden; }
 .gaming-laptop { width: min(100%, 900px); padding: 1rem 2% .5rem; }
 .laptop-screen { position: relative; border: clamp(6px, 1.4vw, 14px) solid #20232b; border-bottom-width: 22px; border-radius: 15px 15px 4px 4px; background: #0b0d12; box-shadow: 0 0 0 1px #4b5262, 0 0 30px rgb(74 140 255 / .2); }
 .laptop-screen::before { content: ""; position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #6b7280; left: 50%; top: -8px; }
-.laptop-screen .gallery-image { height: min(44dvh, 490px); }
+.laptop-screen .gallery-image { width: 100%; height: auto; aspect-ratio: 16 / 10; max-height: 44dvh; }
 .laptop-base { position: relative; margin-inline: -2%; height: clamp(40px, 7vw, 70px); background: linear-gradient(#343a47, #11141c); border-radius: 2px 2px 20px 20px; border-bottom: 3px solid #4a8cff; box-shadow: 0 8px 18px #0008; }
 .laptop-keyboard { position: absolute; inset: 8% 12% 40%; border-radius: 3px; background: repeating-linear-gradient(90deg, transparent 0 5%, #1c2029 5% 6%), repeating-linear-gradient(0deg, transparent 0 25%, #1c2029 25% 30%), linear-gradient(90deg, #4a8cff, #a78bfa, #f472b6, #5eead4); opacity: .85; }
 .laptop-trackpad { position: absolute; bottom: 10%; left: 40%; width: 20%; height: 22%; border: 1px solid #626b7d; border-radius: 3px; }
+
+/* Keep offscreen reveal transforms from widening the mobile viewport. */
+html { overflow-x: clip; }
+.grid > * { min-width: 0; }
+@media (prefers-reduced-motion: reduce) { .card:hover, .project-card:hover .project-cover, .skill-filter:hover { transform: none; } }
