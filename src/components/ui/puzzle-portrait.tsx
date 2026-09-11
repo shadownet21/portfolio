@@ -44,7 +44,7 @@ const pieces = Array.from({ length: COLUMNS * ROWS }, (_, index) => {
   };
 });
 
-export function PuzzlePortrait({ alt }: { alt: string }) {
+export function PuzzlePortrait({ alt, ready }: { alt: string; ready: boolean }) {
   const container = useRef<HTMLDivElement>(null);
   const portrait = useRef<HTMLImageElement>(null);
   const id = useId().replace(/:/g, "");
@@ -52,17 +52,17 @@ export function PuzzlePortrait({ alt }: { alt: string }) {
   const [source, setSource] = useState("");
 
   useEffect(() => {
+    // Start only after every reveal in the adjacent text column has finished.
+    if (!ready) return;
     const element = container.current;
     const image = portrait.current;
     if (!element || !image) return;
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     let visible = false;
-    // An anchor may scroll after hydration; wait until that initial navigation settles.
-    let waitingForExit = !!window.location.hash && !["#accueil", "#contenu"].includes(window.location.hash);
     let played = false;
     let timeout: ReturnType<typeof setTimeout> | undefined;
     const start = () => {
-      if (played || waitingForExit || !visible || !image.complete || !image.naturalWidth || preference.matches) return;
+      if (played || !visible || !image.complete || !image.naturalWidth || preference.matches) return;
       played = true;
       setSource(image.currentSrc || image.src);
       setPhase("assembling");
@@ -71,7 +71,6 @@ export function PuzzlePortrait({ alt }: { alt: string }) {
     };
     const observer = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting;
-      if (!visible) waitingForExit = false;
       start();
     }, { threshold: .2 });
     const reduce = () => {
@@ -90,7 +89,7 @@ export function PuzzlePortrait({ alt }: { alt: string }) {
       preference.removeEventListener("change", reduce);
       clearTimeout(timeout);
     };
-  }, []);
+  }, [ready]);
 
   return <div ref={container} className="puzzle-portrait" data-phase={phase}>
     <Image ref={portrait} src="/images/profile.png" width={WIDTH} height={HEIGHT}

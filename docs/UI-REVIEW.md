@@ -43,3 +43,7 @@ Aucun envoi de formulaire de contact n’a été effectué. Les contrôles navig
 Le portrait de l’accueil se recompose en vingt pièces aux contours emboîtés, puis laisse place à l’image originale sans joints. L’animation dure environ 1,85 seconde et joue une seule fois par chargement ; un rafraîchissement permet de la revoir. Une arrivée sur une autre section attend le retour au portrait. Sur mobile, elle démarre lorsque la photo entre suffisamment dans le champ visible.
 
 Contrôles Chromium : premier chargement, rafraîchissement, retour par défilement sans répétition, lien direct vers les projets, écran mobile, préférence de réduction des mouvements et navigateur sans JavaScript. Les huit tests existants, ESLint et la compilation avec TypeScript passent. Le fichier photo original n’est pas modifié.
+
+### Synchronisation texte puis portrait
+
+Le puzzle attend les callbacks de fin des six animations de la colonne de texte, boutons compris. Aucun délai fixe ne remplace cette synchronisation. Vérification Chromium au démarrage exact du puzzle : les six blocs ont une opacité de 1, aucun flou et aucun déplacement restant, sur ordinateur, au rafraîchissement, au retour depuis un lien direct et sur mobile. La préférence de réduction des mouvements et l’absence de répétition au défilement sont préservées. Compilation, ESLint et huit tests réussis.

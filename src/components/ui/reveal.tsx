@@ -11,6 +11,7 @@ type RevealProps = {
   direction?: RevealDirection;
   duration?: number;
   distance?: number;
+  onComplete?: () => void;
 };
 
 export function Reveal({
@@ -20,6 +21,7 @@ export function Reveal({
   direction = "up",
   duration = 0.7,
   distance = 40,
+  onComplete,
 }: RevealProps) {
   const reduceMotion = useReducedMotion();
 
@@ -86,6 +88,7 @@ export function Reveal({
   return (
     <motion.div
       className={className}
+      onAnimationComplete={onComplete}
       initial={getInitialAnimation()}
       whileInView={{
         opacity: 1,

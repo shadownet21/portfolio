@@ -1,3 +1,6 @@
+"use client";
+
+import { useCallback, useState } from "react";
 import { PuzzlePortrait } from "@/components/ui/puzzle-portrait";
 import { ArrowDownRight, Download, Mail, MapPin } from "lucide-react";
 import { PLACEHOLDERS, SITE } from "@/data/site";
@@ -6,6 +9,10 @@ import { Reveal } from "@/components/ui/reveal";
 import { SafeLink } from "@/components/ui/safe-link";
 
 export function Hero({ locale }: { locale: Locale }) {
+  const [completedReveals, setCompletedReveals] = useState<Set<number>>(() => new Set());
+  const completeReveal = useCallback((index: number) => {
+    setCompletedReveals(current => current.has(index) ? current : new Set([...current, index]));
+  }, []);
   const copy =
     locale === "fr"
       ? {
@@ -32,36 +39,36 @@ export function Hero({ locale }: { locale: Locale }) {
           CONTENU GAUCHE
       ========================== */}
       <div>
-        <Reveal direction="up" delay={0.05} duration={0.7} distance={25}>
+        <Reveal onComplete={() => completeReveal(0)} direction="up" delay={0.05} duration={0.7} distance={25}>
           <p className="eyebrow mb-5">{SITE.role[locale]}</p>
         </Reveal>
 
-        <Reveal direction="up" delay={0.12} duration={0.8} distance={35}>
+        <Reveal onComplete={() => completeReveal(1)} direction="up" delay={0.12} duration={0.8} distance={35}>
           <h1 className="display-title">
             Marc Maurice <span className="text-[var(--brand)]">Freeman</span>
           </h1>
         </Reveal>
 
-        <Reveal direction="up" delay={0.2} duration={0.7} distance={25}>
+        <Reveal onComplete={() => completeReveal(2)} direction="up" delay={0.2} duration={0.7} distance={25}>
           <div className="muted mt-6 flex items-center gap-2 font-semibold">
             <MapPin size={18} aria-hidden="true" />
             Longueuil, Québec
           </div>
         </Reveal>
 
-        <Reveal direction="up" delay={0.27} duration={0.8} distance={30}>
+        <Reveal onComplete={() => completeReveal(3)} direction="up" delay={0.27} duration={0.8} distance={30}>
           <p className="mt-6 max-w-2xl text-lg leading-8 md:text-xl">
             {copy.intro}
           </p>
         </Reveal>
 
-        <Reveal direction="up" delay={0.34} duration={0.7} distance={25}>
+        <Reveal onComplete={() => completeReveal(4)} direction="up" delay={0.34} duration={0.7} distance={25}>
           <p className="mt-5 font-extrabold tracking-wide text-[var(--brand)]">
             {SITE.signature[locale]}
           </p>
         </Reveal>
 
-        <Reveal direction="up" delay={0.4} duration={0.7} distance={25}>
+        <Reveal onComplete={() => completeReveal(5)} direction="up" delay={0.4} duration={0.7} distance={25}>
           <div className="mt-8 flex flex-wrap gap-3">
             <a className="button-primary" href="#projets">
               {copy.projects}
@@ -93,7 +100,7 @@ export function Hero({ locale }: { locale: Locale }) {
         <div className="profile-glow" />
 
         <div className="profile-image-wrapper">
-          <PuzzlePortrait alt={locale === "fr" ? "Portrait de Marc Maurice Freeman" : "Portrait of Marc Maurice Freeman"} />
+          <PuzzlePortrait ready={completedReveals.size === 6} alt={locale === "fr" ? "Portrait de Marc Maurice Freeman" : "Portrait of Marc Maurice Freeman"} />
 
           <span className="profile-status" />
         </div>
