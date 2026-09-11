@@ -488,6 +488,36 @@ export const projects: Project[] = [
     ],
     impact: pending,
     image: "/images/project-basketball.svg",
+    gallery: [
+      {
+        src: "/images/ia-basketball-club/p1.png",
+        caption: {
+          fr: "Accueil et présentation du club",
+          en: "Home page and club introduction",
+        },
+      },
+      {
+        src: "/images/ia-basketball-club/p2.png",
+        caption: {
+          fr: "Programmes et équipes de basketball",
+          en: "Basketball programs and teams",
+        },
+      },
+      {
+        src: "/images/ia-basketball-club/p3.png",
+        caption: {
+          fr: "Formulaire de contact et présentation de l’association",
+          en: "Contact form and association overview",
+        },
+      },
+      {
+        src: "/images/ia-basketball-club/p4.png",
+        caption: {
+          fr: "Résultats des matchs et actualités du club",
+          en: "Match results and club news",
+        },
+      },
+    ],
     projectUrl: "URL_DEMO_BASKETBALL_A_REMPLACER",
     githubUrl: "https://github.com/shadownet21/p2-basketballIA.git",
     status: { fr: "À compléter", en: "To be completed" },
