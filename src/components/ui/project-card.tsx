@@ -111,6 +111,7 @@ export function ProjectCard({
             </div>
           </details>
         ) : null}
+        {project.aiAssistance ? <p className="muted mt-4 text-xs leading-5">{project.aiAssistance[locale]}</p> : null}
         {visibleTechnologies.length ? (
           <div className="mt-5 flex flex-wrap gap-2">
             {visibleTechnologies.map((technology) => (

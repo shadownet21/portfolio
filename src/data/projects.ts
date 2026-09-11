@@ -6,6 +6,7 @@ const pending = { fr: "À compléter", en: "To be completed" } as const;
 export const projects: Project[] = [
 {
   "slug": "jeu-puzzle",
+ aiAssistance: { fr: "D?velopp? avec l?assistance de Claude et de Codex (OpenAI).", en: "Developed with assistance from Claude and Codex (OpenAI)." },
   "title": {
     "fr": "Puzzle ? jouer, assembler, progresser",
     "en": "Puzzle ? play, assemble, progress"

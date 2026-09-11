@@ -23,6 +23,7 @@ export interface Project {
   status: LocalizedText;
   featured: boolean;
   confidential?: boolean;
+  aiAssistance?: LocalizedText;
 }
 
 export interface Experience {
