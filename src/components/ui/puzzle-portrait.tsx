@@ -92,6 +92,7 @@ export function PuzzlePortrait({ alt, ready }: { alt: string; ready: boolean }) 
   }, [ready]);
 
   return <div ref={container} className="puzzle-portrait" data-phase={phase}>
+    <noscript><style>{".puzzle-portrait .portrait-original { opacity: 1 !important; }"}</style></noscript>
     <Image ref={portrait} src="/images/profile.png" width={WIDTH} height={HEIGHT}
       sizes="(max-width: 1023px) calc(100vw - 32px), 500px" priority alt={alt} className="portrait-original" />
     {phase === "assembling" && <svg className="portrait-puzzle" viewBox={`0 0 ${WIDTH} ${HEIGHT}`} aria-hidden="true" focusable="false">

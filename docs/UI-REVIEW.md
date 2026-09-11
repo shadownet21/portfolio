@@ -47,3 +47,7 @@ Contrôles Chromium : premier chargement, rafraîchissement, retour par défilem
 ### Synchronisation texte puis portrait
 
 Le puzzle attend les callbacks de fin des six animations de la colonne de texte, boutons compris. Aucun délai fixe ne remplace cette synchronisation. Vérification Chromium au démarrage exact du puzzle : les six blocs ont une opacité de 1, aucun flou et aucun déplacement restant, sur ordinateur, au rafraîchissement, au retour depuis un lien direct et sur mobile. La préférence de réduction des mouvements et l’absence de répétition au défilement sont préservées. Compilation, ESLint et huit tests réussis.
+
+### Portrait masqué avant la recomposition
+
+La photo et son fond sont invisibles dès le premier affichage pendant l’animation du texte. Seules les pièces deviennent visibles au démarrage du puzzle ; l’image originale revient à la fin, sans joints. L’espace est réservé pour éviter tout déplacement de la mise en page. Contrôles réussis : chargement, rafraîchissement, ordre texte puis puzzle sur ordinateur et mobile, dimensions stables, réduction des mouvements et affichage sans JavaScript. Compilation et ESLint réussis.

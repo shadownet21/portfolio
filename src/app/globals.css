@@ -451,10 +451,11 @@ html { overflow-x: clip; }
 .grid > * { min-width: 0; }
 @media (prefers-reduced-motion: reduce) { .card:hover, .project-card:hover .project-cover, .skill-filter:hover { transform: none; } }
 
-/* The original image remains the accessible, no-JavaScript fallback. */
+/* Reserve the portrait space but reveal the image only through the puzzle. */
 .puzzle-portrait { position: relative; isolation: isolate; overflow: hidden; border-radius: 10px; background: var(--surface-muted); }
 .portrait-original { display: block; width: 100%; height: auto; }
-.puzzle-portrait[data-phase="assembling"] .portrait-original { opacity: 0; }
+.puzzle-portrait[data-phase="idle"] { background: transparent; }
+.puzzle-portrait:not([data-phase="complete"]) .portrait-original { opacity: 0; }
 .portrait-puzzle { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .portrait-piece { animation: portrait-assemble 1050ms cubic-bezier(.22, 1, .36, 1) var(--piece-delay) both; }
 @keyframes portrait-assemble {
@@ -463,7 +464,7 @@ html { overflow-x: clip; }
   to { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .puzzle-portrait[data-phase="assembling"] .portrait-original { opacity: 1; }
+  .puzzle-portrait:not([data-phase="complete"]) .portrait-original { opacity: 1; }
   .portrait-puzzle { display: none; }
   .portrait-piece { animation: none; }
 }
