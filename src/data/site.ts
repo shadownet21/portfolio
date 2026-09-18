@@ -11,13 +11,13 @@ export const SITE = {
   location: "Longueuil, Québec, Canada",
 
   role: {
-    fr: "Technicien Support TI | Développeur Web | Gestion de projets",
-    en: "IT Support Technician | Web Developer | Project Management",
+    fr: "Développeur web · Support TI",
+    en: "Web Developer · IT Support",
   },
 
   signature: {
-    fr: "Résoudre. Développer. Optimiser. Coordonner.",
-    en: "Solve. Build. Optimize. Coordinate.",
+    fr: "Des applications utiles. Des données fiables. Des utilisateurs accompagnés.",
+    en: "Useful applications. Reliable data. Supported users.",
   },
 } as const;
 
@@ -27,6 +27,13 @@ export const NAV_ITEMS: NavItem[] = [
     label: {
       fr: "Accueil",
       en: "Home",
+    },
+  },
+  {
+    id: "projets",
+    label: {
+      fr: "Projets",
+      en: "Projects",
     },
   },
   {
@@ -41,13 +48,6 @@ export const NAV_ITEMS: NavItem[] = [
     label: {
       fr: "Expertise",
       en: "Expertise",
-    },
-  },
-  {
-    id: "projets",
-    label: {
-      fr: "Projets",
-      en: "Projects",
     },
   },
   {

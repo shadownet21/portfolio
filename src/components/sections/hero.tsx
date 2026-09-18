@@ -17,14 +17,14 @@ export function Hero({ locale }: { locale: Locale }) {
     locale === "fr"
       ? {
           intro:
-            "Plus de quatre ans à développer des applications web, accompagner les utilisateurs et fiabiliser les données. Des solutions concrètes, du besoin à la livraison.",
+            "Je développe des applications métier et j’accompagne les équipes qui les utilisent. Mon expérience en support TI et en bases de données m’aide à concevoir des solutions adaptées au terrain.",
           projects: "Voir mes projets",
           cv: "Télécharger mon CV",
           contact: "Me contacter",
         }
       : {
           intro:
-            "Over four years building web applications, supporting users and making data reliable. Practical solutions, from requirements to delivery.",
+            "I build business applications and support the teams who use them. My background in IT support and databases helps me deliver solutions grounded in everyday needs.",
           projects: "View my projects",
           cv: "Download my résumé",
           contact: "Contact me",
@@ -91,6 +91,18 @@ export function Hero({ locale }: { locale: Locale }) {
             </a>
           </div>
         </Reveal>
+        <dl className="mt-8 grid gap-4 border-t border-[var(--border)] pt-6 sm:grid-cols-3">
+          {[
+            { value: locale === "fr" ? "4+ ans" : "4+ years", label: locale === "fr" ? "en développement et support TI" : "in development and IT support" },
+            { value: "123", label: locale === "fr" ? "sites d’activité concernés par les traitements de données" : "business locations covered by data processing" },
+            { value: "100+", label: locale === "fr" ? "bases SQL Server consolidées" : "SQL Server databases consolidated" },
+          ].map(({ value, label }) => (
+            <div key={value} className="flex flex-col gap-1">
+              <dt className="muted text-sm leading-6">{label}</dt>
+              <dd className="order-first text-2xl font-extrabold text-[var(--brand)]">{value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
 
       {/* =========================
@@ -110,8 +122,8 @@ export function Hero({ locale }: { locale: Locale }) {
 
           <p className="profile-role">
             {locale === "fr"
-              ? "Développement web · Support TI · Données · Gestion de projets"
-              : "Web Development · IT Support · Data · Project Management"}
+              ? "Applications métier · Bases de données"
+              : "Business applications · Databases"}
           </p>
         </div>
       </div>

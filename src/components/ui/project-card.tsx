@@ -68,14 +68,19 @@ export function ProjectCard({
         >
           {project.title[locale]}
         </h3>
-        <p className="muted mt-3 line-clamp-3 text-sm leading-6">{project.summary[locale]}</p>
+        <p className="muted mt-3 text-sm leading-6">{project.summary[locale]}</p>
+        {project.featured && !isPending(project.impact[locale]) ? (
+          <div className="mt-4 rounded-lg bg-[var(--surface-muted)] p-4 text-sm leading-6">
+            <p className="font-extrabold">{fr ? "Résultat" : "Outcome"}</p>
+            <p className="muted mt-1">{project.impact[locale]}</p>
+          </div>
+        ) : null}
         {hasDetails ? (
           <details className="mt-5 border-t border-[var(--border)] pt-4">
             <summary className="cursor-pointer font-bold text-[var(--brand)]">
               {fr ? "Voir l’étude de cas" : "View case study"}
             </summary>
-            <p className="muted mt-4 text-sm leading-6">{project.summary[locale]}</p>
-            <div className="mt-4 grid gap-4 text-sm leading-6">
+                        <div className="mt-4 grid gap-4 text-sm leading-6">
               {!isPending(project.problem[locale]) ? (
                 <div>
                   <h4 className="font-extrabold">
@@ -87,7 +92,7 @@ export function ProjectCard({
               {!isPending(project.solution[locale]) ? (
                 <div>
                   <h4 className="font-extrabold">
-                    {fr ? "Solution" : "Solution"}
+                    {fr ? "Ma contribution" : "My contribution"}
                   </h4>
                   <p className="muted mt-1">{project.solution[locale]}</p>
                 </div>
@@ -104,7 +109,7 @@ export function ProjectCard({
                   </ul>
                 </div>
               ) : null}
-              {!isPending(project.impact[locale]) ? (
+              {!project.featured && !isPending(project.impact[locale]) ? (
                 <div>
                   <h4 className="font-extrabold">{fr ? "Impact" : "Impact"}</h4>
                   <p className="muted mt-1">{project.impact[locale]}</p>

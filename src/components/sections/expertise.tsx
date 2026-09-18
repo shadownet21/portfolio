@@ -72,7 +72,7 @@ export function Expertise({ locale }: { locale: Locale }) {
   const fr = locale === "fr";
 
   return (
-    <section id="expertise" className="section-space">
+    <section id="expertise" className="section-alt section-space">
       <div className="container-shell">
         {/* TITRE */}
         <Reveal direction="up" duration={0.8} distance={35}>

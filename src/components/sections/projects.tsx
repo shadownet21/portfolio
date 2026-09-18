@@ -22,13 +22,13 @@ export function Projects({ locale }: { locale: Locale }) {
             eyebrow={fr ? "Projets sélectionnés" : "Selected projects"}
             title={
               fr
-                ? "Des idées aux applications"
-                : "From ideas to applications"
+                ? "Trois projets au cœur de mon expérience"
+                : "Three projects at the heart of my experience"
             }
             description={
               fr
-                ? "Explorez les interfaces. Découvrez les choix derrière chaque projet."
-                : "Explore the interfaces. Discover the decisions behind each project."
+                ? "Applications financières et automatisation : les besoins rencontrés, mes contributions et les résultats décrits dans chaque étude de cas."
+                : "Financial applications and automation: the needs, my contributions and the outcomes described in each case study."
             }
           />
         </Reveal>
@@ -50,12 +50,10 @@ export function Projects({ locale }: { locale: Locale }) {
 
         {/* AUTRES RÉALISATIONS */}
         {secondaryProjects.length > 0 && (
-          <>
-            <Reveal direction="up" duration={0.7} distance={25}>
-              <h3 className="mt-16 text-xl font-extrabold md:text-2xl">
-                {fr ? "Autres réalisations" : "Additional work"}
-              </h3>
-            </Reveal>
+          <details className="mt-12 rounded-xl border border-[var(--border)] p-5 md:p-6">
+            <summary className="cursor-pointer text-lg font-extrabold text-[var(--brand)]">
+              {fr ? "Explorer mes autres réalisations" : "Explore my other projects"} ({secondaryProjects.length})
+            </summary>
 
             <div className="mt-7 grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 xl:grid-cols-3">
               {secondaryProjects.map((project, index) => (
@@ -70,7 +68,7 @@ export function Projects({ locale }: { locale: Locale }) {
                 </Reveal>
               ))}
             </div>
-          </>
+          </details>
         )}
 
         {/* APPEL À L’ACTION */}

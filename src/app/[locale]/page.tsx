@@ -49,7 +49,7 @@ export default async function PortfolioPage({ params }: PageProps) {
     <div lang={value === "fr" ? "fr-CA" : "en-CA"}>
       <LanguageSync locale={value} />
       <Header locale={value} />
-      <main id="contenu"><Hero locale={value} /><About locale={value} /><Expertise locale={value} /><Projects locale={value} /><Journey locale={value} /><Skills locale={value} /><Contact locale={value} /></main>
+      <main id="contenu"><Hero locale={value} /><Projects locale={value} /><About locale={value} /><Expertise locale={value} /><Journey locale={value} /><Skills locale={value} /><Contact locale={value} /></main>
       <Footer locale={value} />
     </div>
   );

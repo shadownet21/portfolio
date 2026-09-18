@@ -17,7 +17,7 @@ export function About({ locale }: { locale: Locale }) {
   const fr = locale === "fr";
 
   return (
-    <section id="a-propos" className="section-alt section-space">
+    <section id="a-propos" className="section-space">
       <div className="container-shell">
         {/* TITRE DE LA SECTION */}
         <Reveal direction="up" duration={0.8} distance={35}>
@@ -45,8 +45,8 @@ export function About({ locale }: { locale: Locale }) {
             >
               <p>
                 {fr
-                  ? "Je relie développement web, support TI et données pour simplifier le quotidien des équipes. Planification, priorités et coordination complètent mon approche."
-                  : "I connect web development, IT support and data to simplify everyday work. Planning, priorities and coordination complete my approach."}
+                  ? "Mon métier : développer des applications web et en assurer le support. De l’analyse du besoin au déploiement, je m’appuie sur la gestion des données, les tests et la coordination avec les équipes."
+                  : "My work is to build and support web applications. From understanding requirements to deployment, I draw on data management, testing and coordination with teams."}
               </p>
 
               <p>

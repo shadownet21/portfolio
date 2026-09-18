@@ -1,4 +1,3 @@
-import { PLACEHOLDERS } from "@/data/site";
 import type { Project } from "@/types/content";
 
 const pending = { fr: "À compléter", en: "To be completed" } as const;
@@ -62,7 +61,7 @@ export const projects: Project[] = [
     "fr": "Prototype",
     "en": "Prototype"
   },
-  "featured": true,
+  featured: false,
   "aiAssistance": {
     "fr": "Développé avec l’assistance de Claude et de Codex (OpenAI).",
     "en": "Developed with assistance from Claude and Codex (OpenAI)."
@@ -124,10 +123,10 @@ export const projects: Project[] = [
     }
   }
 ],
-    projectUrl: PLACEHOLDERS.github,
-    githubUrl: PLACEHOLDERS.github,
+    projectUrl: "APPLICATION_INTERNE_NON_PUBLIQUE",
+    githubUrl: "CODE_SOURCE_CONFIDENTIEL_NON_PUBLIC",
     status: { fr: "Étude de cas anonymisée", en: "Anonymized case study" },
-    featured: true,
+    featured: false,
     confidential: true,
   },
   {
@@ -325,10 +324,10 @@ export const projects: Project[] = [
       en: "Improved regulatory monitoring of accounts without activity, centralized network-wide statistics and more proactive outreach before dormant account funds are transferred to the BCEAO.",
     },
 
-    image: "/images/eci/ACCUEIL.png",
+    image: "/images/eci/accueil-anonymise.png",
  gallery: [
   {
-    "src": "/images/eci/ACCUEIL.png",
+    "src": "/images/eci/accueil-anonymise.png",
     "caption": {
       "fr": "Tableau de bord des comptes inactifs et dormants",
       "en": "Inactive and dormant accounts dashboard"
@@ -487,7 +486,7 @@ export const projects: Project[] = [
       },
     ],
     impact: pending,
-    image: "/images/project-basketball.svg",
+    image: "/images/ia-basketball-club/p1.png",
     gallery: [
       {
         src: "/images/ia-basketball-club/p1.png",
@@ -521,7 +520,7 @@ export const projects: Project[] = [
     projectUrl: "URL_DEMO_BASKETBALL_A_REMPLACER",
     githubUrl: "https://github.com/shadownet21/p2-basketballIA.git",
     status: { fr: "À compléter", en: "To be completed" },
-    featured: true,
+    featured: false,
   },
   {
     slug: "generateur-cv-ia",
@@ -722,9 +721,9 @@ export const projects: Project[] = [
   },
   {
     slug: "flash-production",
-    title: { fr: "Flash Production", en: "Flash Production" },
+    title: { fr: "Flash Production · Ressources et stocks", en: "Flash Production · Resources and inventory" },
     category: {
-      fr: "Applications web de gestions",
+      fr: "Applications web de gestion",
       en: "Management web applications",
     },
     summary: {
@@ -757,9 +756,9 @@ export const projects: Project[] = [
   },
   {
     slug: "flash-production-gestion-projets",
-    title: { fr: "Flash Production", en: "Flash Production" },
+    title: { fr: "Flash Production · Commandes et fidélisation", en: "Flash Production · Orders and loyalty" },
     category: {
-      fr: "Applications web de gestions",
+      fr: "Applications web de gestion",
       en: "Management web applications",
     },
     summary: {
