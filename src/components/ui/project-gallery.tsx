@@ -31,7 +31,7 @@ export function ProjectGallery({ project, locale }: { project: Project; locale: 
     document.body.style.overflow = "hidden";
   };
   return <>
-    <button ref={trigger} type="button" className="button-secondary" onClick={open} aria-haspopup="dialog" aria-label={`${fr ? "Voir les interfaces" : "View interfaces"} ? ${project.title[locale]}`}>
+    <button ref={trigger} type="button" className="button-secondary" onClick={open} aria-haspopup="dialog" aria-label={`${fr ? "Voir les interfaces" : "View interfaces"} — ${project.title[locale]}`}>
       <Images size={17} aria-hidden="true" />{fr ? "Interfaces" : "Interfaces"}<span className="muted text-xs">{slides.length}</span>
     </button>
     <dialog ref={dialog} className="project-dialog" aria-labelledby={titleId}
@@ -54,19 +54,14 @@ export function ProjectGallery({ project, locale }: { project: Project; locale: 
         </div>
         <figure className="p-3 md:p-6">
           <div className="gallery-stage">
-            <div className={slide.presentation === "laptop" ? "gaming-laptop" : ""}>
-              <div className={slide.presentation === "laptop" ? "laptop-screen" : ""}>
-                <Image key={slide.src} src={slide.src} alt={slide.caption[locale]} width={1600} height={1100} sizes="(max-width: 768px) 95vw, 1000px" className="gallery-image" />
-              </div>
-              {slide.presentation === "laptop" ? <div className="laptop-base" aria-hidden="true"><div className="laptop-keyboard" /><div className="laptop-trackpad" /></div> : null}
-            </div>
+            <Image key={slide.src} src={slide.src} alt={slide.caption[locale]} width={1600} height={1100} sizes="(max-width: 768px) 95vw, 1000px" className="gallery-image" />
           </div>
           <figcaption className="mt-4 text-center text-sm" aria-live="polite">{index + 1} / {slides.length} · {slide.caption[locale]}</figcaption>
         </figure>
         <div className="flex items-center justify-between gap-3 px-4 pb-4 md:px-6">
           <button type="button" className="button-secondary" onClick={() => move(-1)} disabled={slides.length < 2} aria-label={fr ? "Interface précédente" : "Previous interface"}><ChevronLeft size={18} aria-hidden="true" /><span className="hidden sm:inline">{fr ? "Précédente" : "Previous"}</span></button>
           <div className="flex flex-wrap justify-center gap-2" role="group" aria-label={fr ? "Choisir une interface" : "Choose an interface"}>
-            {slides.map((item, number) => <button key={item.src} type="button" className="gallery-dot" aria-pressed={number === index} aria-label={`${number + 1} ? ${item.caption[locale]}`} onClick={() => setIndex(number)}>{number + 1}</button>)}
+            {slides.map((item, number) => <button key={item.src} type="button" className="gallery-dot" aria-pressed={number === index} aria-label={`${number + 1} — ${item.caption[locale]}`} onClick={() => setIndex(number)}>{number + 1}</button>)}
           </div>
           <button type="button" className="button-secondary" onClick={() => move(1)} disabled={slides.length < 2} aria-label={fr ? "Interface suivante" : "Next interface"}><span className="hidden sm:inline">{fr ? "Suivante" : "Next"}</span><ChevronRight size={18} aria-hidden="true" /></button>
         </div>

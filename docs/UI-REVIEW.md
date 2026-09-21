@@ -1,5 +1,7 @@
 # Vérification UI/UX — 11 septembre 2026
 
+Ce document conserve le compte rendu historique du 11 septembre. Les galeries et l’anonymisation ont changé depuis ; consulter le README pour l’état actuel.
+
 Les dix demandes ont été implémentées dans le portfolio, avec un commit dédié à chacune. Des corrections issues des tests et une mise à jour documentaire complètent ces commits.
 
 | Nº | Demande | Résultat vérifié |

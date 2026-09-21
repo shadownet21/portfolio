@@ -32,7 +32,7 @@ export function ProjectCard({
         className="button-secondary"
         href={href}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         aria-label={`${kind === "github" ? "GitHub" : fr ? "Démonstration" : "Demo"} — ${project.title[locale]}`}
       >
         {kind === "github" ? <BrandIcon brand="github" size={17} /> : <ExternalLink size={17} />}
@@ -80,7 +80,7 @@ export function ProjectCard({
             <summary className="cursor-pointer font-bold text-[var(--brand)]">
               {fr ? "Voir l’étude de cas" : "View case study"}
             </summary>
-                        <div className="mt-4 grid gap-4 text-sm leading-6">
+            <div className="mt-4 grid gap-4 text-sm leading-6">
               {!isPending(project.problem[locale]) ? (
                 <div>
                   <h4 className="font-extrabold">
@@ -116,7 +116,6 @@ export function ProjectCard({
                 </div>
               ) : null}
             </div>
-            <div className="mt-4 flex flex-wrap gap-2">{visibleTechnologies.map(technology => <span className="tag" key={technology}>{technology}</span>)}</div>
           </details>
         ) : null}
         {project.aiAssistance ? <p className="muted mt-4 text-xs leading-5">{project.aiAssistance[locale]}</p> : null}

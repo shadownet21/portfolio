@@ -4,11 +4,12 @@ import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 const manrope = Manrope({ subsets: ["latin"], display: "swap" });
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
-  metadataBase: new URL(getSiteUrl()),
+  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
   title: { default: "Marc Maurice Freeman — Support TI & Développement Web", template: "%s | Marc Maurice Freeman" },
-  description: "Portfolio professionnel de Marc Maurice Freeman, technicien support TI et développeur web à Longueuil, Québec.",
+  description: "Portfolio professionnel de Marc Maurice Freeman : soutien TI, développement web, bases de données et coordination de projets technologiques à Longueuil, Québec.",
   authors: [{ name: "Marc Maurice Freeman" }],
   creator: "Marc Maurice Freeman",
   applicationName: "Portfolio de Marc Maurice Freeman",

@@ -282,7 +282,7 @@ export const projects: Project[] = [
     technologies: [
       "PHP",
       "JavaScript",
-      "MySql",
+      "MySQL",
       "jQuery",
       "AJAX",
       "SQL Server",
@@ -589,7 +589,7 @@ export const projects: Project[] = [
     impact: pending,
     image: "/images/project-resume.svg",
     projectUrl: "URL_DEMO_CV_IA_A_REMPLACER",
-    githubUrl: "https://github.com/shadownet21/",
+    githubUrl: "URL_GITHUB_CV_IA_A_REMPLACER",
     status: { fr: "À compléter", en: "To be completed" },
     featured: false,
   },

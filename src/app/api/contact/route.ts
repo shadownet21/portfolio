@@ -5,6 +5,8 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const RATE_LIMIT_WINDOW = 60 * 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
+const MAX_BODY_BYTES = 16_384;
+const MAX_RATE_LIMIT_ENTRIES = 1_000;
 
 type RateLimitEntry = {
   count: number;
@@ -25,6 +27,14 @@ function getClientIp(request: Request) {
 
 function isRateLimited(ip: string) {
   const now = Date.now();
+  if (rateLimitStore.size >= MAX_RATE_LIMIT_ENTRIES) {
+    for (const [key, entry] of rateLimitStore) {
+      if (now >= entry.resetAt) rateLimitStore.delete(key);
+    }
+    if (rateLimitStore.size >= MAX_RATE_LIMIT_ENTRIES) {
+      rateLimitStore.delete(rateLimitStore.keys().next().value!);
+    }
+  }
   const current = rateLimitStore.get(ip);
 
   if (!current || now >= current.resetAt) {
@@ -49,8 +59,35 @@ function getString(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
 }
 
+async function readJson(request: Request): Promise<unknown> {
+  const reader = request.body?.getReader();
+  if (!reader) return null;
+  const chunks: Uint8Array[] = [];
+  let size = 0;
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    size += value.byteLength;
+    if (size > MAX_BODY_BYTES) {
+      await reader.cancel();
+      return null;
+    }
+    chunks.push(value);
+  }
+  const bytes = new Uint8Array(size);
+  let offset = 0;
+  for (const chunk of chunks) {
+    bytes.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return JSON.parse(new TextDecoder().decode(bytes));
+}
+
 export async function POST(request: Request) {
   try {
+    if (request.headers.get("content-type")?.split(";")[0].trim() !== "application/json") {
+      return NextResponse.json({ error: "invalid_request" }, { status: 415 });
+    }
     const ip = getClientIp(request);
 
     if (isRateLimited(ip)) {
@@ -64,7 +101,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const body: unknown = await request.json();
+    const body = await readJson(request);
 
     if (!body || typeof body !== "object") {
       return NextResponse.json(
@@ -101,10 +138,12 @@ export async function POST(request: Request) {
     if (
       name.length < 2 ||
       name.length > 80 ||
+      /[\r\n]/.test(name) ||
       !EMAIL_REGEX.test(email) ||
       email.length > 254 ||
       subject.length < 2 ||
       subject.length > 150 ||
+      /[\r\n]/.test(subject) ||
       message.length < 20 ||
       message.length > 5000
     ) {

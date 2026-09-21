@@ -19,7 +19,7 @@ Captures de la version locale compilée, actualisées le **11 septembre 2026**.
 
 ### Galerie des applications
 
-[![Capture de code des crédits radiés présentée dans un laptop gamer](public/images/screenshots/gallery-laptop.png)](public/images/screenshots/gallery-laptop.png)
+[![Galerie des interfaces des applications](public/images/screenshots/redesign-projects.png)](public/images/screenshots/redesign-projects.png)
 
 <details>
 <summary>Aperçu mobile</summary>
@@ -30,15 +30,15 @@ Captures de la version locale compilée, actualisées le **11 septembre 2026**.
 
 ## Expérience utilisateur
 
-Le titre d’accueil inclut « Gestion de projets » / « Project Management ». La signature conserve quatre verbes : « Résoudre. Développer. Optimiser. Coordonner. » / « Solve. Build. Optimize. Coordinate. ».
+L’accueil présente le développement web et le soutien TI, ainsi que l’expérience en bases de données. La signature résume l’approche : « Des applications utiles. Des données fiables. Des utilisateurs accompagnés. » / « Useful applications. Reliable data. Supported users. ».
 
 - Portrait initialement invisible, puis recomposé en vingt pièces de puzzle en environ deux secondes : une animation par chargement, déclenchée après la fin réelle des six animations du texte et lorsque la photo devient visible, avec image statique si les mouvements sont réduits.
 - Logos officiels GitHub et LinkedIn, conservés localement.
 - Navigation avec section active, progression du défilement et transitions respectant la préférence de réduction des mouvements.
-- Deux grilles de six projets, résumés compacts et détails accessibles par « Voir l’étude de cas ».
+- Projets principaux et autres réalisations, avec résumés compacts et détails accessibles par « Voir l’étude de cas ».
 - Filtres de compétences : expérience professionnelle, pratique opérationnelle et apprentissage. « Tout voir » restaure les neuf catégories, dont l’informatique décisionnelle.
-- Aperçus réels de Gel, Crédits radiés et ECI. Galeries avec boutons, sélection directe, flèches du clavier, fermeture par Échap et restitution du focus.
-- Capture de code PHP des crédits radiés intégrée dans un laptop gamer responsive construit en CSS.
+- Aperçus réels de Gel, Crédits radiés, ECI, Garage La Révélation et Initiative Avenir Basketball Club. Galeries avec boutons, sélection directe, flèches du clavier, fermeture par Échap et restitution du focus.
+- Captures des applications métier anonymisées directement dans les fichiers publics avant affichage.
 
 ## Projet puzzle
 
@@ -77,7 +77,7 @@ npm run build
 npm run typecheck
 ```
 
-Contrôle du 11 septembre 2026 : ESLint sans avertissement, huit tests réussis, compilation et TypeScript réussis. Parcours Chromium vérifié à 1440 × 1000 et 390 × 844 : français/anglais, thèmes, filtres, galeries, clavier, réduction des mouvements et absence d’erreurs JavaScript ou de ressources HTTP.
+Contrôle du 21 septembre 2026 : ESLint, TypeScript et compilation réussis ; douze tests réussis. Parcours Edge à 320, 375, 768, 1024 et 1440 px : pas de débordement horizontal mesuré, menu mobile, thème, langue et galerie vérifiés, sans erreur de console relevée.
 
 Le détail des dix demandes et de leur vérification figure dans le [compte rendu UI/UX](docs/UI-REVIEW.md).
 
@@ -92,11 +92,11 @@ Next.js 16, React 19, TypeScript, Tailwind CSS 4, Framer Motion, Lucide React, R
 | Compétences et niveaux | `src/data/skills.ts` |
 | Expériences et formations | `src/data/profile.ts` |
 | Galerie et navigation clavier | `src/components/ui/project-gallery.tsx` |
-| Styles et laptop | `src/app/globals.css` |
+| Styles de l’interface | `src/app/globals.css` |
 
-Pour une galerie, renseigner `gallery` avec un chemin local `src` et une légende `caption` en français et en anglais. `presentation: "laptop"` active l’encadrement du code. Déposer les captures sélectionnées dans `public/images`.
+Pour une galerie, renseigner `gallery` avec un chemin local `src` et une légende `caption` en français et en anglais. Déposer uniquement des captures vérifiées et anonymisées dans `public/images`.
 
-Les captures de connexion servent de couverture lorsqu’elles existent. ECI utilise son tableau de bord, car les images fournies ne contiennent pas d’écran de connexion. Les captures non sélectionnées ne sont pas ajoutées au dépôt par cette mise à jour.
+Les captures de connexion servent de couverture lorsqu’elles existent. ECI utilise son tableau de bord, car les images fournies ne contiennent pas d’écran de connexion. Le script `scripts/anonymize-screenshots.ps1` décrit les zones masquées des captures métier.
 
 ### Formulaire de contact
 
@@ -110,7 +110,7 @@ Les secrets restent dans l’environnement, jamais dans Git. Aucun courriel n’
 
 ### Déploiement
 
-Importer le dépôt sur Vercel avec le preset Next.js. Configurer les variables du formulaire et `NEXT_PUBLIC_SITE_URL` avec le domaine final ; le projet peut aussi utiliser `VERCEL_PROJECT_PRODUCTION_URL`. Lancer la compilation puis vérifier les liens et métadonnées du site déployé.
+Importer le dépôt sur Vercel avec le preset Next.js. Configurer les variables du formulaire et `NEXT_PUBLIC_SITE_URL` avec le domaine final ; le projet peut aussi utiliser `VERCEL_PROJECT_PRODUCTION_URL`. Sans URL de production, les liens canoniques et les entrées du sitemap ne sont pas générés. Lancer la compilation puis vérifier les liens et métadonnées du site déployé.
 
 ### Origine des logos
 

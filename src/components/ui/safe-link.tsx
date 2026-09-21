@@ -14,5 +14,5 @@ export function SafeLink({ href, children, className, label, download = false, n
   if (isPlaceholder(href)) {
     return null;
   }
-  return <a href={href} className={className} download={download || undefined} target={newTab ? "_blank" : undefined} rel={newTab ? "noreferrer" : undefined} aria-label={label}>{children}</a>;
+  return <a href={href} className={className} download={download || undefined} target={newTab ? "_blank" : undefined} rel={newTab ? "noopener noreferrer" : undefined} aria-label={label}>{children}</a>;
 }

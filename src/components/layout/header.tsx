@@ -69,7 +69,7 @@ export function Header({ locale }: { locale: Locale }) {
             <Link href={`/${otherLocale}`} className="button-secondary !h-10 !min-h-10 !px-3" hrefLang={otherLocale} aria-label={otherLocale === "fr" ? "Version française" : "English version"}>{otherLocale.toUpperCase()}</Link>
             <ThemeToggle label={copy.theme} />
             <SafeLink href={PLACEHOLDERS.cv} className="button-primary hidden lg:inline-flex" download label={copy.cv}><Download size={17} aria-hidden="true" />{copy.cv}</SafeLink>
-            <button ref={menuButtonRef} type="button" className="button-secondary !h-10 !min-h-10 !w-10 !p-0 xl:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-haspopup="true" aria-controls="mobile-menu" aria-label={open ? copy.close : copy.menu}>
+            <button ref={menuButtonRef} type="button" className="button-secondary !h-10 !min-h-10 !w-10 !p-0 xl:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? copy.close : copy.menu}>
               {open ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
             </button>
           </div>
