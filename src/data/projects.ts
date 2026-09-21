@@ -706,7 +706,65 @@ export const projects: Project[] = [
       en: "The solution helped structure business operations, centralize operational information and simplify the daily monitoring of services, inventory and customer records.",
     },
 
-    image: "/images/project-default.svg",
+    image: "/images/garage-revelation/accueil-dashboard.png",
+    gallery: [
+      {
+        src: "/images/garage-revelation/accueil-dashboard.png",
+        caption: {
+          fr: "Garage · tableau de bord des véhicules, interventions et factures",
+          en: "Repair shop · vehicle, repair and invoice dashboard",
+        },
+      },
+      {
+        src: "/images/garage-revelation/Clients.png",
+        caption: {
+          fr: "Garage · enregistrement et recherche des clients",
+          en: "Repair shop · customer registration and search",
+        },
+      },
+      {
+        src: "/images/garage-revelation/factures.png",
+        caption: {
+          fr: "Garage · création et suivi des factures par intervention",
+          en: "Repair shop · invoice creation and tracking by repair",
+        },
+      },
+      {
+        src: "/images/garage-revelation/details-factures.png",
+        caption: {
+          fr: "Garage · détail d’une facture, pièces et main-d’œuvre",
+          en: "Repair shop · invoice details, parts and labor",
+        },
+      },
+      {
+        src: "/images/casse-revelation/dashboard.png",
+        caption: {
+          fr: "Casse · tableau de bord des véhicules, pièces détachées et ventes",
+          en: "Salvage yard · vehicle, spare-parts and sales dashboard",
+        },
+      },
+      {
+        src: "/images/casse-revelation/voitures.png",
+        caption: {
+          fr: "Casse · enregistrement et inventaire des véhicules",
+          en: "Salvage yard · vehicle registration and inventory",
+        },
+      },
+      {
+        src: "/images/casse-revelation/Carosseries.png",
+        caption: {
+          fr: "Casse · gestion des pièces de carrosserie et association aux véhicules",
+          en: "Salvage yard · body-part management and vehicle assignments",
+        },
+      },
+      {
+        src: "/images/casse-revelation/ventes.png",
+        caption: {
+          fr: "Casse · enregistrement des ventes de pièces détachées",
+          en: "Salvage yard · spare-parts sales entry",
+        },
+      },
+    ],
 
     projectUrl: "URL_DEMO_GARAGE_A_REMPLACER",
 
