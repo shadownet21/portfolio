@@ -121,6 +121,30 @@ export const projects: Project[] = [
       "fr": "Importation des fichiers de virement",
       "en": "Transfer file import"
     }
+  },
+  {
+    "src": "/images/Gel/Crédits.png",
+    "caption": { "fr": "Crédits et échéances", "en": "Loans and due dates" }
+  },
+  {
+    "src": "/images/Gel/Simulation.png",
+    "caption": { "fr": "Simulation du gel", "en": "Funds-freeze simulation" }
+  },
+  {
+    "src": "/images/Gel/Vérifications.png",
+    "caption": { "fr": "Vérifications", "en": "Verification checks" }
+  },
+  {
+    "src": "/images/Gel/Suivi.png",
+    "caption": { "fr": "Suivi des gels", "en": "Freeze tracking" }
+  },
+  {
+    "src": "/images/Gel/Surveillance Dégel.png",
+    "caption": { "fr": "Surveillance des dégels", "en": "Unfreeze monitoring" }
+  },
+  {
+    "src": "/images/Gel/Historique des gels.png",
+    "caption": { "fr": "Historique des gels", "en": "Freeze history" }
   }
 ],
     projectUrl: "APPLICATION_INTERNE_NON_PUBLIQUE",
@@ -212,14 +236,6 @@ export const projects: Project[] = [
     "caption": {
       "fr": "Connexion à la gestion des crédits radiés",
       "en": "Written-off loans sign-in"
-    }
-  },
-  {
-    "src": "/images/credits-radies/credits radies.png",
- "presentation": "laptop",
-    "caption": {
-      "fr": "Extrait de code PHP : affichage des crédits radiés",
-      "en": "PHP code excerpt: displaying written-off loans"
     }
   }
 ],
@@ -346,6 +362,26 @@ export const projects: Project[] = [
       "fr": "Navigation de l’administration des agences",
       "en": "Branch administration navigation"
     }
+  },
+  {
+    "src": "/images/eci/ADMIN COOPECACCUEIL.png",
+    "caption": { "fr": "Tableau de bord de l’administration", "en": "Administration dashboard" }
+  },
+  {
+    "src": "/images/eci/donnees_agences.png",
+    "caption": { "fr": "Récapitulatif des agences", "en": "Branch overview" }
+  },
+  {
+    "src": "/images/eci/Menu trouvés.png",
+    "caption": { "fr": "Suivi des membres retrouvés", "en": "Located member tracking" }
+  },
+  {
+    "src": "/images/eci/Modal motif.png",
+    "caption": { "fr": "Mise à jour d’un dossier", "en": "Record update form" }
+  },
+  {
+    "src": "/images/eci/tableau dormant.png",
+    "caption": { "fr": "Liste des comptes dormants", "en": "Dormant account list" }
   }
 ],
 
@@ -708,6 +744,13 @@ export const projects: Project[] = [
 
     image: "/images/garage-revelation/accueil-dashboard.png",
     gallery: [
+      {
+        src: "/images/casse-revelation/Auth.png",
+        caption: {
+          fr: "Casse · écran de connexion",
+          en: "Salvage yard · sign-in screen",
+        },
+      },
       {
         src: "/images/garage-revelation/accueil-dashboard.png",
         caption: {
