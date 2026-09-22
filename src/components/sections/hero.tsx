@@ -109,22 +109,20 @@ export function Hero({ locale }: { locale: Locale }) {
           PHOTO / PROFIL
       ========================== */}
       <div className="profile-card">
-        <div className="profile-glow" />
+        <div className="profile-glow" aria-hidden="true" />
 
         <div className="profile-image-wrapper">
           <PuzzlePortrait ready={completedReveals.size === 6} alt={locale === "fr" ? "Portrait de Marc Maurice Freeman" : "Portrait of Marc Maurice Freeman"} />
 
-          <span className="profile-status" />
-        </div>
+          <div className="profile-info">
+            <h2 className="profile-name">MMF</h2>
 
-        <div className="profile-info">
-          <h2 className="profile-name">MMF</h2>
-
-          <p className="profile-role">
-            {locale === "fr"
-              ? "Applications métier · Bases de données"
-              : "Business applications · Databases"}
-          </p>
+            <p className="profile-role">
+              {locale === "fr"
+                ? "Applications métier · Bases de données"
+                : "Business applications · Databases"}
+            </p>
+          </div>
         </div>
       </div>
     </section>

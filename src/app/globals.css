@@ -374,18 +374,76 @@ button {
    PROFILE IMAGE
 ========================================= */
 
-.profile-image {
-  border-radius: 10px;
-
-  transition:
-    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.5s ease;
+.profile-card {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 31rem);
+  margin-inline: auto;
 }
 
-.profile-image:hover {
-  transform: scale(1.025);
+.profile-glow {
+  position: absolute;
+  z-index: -1;
+  inset: 8% -7%;
+  border-radius: 2rem;
+  background: radial-gradient(circle at 50% 42%, var(--glow), transparent 68%);
+  filter: blur(30px);
+  opacity: .9;
+  pointer-events: none;
+}
 
-  filter: contrast(1.03) saturate(1.04);
+.profile-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--brand) 30%, var(--border));
+  border-radius: 1.35rem;
+  background: var(--surface-muted);
+  box-shadow:
+    0 24px 60px rgba(5, 23, 48, .18),
+    0 0 34px var(--glow);
+}
+
+.profile-info {
+  position: absolute;
+  z-index: 2;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 4.5rem 1.25rem 1.15rem;
+  color: #f6f9ff;
+  background: linear-gradient(to bottom, transparent, rgba(5, 16, 34, .92) 58%);
+  pointer-events: none;
+}
+
+.profile-name {
+  font-size: 1rem;
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.profile-role {
+  margin-top: .25rem;
+  color: rgba(246, 249, 255, .82);
+  font-size: .9rem;
+  line-height: 1.45;
+}
+
+.profile-card .portrait-original,
+.profile-card .portrait-puzzle {
+  filter: saturate(.94) contrast(1.025);
+}
+
+.profile-card .portrait-original {
+
+  transition:
+    transform .5s cubic-bezier(.22, 1, .36, 1),
+    filter .5s ease;
+}
+
+.profile-card:hover .portrait-original {
+  transform: scale(1.012);
+
+  filter: saturate(.97) contrast(1.035);
 }
 
 /* =========================================
@@ -444,7 +502,7 @@ html { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) { .card:hover, .project-card:hover .project-cover, .skill-filter:hover { transform: none; } }
 
 /* Reserve the portrait space but reveal the image only through the puzzle. */
-.puzzle-portrait { position: relative; isolation: isolate; overflow: hidden; border-radius: 10px; background: var(--surface-muted); }
+.puzzle-portrait { position: relative; isolation: isolate; overflow: hidden; background: var(--surface-muted); }
 .portrait-original { display: block; width: 100%; height: auto; }
 .puzzle-portrait[data-phase="idle"] { background: transparent; }
 .puzzle-portrait:not([data-phase="complete"]) .portrait-original { opacity: 0; }
