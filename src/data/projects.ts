@@ -828,8 +828,8 @@ export const projects: Project[] = [
       en: "Management web applications",
     },
     summary: {
-      fr: "Développement d'une solution de gestion de projet publique, incluant la planification des ressources, le suivi des stocks et les statistiques en temps réel.",
-      en: "Development of a public project management solution, including resource planning, inventory tracking and real-time statistics.",
+      fr: "Développement d'une solution de gestion de projet publique, incluant la planification des ressources, le suivi des stocks et les statistiques en temps réel. Ce bloc présente également Flash Contrôle Routier, une application de gestion du contrôle routier, des amendes et des profils utilisateurs.",
+      en: "Development of a public project management solution, including resource planning, inventory tracking and real-time statistics. This section also presents Flash Contrôle Routier, an application for managing road checks, fines and user profiles.",
     },
     problem: pending,
     solution: pending,
@@ -845,7 +845,30 @@ export const projects: Project[] = [
     ],
     features: [pending],
     impact: pending,
-    image: "/images/project-default.svg",
+    image: "/images/flash-controle-routier/dashboard.png",
+    gallery: [
+      {
+        src: "/images/flash-controle-routier/dashboard.png",
+        caption: {
+          fr: "Flash Contrôle Routier · tableau de bord et navigation",
+          en: "Flash Contrôle Routier · dashboard and navigation",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/paiement.png",
+        caption: {
+          fr: "Flash Contrôle Routier · suivi des amendes payées",
+          en: "Flash Contrôle Routier · paid fine tracking",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/profil.png",
+        caption: {
+          fr: "Flash Contrôle Routier · profil utilisateur et accès",
+          en: "Flash Contrôle Routier · user profile and access",
+        },
+      },
+    ],
     projectUrl: "URL_DEMO_GARAGE_A_REMPLACER",
     githubUrl: "URL_GITHUB_GARAGE_A_REMPLACER",
     status: {

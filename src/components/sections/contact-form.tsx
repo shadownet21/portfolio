@@ -74,8 +74,8 @@ export function ContactForm({ locale }: { locale: Locale }) {
 
       case "success":
         return fr
-          ? "Merci ! Votre message a été envoyé avec succès."
-          : "Thank you! Your message has been sent successfully.";
+          ? "Merci ! Votre message a bien été reçu."
+          : "Thank you! Your message has been received.";
 
       case "rate-limit":
         return fr

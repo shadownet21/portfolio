@@ -83,7 +83,7 @@ Le détail des dix demandes et de leur vérification figure dans le [compte rend
 
 ## Technologies et personnalisation
 
-Next.js 16, React 19, TypeScript, Tailwind CSS 4, Framer Motion, Lucide React, Resend, Vitest et Testing Library.
+Next.js 16, React 19, TypeScript, Tailwind CSS 4, Framer Motion, Lucide React, Vitest et Testing Library.
 
 | Contenu | Fichier |
 |---|---|
@@ -100,17 +100,17 @@ Les captures de connexion servent de couverture lorsqu’elles existent. ECI uti
 
 ### Formulaire de contact
 
-Le formulaire appelle `/api/contact`, qui utilise Resend. Configurer côté serveur :
+Le formulaire appelle `POST /api/contact`, qui enregistre les messages dans `data/contact-messages.json` à la racine du projet. Le dossier et le fichier sont créés au premier message valide. Aucun courriel n’est envoyé et aucune clé Resend n’est nécessaire.
 
-- `RESEND_API_KEY`
-- `CONTACT_EMAIL`
-- `CONTACT_FROM_EMAIL`
+Le fichier contient un tableau JSON : chaque entrée comprend `id`, `receivedAt` (date UTC), `name`, `email`, `subject` et `message`. Consulter ce fichier directement sur le serveur pour lire les demandes. Il reste hors de `public`, est exclu de Git et doit être sauvegardé avec les données du serveur.
 
-Les secrets restent dans l’environnement, jamais dans Git. Aucun courriel n’a été envoyé pendant les contrôles de cette mise à jour.
+La validation, le champ anti-spam et la limitation des tentatives restent actifs. Les écritures sont sérialisées dans le processus Node.js et remplacent le fichier de façon atomique. Si le fichier est illisible ou l’écriture échoue, le formulaire signale une erreur sans annoncer de réception réussie ni écraser les données existantes.
 
 ### Déploiement
 
-Importer le dépôt sur Vercel avec le preset Next.js. Configurer les variables du formulaire et `NEXT_PUBLIC_SITE_URL` avec le domaine final ; le projet peut aussi utiliser `VERCEL_PROJECT_PRODUCTION_URL`. Sans URL de production, les liens canoniques et les entrées du sitemap ne sont pas générés. Lancer la compilation puis vérifier les liens et métadonnées du site déployé.
+Utiliser un serveur Node.js unique avec un disque persistant et un accès en écriture au dossier `data`. Lancer `npm run build`, puis `npm start`. Sauvegarder et conserver `data` lors des mises à jour. Ce stockage local ne convient pas aux instances multiples ou à un hébergement sans disque persistant ; utiliser alors une base de données ou un stockage externe.
+
+Configurer `NEXT_PUBLIC_SITE_URL` avec le domaine final. Sans URL de production, les liens canoniques et les entrées du sitemap ne sont pas générés. Vérifier les liens et métadonnées du site déployé.
 
 ### Origine des logos
 

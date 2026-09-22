@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import { saveContactMessage } from "../../../lib/contact-store";
+
+export const runtime = "nodejs";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -157,59 +159,11 @@ export async function POST(request: Request) {
       );
     }
 
-    const apiKey = process.env.RESEND_API_KEY;
-    const contactEmail = process.env.CONTACT_EMAIL;
-    const fromEmail = process.env.CONTACT_FROM_EMAIL;
-
-    if (!apiKey || !contactEmail || !fromEmail) {
-      console.error("Missing contact environment variables.");
-
-      return NextResponse.json(
-        {
-          error: "configuration",
-        },
-        {
-          status: 500,
-        },
-      );
-    }
-
-    const resend = new Resend(apiKey);
-
-    const { error } = await resend.emails.send({
-      from: fromEmail,
-
-      // Cette adresse n'est jamais envoyée au navigateur.
-      to: [contactEmail],
-
-      // Quand tu cliques sur "Répondre", tu réponds au visiteur.
-      replyTo: email,
-
-      subject: `[Portfolio] ${subject}`,
-
-      text: [
-        "Nouveau message depuis le portfolio",
-        "",
-        `Nom : ${name}`,
-        `Courriel : ${email}`,
-        `Sujet : ${subject}`,
-        "",
-        "Message :",
-        message,
-      ].join("\n"),
-    });
-
-    if (error) {
-      console.error("Resend error:", error);
-
-      return NextResponse.json(
-        {
-          error: "send_failed",
-        },
-        {
-          status: 500,
-        },
-      );
+    try {
+      await saveContactMessage({ name, email, subject, message });
+    } catch {
+      console.error("Unable to save contact message to local storage.");
+      return NextResponse.json({ error: "storage_failed" }, { status: 500 });
     }
 
     return NextResponse.json({
