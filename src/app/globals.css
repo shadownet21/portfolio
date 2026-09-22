@@ -518,3 +518,21 @@ html { overflow-x: clip; }
   .portrait-puzzle { display: none; }
   .portrait-piece { animation: none; }
 }
+
+/* Contact confirmation, shared by the light and dark themes. */
+.swal2-popup.contact-success-popup {
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  padding: 0 0 2rem;
+  box-shadow: 0 24px 80px rgb(0 0 0 / 0.25);
+}
+
+.contact-success-popup .swal2-title {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  overflow-wrap: anywhere;
+}
+
+.contact-success-popup .swal2-html-container {
+  line-height: 1.75;
+  font-size: 1rem;
+}

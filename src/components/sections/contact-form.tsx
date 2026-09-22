@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { Mail } from "lucide-react";
+import Swal from "sweetalert2";
 
 import type { Locale } from "@/types/content";
 
@@ -62,6 +63,31 @@ export function ContactForm({ locale }: { locale: Locale }) {
       setStatus("success");
 
       formElement.reset();
+
+      const firstName = String(form.get("name") ?? "").trim().split(/\s+/)[0];
+      try {
+        await Swal.fire({
+          icon: "success",
+          titleText: fr ? `Merci ${firstName} !` : `Thank you, ${firstName}!`,
+          text: fr
+            ? "Votre message est bien arrivé. Merci de partager votre projet avec moi ! Au plaisir d’en discuter avec vous. — Marc Maurice"
+            : "Your message has arrived. Thank you for sharing your project with me! I look forward to discussing it with you. — Marc Maurice",
+          confirmButtonText: fr ? "À bientôt !" : "Talk soon!",
+          background: "var(--surface)",
+          color: "var(--text)",
+          iconColor: "var(--brand)",
+          buttonsStyling: false,
+          heightAuto: false,
+          customClass: {
+            popup: "contact-success-popup",
+            confirmButton: "button-primary",
+          },
+          showClass: { popup: "" },
+          hideClass: { popup: "" },
+        });
+      } catch {
+        // The inline confirmation remains available if the dialog cannot open.
+      }
     } catch {
       setStatus("error");
     }
