@@ -18,6 +18,8 @@ export interface Project {
   features: LocalizedText[];
   impact: LocalizedText;
   image: string;
+  /** Logos need "contain"; screenshots default to a top-anchored "cover". */
+  coverFit?: "contain" | "cover";
   gallery?: { src: string; caption: LocalizedText }[];
   projectUrl: string;
   githubUrl: string;

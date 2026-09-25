@@ -1,4 +1,5 @@
 import {
+  Building2,
   Compass,
   GraduationCap,
   Languages,
@@ -6,7 +7,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
-import { values } from "@/data/profile";
+import { references, values } from "@/data/profile";
 import type { Locale } from "@/types/content";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -22,7 +23,7 @@ export function About({ locale }: { locale: Locale }) {
         {/* TITRE DE LA SECTION */}
         <Reveal direction="up" duration={0.8} distance={35}>
           <SectionHeading
-            eyebrow={fr ? "Mon parcours" : "My journey"}
+            eyebrow={fr ? "À propos" : "About"}
             title={
               fr
                 ? "La technologie au service des personnes et des opérations"
@@ -45,8 +46,8 @@ export function About({ locale }: { locale: Locale }) {
             >
               <p>
                 {fr
-                  ? "Mon métier : développer des applications web et en assurer le support. De l’analyse du besoin au déploiement, je m’appuie sur la gestion des données, les tests et la coordination avec les équipes."
-                  : "My work is to build and support web applications. From understanding requirements to deployment, I draw on data management, testing and coordination with teams."}
+                  ? "Développeur web full stack depuis 2018, j’ai conçu des applications métier pour une agence web, puis pour un réseau coopératif financier de plus de 120 agences. De l’analyse du besoin au déploiement, je m’appuie sur la gestion des données, les tests et la coordination avec les équipes."
+                  : "A full-stack web developer since 2018, I have built business applications for a web agency and then for a cooperative financial network of more than 120 branches. From requirements to deployment, I draw on data management, testing and coordination with teams."}
               </p>
 
               <p>
@@ -81,6 +82,24 @@ export function About({ locale }: { locale: Locale }) {
                       : "Fluent French · Intermediate English"}
                   </p>
                 </div>
+              </div>
+            </Reveal>
+
+            {/* RÉFÉRENCES */}
+            <Reveal delay={0.1} className="mt-5">
+              <div className="card p-5">
+                <h3 className="flex items-center gap-3 font-extrabold">
+                  <Building2 className="shrink-0 text-[var(--brand)]" aria-hidden="true" />
+                  {fr ? "Ils m’ont fait confiance" : "Organizations I have worked with"}
+                </h3>
+                <ul className="mt-4 grid gap-3">
+                  {references.map(({ name, work }) => (
+                    <li key={name} className="border-l-2 border-[var(--brand)] pl-3 text-sm leading-6">
+                      <span className="font-bold">{name}</span>
+                      <span className="muted"> — {work[locale]}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </Reveal>
           </div>

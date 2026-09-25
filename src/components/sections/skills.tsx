@@ -1,45 +1,53 @@
-"use client";
-import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { skillGroups } from "@/data/skills";
-import type { Locale, SkillLevel } from "@/types/content";
+import { expertiseAreas } from "@/data/skills";
+import type { Locale } from "@/types/content";
+import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-const levelStyles: Record<SkillLevel, string> = {
-  professional: "border-blue-600/30 bg-blue-600/10 text-[var(--brand-strong)]",
-  operational: "border-teal-600/30 bg-teal-600/10 text-[var(--skill-operational)]",
-  learning: "border-amber-600/30 bg-amber-500/10 text-[var(--skill-learning)]",
-};
+import { SkillExplorer } from "./skill-explorer";
+
 export function Skills({ locale }: { locale: Locale }) {
   const fr = locale === "fr";
-  const [selected, setSelected] = useState<SkillLevel | "all">("all");
-  const reduced = useReducedMotion();
-  const labels: Record<SkillLevel | "all", string> = {
-    all: fr ? "Tout voir" : "Show all",
-    professional: fr ? "Expérience professionnelle" : "Professional experience",
-    operational: fr ? "Pratique opérationnelle" : "Working knowledge",
-    learning: fr ? "En apprentissage" : "Learning",
-  };
-  const groups = skillGroups.map(group => ({ ...group, skills: group.skills.filter(skill => selected === "all" || skill.level === selected) })).filter(group => group.skills.length);
-  const count = groups.reduce((total, group) => total + group.skills.length, 0);
-  return <section id="competences" className="section-alt section-space">
-    <div className="container-shell">
-      <SectionHeading eyebrow={fr ? "Compétences" : "Skills"} title={fr ? "Mes outils, en pratique" : "My tools, in practice"} description={fr ? "Choisissez un niveau pour explorer les compétences associées." : "Choose a level to explore the related skills."} />
-      <div className="mb-4 flex flex-wrap gap-3" role="group" aria-label={fr ? "Filtrer par niveau de maîtrise" : "Filter by proficiency"}>
-        {(["all", "professional", "operational", "learning"] as const).map(level => <button key={level} type="button" aria-pressed={selected === level} aria-controls="skill-results" onClick={() => setSelected(level === selected ? "all" : level)} className={`skill-filter rounded-full border px-4 py-3 text-sm font-bold ${level === "all" ? "border-[var(--border)]" : levelStyles[level]}`}>{labels[level]}</button>)}
+  const [primary, secondary] = [expertiseAreas.slice(0, 2), expertiseAreas.slice(2)];
+
+  return (
+    <section id="competences" className="section-alt section-space">
+      <div className="container-shell">
+        <Reveal>
+          <SectionHeading
+            eyebrow={fr ? "Compétences" : "Skills"}
+            title={fr ? "Un profil hybride, de l’utilisateur jusqu’à la donnée" : "A hybrid profile, from user needs to data"}
+            description={fr ? "Le développement web et les bases de données au cœur de mon travail, soutenus par une solide pratique du support et de la livraison." : "Web development and databases at the core of my work, backed by solid support and delivery experience."}
+          />
+        </Reveal>
+
+        {/* Bento: core areas get the large tiles. */}
+        <div className="grid gap-5 md:grid-cols-2">
+          {primary.map(({ icon: Icon, title, text }) => (
+            <Reveal key={title.fr} className="h-full">
+              <div className="card expertise-primary h-full p-7 md:p-8">
+                <div className="grid h-12 w-12 place-items-center rounded-xl bg-[var(--brand)] text-white">
+                  <Icon aria-hidden="true" />
+                </div>
+                <h3 className="mt-6 text-xl font-extrabold md:text-2xl">{title[locale]}</h3>
+                <p className="muted mt-3 leading-7">{text[locale]}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {secondary.map(({ icon: Icon, title, text }, index) => (
+            <Reveal key={title.fr} delay={index * 0.05} className="h-full">
+              <div className="card h-full p-6">
+                <Icon className="text-[var(--brand)]" aria-hidden="true" />
+                <h3 className="mt-4 font-extrabold">{title[locale]}</h3>
+                <p className="muted mt-2 text-sm leading-6">{text[locale]}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <h3 className="mb-5 mt-16 text-2xl font-extrabold">{fr ? "Mes outils, en pratique" : "My tools, in practice"}</h3>
+        <SkillExplorer locale={locale} />
       </div>
-      <p className="muted mb-6 text-sm" role="status" aria-live="polite">{count} {fr ? "compétences affichées" : "skills shown"} · {labels[selected]}</p>
-      <motion.div layout={!reduced} id="skill-results" className="grid items-start gap-5 md:grid-cols-2 xl:grid-cols-3">
-        <AnimatePresence mode="popLayout">
-          {groups.map(group => <motion.div layout={!reduced} key={group.category.fr} initial={{ opacity: 0, y: reduced ? 0 : 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: reduced ? 1 : .97 }} transition={{ duration: reduced ? 0 : .2 }} className="card p-6">
-            <h3 className="text-lg font-extrabold">{group.category[locale]}</h3>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <AnimatePresence mode="popLayout">
-                {group.skills.map(skill => <motion.span layout={!reduced} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: reduced ? 0 : .15 }} key={skill.name} className={`rounded-md border px-2.5 py-1.5 text-sm font-semibold ${levelStyles[skill.level]}`} title={labels[skill.level]}>{skill.label?.[locale] ?? skill.name}</motion.span>)}
-              </AnimatePresence>
-            </div>
-          </motion.div>)}
-        </AnimatePresence>
-      </motion.div>
-    </div>
-  </section>;
+    </section>
+  );
 }

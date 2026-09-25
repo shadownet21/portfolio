@@ -6,6 +6,7 @@ import type { Locale } from "@/types/content";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SafeLink } from "@/components/ui/safe-link";
 import { Reveal } from "@/components/ui/reveal";
+import { CopyEmail } from "@/components/ui/copy-email";
 import { ContactForm } from "./contact-form";
 
 export function Contact({ locale }: { locale: Locale }) {
@@ -26,7 +27,7 @@ export function Contact({ locale }: { locale: Locale }) {
       ];
 
   return (
-    <section id="contact" className="section-space">
+    <section id="contact" className="section-alt section-space">
       <div className="container-shell">
         {/* TITRE */}
         <Reveal direction="up" duration={0.8} distance={35}>
@@ -75,7 +76,13 @@ export function Contact({ locale }: { locale: Locale }) {
                 ))}
               </ul>
 
-              <div className="mt-8 grid gap-4 text-sm font-semibold">
+              {/* COURRIEL DIRECT */}
+              <p className="mt-8 text-sm font-bold">{fr ? "Écrivez-moi directement" : "Email me directly"}</p>
+              <div className="mt-2">
+                <CopyEmail email={PLACEHOLDERS.email} locale={locale} />
+              </div>
+
+              <div className="mt-6 grid gap-4 text-sm font-semibold">
                 {/* LOCALISATION */}
                 <span className="flex items-center gap-3">
                   <MapPin

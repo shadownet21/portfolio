@@ -3,7 +3,8 @@ import type { NavItem } from "@/types/content";
 export const PLACEHOLDERS = {
   github: "https://github.com/shadownet21/",
   linkedin: "https://www.linkedin.com/in/marc-maurice-freeman-324816394",
-  cv: "URL_CV_A_REMPLACER",
+  cv: "/documents/marc-maurice-freeman-cv.pdf",
+  email: "birkhofxy@gmail.com",
 } as const;
 
 export const SITE = {
@@ -11,8 +12,8 @@ export const SITE = {
   location: "Longueuil, Québec, Canada",
 
   role: {
-    fr: "Développeur web · Support TI",
-    en: "Web Developer · IT Support",
+    fr: "Développeur web full stack · Support TI",
+    en: "Full-Stack Web Developer · IT Support",
   },
 
   signature: {
@@ -23,31 +24,10 @@ export const SITE = {
 
 export const NAV_ITEMS: NavItem[] = [
   {
-    id: "accueil",
-    label: {
-      fr: "Accueil",
-      en: "Home",
-    },
-  },
-  {
     id: "projets",
     label: {
       fr: "Projets",
       en: "Projects",
-    },
-  },
-  {
-    id: "a-propos",
-    label: {
-      fr: "À propos",
-      en: "About",
-    },
-  },
-  {
-    id: "expertise",
-    label: {
-      fr: "Expertise",
-      en: "Expertise",
     },
   },
   {
@@ -62,6 +42,13 @@ export const NAV_ITEMS: NavItem[] = [
     label: {
       fr: "Compétences",
       en: "Skills",
+    },
+  },
+  {
+    id: "a-propos",
+    label: {
+      fr: "À propos",
+      en: "About",
     },
   },
   {

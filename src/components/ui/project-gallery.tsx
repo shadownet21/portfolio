@@ -1,41 +1,36 @@
 "use client";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Images, X } from "lucide-react";
-import { useEffect, useId, useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 import type { Locale, Project } from "@/types/content";
 
 export function ProjectGallery({ project, locale }: { project: Project; locale: Locale }) {
   const fr = locale === "fr";
   const slides = project.gallery ?? [];
   const dialog = useRef<HTMLDialogElement>(null);
-  const trigger = useRef<HTMLButtonElement>(null);
-  const previousOverflow = useRef<string | null>(null);
+  const trigger = useRef<HTMLButtonElement | null>(null);
   const [index, setIndex] = useState(0);
   const titleId = useId();
   const slide = slides[index];
-  const restoreScroll = () => {
-    if (previousOverflow.current !== null) {
-      document.body.style.overflow = previousOverflow.current;
-      previousOverflow.current = null;
-    }
-  };
-  useEffect(() => () => {
-    if (previousOverflow.current !== null) document.body.style.overflow = previousOverflow.current;
-  }, []);
   if (!slide) return null;
   const move = (step: number) => setIndex(current => (current + step + slides.length) % slides.length);
-  const open = () => {
-    setIndex(0);
-    previousOverflow.current = document.body.style.overflow;
+  // Page scroll is locked by `body:has(.project-dialog[open])` in globals.css.
+  const open = (number: number, button: HTMLButtonElement) => {
+    trigger.current = button;
+    setIndex(number);
     dialog.current?.showModal();
-    document.body.style.overflow = "hidden";
   };
   return <>
-    <button ref={trigger} type="button" className="button-secondary" onClick={open} aria-haspopup="dialog" aria-label={`${fr ? "Voir les interfaces" : "View interfaces"} — ${project.title[locale]}`}>
-      <Images size={17} aria-hidden="true" />{fr ? "Interfaces" : "Interfaces"}<span className="muted text-xs">{slides.length}</span>
-    </button>
+    <ul className="grid gap-4 sm:grid-cols-2">
+      {slides.map((item, number) => <li key={item.src}>
+        <button type="button" className="gallery-thumb" onClick={event => open(number, event.currentTarget)} aria-haspopup="dialog" aria-label={`${fr ? "Agrandir" : "Enlarge"} — ${item.caption[locale]}`}>
+          <Image src={item.src} alt="" width={800} height={500} sizes="(max-width: 640px) 100vw, 540px" className="aspect-[16/10] w-full object-contain" />
+          <span className="flex items-center gap-2 p-3 text-left text-sm font-semibold"><Images size={16} aria-hidden="true" className="shrink-0 text-[var(--brand)]" />{item.caption[locale]}</span>
+        </button>
+      </li>)}
+    </ul>
     <dialog ref={dialog} className="project-dialog" aria-labelledby={titleId}
-      onClose={() => { restoreScroll(); trigger.current?.focus(); }}
+      onClose={() => trigger.current?.focus()}
       onClick={event => { if (event.target === event.currentTarget) dialog.current?.close(); }}
       onKeyDown={event => {
         if (event.key === "ArrowRight") { event.preventDefault(); move(1); }

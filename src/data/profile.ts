@@ -31,18 +31,50 @@ export const values: { title: LocalizedText; description: LocalizedText }[] = [
   },
 ];
 
+// Notable clients and employers, taken from the résumé.
+export const references: { name: string; work: LocalizedText }[] = [
+  {
+    name: "Cour constitutionnelle du Togo",
+    work: { fr: "Premier site web institutionnel", en: "First institutional website" },
+  },
+  {
+    name: "FUCEC-TOGO",
+    work: { fr: "Applications métier pour un réseau coopératif de plus de 120 agences", en: "Business applications for a cooperative network of more than 120 branches" },
+  },
+  {
+    name: "École Internationale Mariam",
+    work: { fr: "Refonte d’une plateforme de gestion", en: "Management platform redesign" },
+  },
+];
+
 export const experiences: Experience[] = [
   {
     organization: "FUCEC-TOGO",
     role: {
-      fr: "Support informatique et développeur web",
-      en: "IT Support and Web Developer",
+      fr: "Développeur web full stack et support TI",
+      en: "Full-Stack Web Developer and IT Support",
     },
     period: {
       fr: "Novembre 2020 — septembre 2025",
       en: "November 2020 — September 2025",
     },
     responsibilities: [
+      {
+        fr: "Concevoir, développer et maintenir des applications web internes en PHP, JavaScript et SQL pour la gestion des crédits, le suivi des comptes dormants et le contrôle des données.",
+        en: "Design, develop and maintain internal web applications in PHP, JavaScript and SQL for loan management, dormant account monitoring and data control.",
+      },
+      {
+        fr: "Concevoir et optimiser des requêtes, procédures et traitements SQL Server exploitant les données de plus de 120 agences.",
+        en: "Design and optimize SQL Server queries, procedures and processing jobs using data from more than 120 branches.",
+      },
+      {
+        fr: "Centraliser les données issues de plus de 100 bases SQL Server en restaurant les bases des coopératives dans un entrepôt de données destiné aux opérations de consolidation et d’analyse.",
+        en: "Centralize data from more than 100 SQL Server databases by restoring cooperative databases into a data warehouse used for consolidation and analysis.",
+      },
+      {
+        fr: "Automatiser la production et le contrôle des fichiers XML réglementaires, puis assurer leur chiffrement et leur transmission sécurisée vers la plateforme centralisée de la BCEAO.",
+        en: "Automate the generation and validation of regulatory XML files, then ensure their encryption and secure submission to the BCEAO centralized platform.",
+      },
       {
         fr: "Gérer les accréditations des utilisateurs : création de comptes utilisateurs, attribution et modification des gabarits d’accès.",
         en: "Manage user access permissions: create user accounts, assign and update access templates.",
@@ -58,8 +90,8 @@ export const experiences: Experience[] = [
       },
 
       {
-        fr: "Concevoir, développer et maintenir des applications web internes pour la gestion des crédits, le suivi des comptes dormants et le traitement de données provenant de 123 sites d’activité.",
-        en: "Design, develop and maintain internal web applications for loan management, dormant account monitoring and data processing across 123 business locations.",
+        fr: "Assurer le support technique N1/N2 des systèmes et des applications métiers.",
+        en: "Provide level 1 and 2 technical support for business systems and applications.",
       },
 
       {
@@ -73,11 +105,6 @@ export const experiences: Experience[] = [
       },
 
       {
-        fr: "Centraliser les données issues de plus de 100 bases SQL Server en restaurant les bases des coopératives dans un entrepôt de données destiné aux opérations de consolidation et d’analyse.",
-        en: "Centralize data from more than 100 SQL Server databases by restoring cooperative databases into a data warehouse used for consolidation and analysis.",
-      },
-
-      {
         fr: "Extraire, consolider, transformer et valider les données relatives aux emprunteurs, aux crédits et aux historiques de paiement afin d’en garantir la qualité et la cohérence.",
         en: "Extract, consolidate, transform and validate borrower, loan and payment history data to ensure its quality and consistency.",
       },
@@ -85,11 +112,6 @@ export const experiences: Experience[] = [
       {
         fr: "Administrer et exploiter les solutions BIC/CIF et ECI pour le traitement des informations de crédit, le suivi des comptes dormants et la production des déclarations réglementaires.",
         en: "Administer and operate BIC/CIF and ECI solutions for credit information processing, dormant account monitoring and regulatory reporting.",
-      },
-
-      {
-        fr: "Automatiser la production et le contrôle des fichiers XML réglementaires, puis assurer leur chiffrement et leur transmission sécurisée vers la plateforme centralisée de la BCEAO.",
-        en: "Automate the generation and validation of regulatory XML files, then ensure their encryption and secure submission to the BCEAO centralized platform.",
       },
 
       {
@@ -107,8 +129,8 @@ export const experiences: Experience[] = [
     organization: "FLASH PRODUCTION",
 
     role: {
-      fr: "Développeur web full stack",
-      en: "Full-Stack Web Developer",
+      fr: "Analyste-développeur web",
+      en: "Web Analyst and Developer",
     },
     period: {
       fr: "Juillet 2018 — juillet 2020",
@@ -116,6 +138,14 @@ export const experiences: Experience[] = [
     },
 
     responsibilities: [
+      {
+        fr: "Concevoir et développer le premier site web institutionnel de la Cour constitutionnelle du Togo.",
+        en: "Designed and developed the first institutional website of the Constitutional Court of Togo.",
+      },
+      {
+        fr: "Participer à la refonte et à l’évolution d’une plateforme de gestion pour l’École Internationale Mariam.",
+        en: "Contributed to the redesign and evolution of a management platform for École Internationale Mariam.",
+      },
       {
         fr: "Conception et développement d’une plateforme de gestion des commandes et de fidélisation client, automatisant le suivi des activités quotidiennes",
         en: "Designed and developed an order management and customer loyalty platform that automated daily activity tracking",
@@ -157,25 +187,6 @@ export const experiences: Experience[] = [
       },
     ],
   },
-
-  {
-    organization: "GMSI",
-    role: {
-      fr: "Gestion informatique et bases de données",
-      en: "IT and database management",
-    },
-    period: { fr: "À compléter", en: "To be completed" },
-    responsibilities: [],
-  },
-  {
-    organization: {
-      fr: "Réseau de plus de 120 points de service",
-      en: "Network of more than 120 service locations",
-    },
-    role: { fr: "Support informatique", en: "IT Support" },
-    period: { fr: "À compléter", en: "To be completed" },
-    responsibilities: [],
-  },
 ];
 
 export const education: Education[] = [
@@ -183,8 +194,8 @@ export const education: Education[] = [
     institution: "CyberCap — Initiative Avenir, Montréal, Québec",
 
     program: {
-      fr: "Formation spécialisée en technologies de l’information",
-      en: "Specialized Information Technology Training",
+      fr: "Formation spécialisée — Cybersécurité, réseaux, intelligence artificielle et développement logiciel",
+      en: "Specialized training — Cybersecurity, networking, artificial intelligence and software development",
     },
 
     period: {

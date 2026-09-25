@@ -5,6 +5,8 @@ import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { isPending } from "@/data/site";
 
+const VISIBLE_MISSIONS = 4;
+
 export function Journey({ locale }: { locale: Locale }) {
   const fr = locale === "fr";
 
@@ -23,7 +25,7 @@ export function Journey({ locale }: { locale: Locale }) {
           />
         </Reveal>
 
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-12 lg:grid-cols-[1.25fr_.75fr]">
           {/* =========================
               EXPÉRIENCE
           ========================== */}
@@ -85,20 +87,27 @@ export function Journey({ locale }: { locale: Locale }) {
                   </p>
 
                   {item.responsibilities.length ? (
-                    <details className="mt-4"><summary className="cursor-pointer text-sm font-bold text-[var(--brand)]">{fr ? "Missions et contributions" : "Responsibilities and contributions"}</summary><ul className="muted mt-3 grid gap-2 text-sm leading-6">
-                      {item.responsibilities.map((responsibility) => (
-                        <li
-                          key={responsibility.fr}
-                          className="
-                              before:mr-2
-                              before:text-[var(--brand)]
-                              before:content-['—']
-                            "
-                        >
-                          {responsibility[locale]}
-                        </li>
-                      ))}
-                    </ul></details>
+                    <>
+                      <ul className="muted mt-4 grid gap-2 text-sm leading-6">
+                        {item.responsibilities.slice(0, VISIBLE_MISSIONS).map((responsibility) => (
+                          <li key={responsibility.fr} className="mission">{responsibility[locale]}</li>
+                        ))}
+                      </ul>
+                      {item.responsibilities.length > VISIBLE_MISSIONS ? (
+                        <details className="mt-3">
+                          <summary className="cursor-pointer text-sm font-bold text-[var(--brand)]">
+                            {fr
+                              ? `Voir ${item.responsibilities.length - VISIBLE_MISSIONS} autres missions`
+                              : `Show ${item.responsibilities.length - VISIBLE_MISSIONS} more responsibilities`}
+                          </summary>
+                          <ul className="muted mt-3 grid gap-2 text-sm leading-6">
+                            {item.responsibilities.slice(VISIBLE_MISSIONS).map((responsibility) => (
+                              <li key={responsibility.fr} className="mission">{responsibility[locale]}</li>
+                            ))}
+                          </ul>
+                        </details>
+                      ) : null}
+                    </>
                   ) : null}
                 </Reveal>
               ))}
@@ -129,16 +138,16 @@ export function Journey({ locale }: { locale: Locale }) {
                   duration={0.75}
                   delay={0.1 + index * 0.1}
                 >
-                  <div className="card p-6 md:p-8">
+                  <div className="card p-6">
                     <p className="eyebrow">{item.period[locale]}</p>
 
-                    <h4 className="mt-3 text-xl font-extrabold">
+                    <h4 className="mt-3 text-lg font-extrabold">
                       {item.institution}
                     </h4>
 
                     <p className="muted mt-1">{item.program[locale]}</p>
 
-                    <div className="mt-6 flex flex-wrap gap-2">
+                    <div className="mt-5 flex flex-wrap gap-2">
                       {item.topics.map((topic) => (
                         <span key={topic.fr} className="tag">
                           {topic[locale]}

@@ -43,14 +43,14 @@ export function Projects({ locale }: { locale: Locale }) {
               duration={0.7}
               className="h-full [&>*]:h-full"
             >
-              <ProjectCard project={project} locale={locale} compact />
+              <ProjectCard project={project} locale={locale} />
             </Reveal>
           ))}
         </div>
 
         {/* AUTRES RÉALISATIONS */}
         {secondaryProjects.length > 0 && (
-          <details className="mt-12 rounded-xl border border-[var(--border)] p-5 md:p-6">
+          <details className="more-projects mt-12 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-5 md:p-6">
             <summary className="cursor-pointer text-lg font-extrabold text-[var(--brand)]">
               {fr ? "Explorer mes autres réalisations" : "Explore my other projects"} ({secondaryProjects.length})
             </summary>
@@ -64,7 +64,7 @@ export function Projects({ locale }: { locale: Locale }) {
                   duration={0.7}
                   className="h-full [&>*]:h-full"
                 >
-                  <ProjectCard project={project} locale={locale} compact />
+                  <ProjectCard project={project} locale={locale} />
                 </Reveal>
               ))}
             </div>

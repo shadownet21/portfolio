@@ -1,6 +1,69 @@
-import type { Skill, SkillGroup, SkillLevel } from "@/types/content";
+import {
+  ClipboardList,
+  Code2,
+  Database,
+  Headphones,
+  ListChecks,
+  ShieldCheck,
+  type LucideIcon,
+} from "lucide-react";
+import type { LocalizedText, Skill, SkillGroup, SkillLevel } from "@/types/content";
+
+// The first two areas are the core of the profile and get larger cards.
+export const expertiseAreas: { icon: LucideIcon; title: LocalizedText; text: LocalizedText }[] = [
+  {
+    icon: Code2,
+    title: { fr: "Développement web full stack", en: "Full-stack web development" },
+    text: {
+      fr: "Applications métier en PHP, Laravel et JavaScript, architecture MVC et API REST, de l’analyse du besoin au déploiement. React et Next.js sont en approfondissement.",
+      en: "Business applications in PHP, Laravel and JavaScript, MVC architecture and REST APIs, from requirements to deployment. React and Next.js are currently being developed further.",
+    },
+  },
+  {
+    icon: Database,
+    title: { fr: "Bases de données", en: "Databases" },
+    text: {
+      fr: "SQL Server, MySQL et PostgreSQL : conception et optimisation de requêtes, procédures, consolidation et contrôle de la qualité des données.",
+      en: "SQL Server, MySQL and PostgreSQL: query design and optimization, procedures, consolidation and data quality control.",
+    },
+  },
+  {
+    icon: Headphones,
+    title: { fr: "Support informatique", en: "IT Support" },
+    text: {
+      fr: "Support N1/N2, diagnostic, gestion des comptes et des accès, suivi d’incidents.",
+      en: "Level 1/2 support, diagnostics, account and access management, incident tracking.",
+    },
+  },
+  {
+    icon: ShieldCheck,
+    title: { fr: "Sécurité et fiabilité", en: "Security and Reliability" },
+    text: {
+      fr: "Linux, contrôle des accès, sauvegardes, réseaux TCP/IP et virtualisation.",
+      en: "Linux, access control, backups, TCP/IP networking and virtualization.",
+    },
+  },
+  {
+    icon: ClipboardList,
+    title: { fr: "Coordination de projets", en: "Project coordination" },
+    text: {
+      fr: "Analyse des besoins, planification, suivi des priorités et des livrables.",
+      en: "Requirements analysis, planning, priority and deliverable tracking.",
+    },
+  },
+  {
+    icon: ListChecks,
+    title: { fr: "Tests et mise en production", en: "Testing and rollout" },
+    text: {
+      fr: "Tests fonctionnels, suivi des anomalies, déploiement et accompagnement des utilisateurs.",
+      en: "Functional testing, defect tracking, deployment and user support.",
+    },
+  },
+];
 
 const translatedNames: Record<string, string> = {
+  "API REST": "REST APIs",
+  POO: "OOP",
   "Analyse fonctionnelle": "Functional analysis",
   "Documentation technique": "Technical documentation",
   "Résolution de problèmes": "Problem solving",
@@ -42,7 +105,7 @@ export const skillGroups: SkillGroup[] = [
   {
     category: { fr: "Backend", en: "Backend" },
     skills: [
-      ...skills("professional", ["PHP", "Laravel"]),
+      ...skills("professional", ["PHP", "Laravel", "API REST"]),
       ...skills("operational", ["Python", "C#"]),
     ],
   },
@@ -78,7 +141,7 @@ export const skillGroups: SkillGroup[] = [
     category: { fr: "Outils", en: "Tools" },
     skills: [
       ...skills("professional", ["Git", "GitHub", "VS Code"]),
-      ...skills("operational", ["Docker", "Power BI", "WordPress"]),
+      ...skills("operational", ["Docker", "Nginx", "Power BI", "WordPress"]),
     ],
   },
   {
@@ -88,6 +151,8 @@ export const skillGroups: SkillGroup[] = [
         "Analyse fonctionnelle",
         "Documentation technique",
         "Résolution de problèmes",
+        "MVC",
+        "POO",
       ]),
       ...skills("operational", ["Agile", "UML"]),
     ],

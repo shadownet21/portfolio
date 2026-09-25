@@ -5,6 +5,9 @@ import { Contact } from "@/components/sections/contact";
 import { ProjectCard } from "@/components/ui/project-card";
 import { SafeLink } from "@/components/ui/safe-link";
 import { projects } from "@/data/projects";
+import { isPlaceholder, PLACEHOLDERS } from "@/data/site";
+import { existsSync } from "node:fs";
+import { resolve } from "node:path";
 
 describe("public portfolio interface", () => {
   it("does not render temporary URLs as interactive links", () => {
@@ -15,13 +18,20 @@ describe("public portfolio interface", () => {
   it("does not expose incomplete project fields", () => {
     const project = projects.find(({ slug }) => slug === "frig-auto");
     expect(project).toBeDefined();
-    render(<ProjectCard project={project!} locale="fr" compact />);
+    render(<ProjectCard project={project!} locale="fr" />);
     expect(screen.queryByText("À compléter")).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "FRIG’AUTO" })).toHaveAttribute("href", "/fr/projets/frig-auto");
+  });
+
+  it("links to a résumé that exists in public", () => {
+    expect(isPlaceholder(PLACEHOLDERS.cv)).toBe(false);
+    expect(existsSync(resolve("public", PLACEHOLDERS.cv.slice(1)))).toBe(true);
   });
 
   it("renders the configured contact fields without placeholder text", () => {
     render(<Contact locale="fr" />);
     expect(screen.getByRole("button", { name: /Envoyer/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: PLACEHOLDERS.email })).toHaveAttribute("href", `mailto:${PLACEHOLDERS.email}`);
     expect(screen.queryByText("EMAIL_A_REMPLACER")).not.toBeInTheDocument();
   });
 

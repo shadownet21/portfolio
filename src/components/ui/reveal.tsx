@@ -11,7 +11,15 @@ type RevealProps = {
   direction?: RevealDirection;
   duration?: number;
   distance?: number;
-  onComplete?: () => void;
+};
+
+// Short, blur-free entrances: cheap to paint and never hide content for long.
+const offsets: Record<RevealDirection, (distance: number) => { x: number; y: number; scale: number }> = {
+  up: (distance) => ({ x: 0, y: distance, scale: 1 }),
+  down: (distance) => ({ x: 0, y: -distance, scale: 1 }),
+  left: (distance) => ({ x: -distance, y: 0, scale: 1 }),
+  right: (distance) => ({ x: distance, y: 0, scale: 1 }),
+  scale: () => ({ x: 0, y: 12, scale: 0.98 }),
 };
 
 export function Reveal({
@@ -19,94 +27,18 @@ export function Reveal({
   className = "",
   delay = 0,
   direction = "up",
-  duration = 0.7,
-  distance = 40,
-  onComplete,
+  duration = 0.5,
+  distance = 16,
 }: RevealProps) {
   const reduceMotion = useReducedMotion();
-
-  const getInitialAnimation = () => {
-    if (reduceMotion) {
-      return {
-        opacity: 1,
-        x: 0,
-        y: 0,
-        scale: 1,
-        filter: "blur(0px)",
-      };
-    }
-
-    switch (direction) {
-      case "left":
-        return {
-          opacity: 0,
-          x: -distance,
-          y: 0,
-          scale: 1,
-          filter: "blur(4px)",
-        };
-
-      case "right":
-        return {
-          opacity: 0,
-          x: distance,
-          y: 0,
-          scale: 1,
-          filter: "blur(4px)",
-        };
-
-      case "down":
-        return {
-          opacity: 0,
-          x: 0,
-          y: -distance,
-          scale: 1,
-          filter: "blur(4px)",
-        };
-
-      case "scale":
-        return {
-          opacity: 0,
-          x: 0,
-          y: 25,
-          scale: 0.96,
-          filter: "blur(3px)",
-        };
-
-      case "up":
-      default:
-        return {
-          opacity: 0,
-          x: 0,
-          y: distance,
-          scale: 1,
-          filter: "blur(4px)",
-        };
-    }
-  };
 
   return (
     <motion.div
       className={className}
-      onAnimationComplete={onComplete}
-      initial={getInitialAnimation()}
-      whileInView={{
-        opacity: 1,
-        x: 0,
-        y: 0,
-        scale: 1,
-        filter: "blur(0px)",
-      }}
-      viewport={{
-        once: true,
-        amount: 0.15,
-        margin: "0px 0px -60px 0px",
-      }}
-      transition={{
-        duration: reduceMotion ? 0 : duration,
-        delay: reduceMotion ? 0 : delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      initial={reduceMotion ? false : { opacity: 0, ...offsets[direction](Math.min(distance, 24)) }}
+      whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.15, margin: "0px 0px -60px 0px" }}
+      transition={{ duration: reduceMotion ? 0 : Math.min(duration, 0.6), delay: reduceMotion ? 0 : Math.min(delay, 0.2), ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.div>

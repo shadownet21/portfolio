@@ -107,7 +107,7 @@ export const projects: Project[] = [
       { fr: "Journalisation des opérations", en: "Operation logging" },
     ],
     impact: pending,
-    image: "/images/Gel/Connexion.png",
+    image: "/images/Gel/Accueil-Uploader.png",
  gallery: [
   {
     "src": "/images/Gel/Connexion.png",
@@ -231,7 +231,7 @@ export const projects: Project[] = [
       en: "Strengthened credit risk control across the network, improved information sharing between agencies and reduced the risk of granting a new loan to a member with repayment incidents without prior verification.",
     },
 
-    image: "/images/credits-radies/auth.png",
+    image: "/images/project-written-off-loans.svg",
  gallery: [
   {
     "src": "/images/credits-radies/auth.png",
@@ -598,59 +598,6 @@ export const projects: Project[] = [
   },
 
   {
-    slug: "applications-internes",
-    title: {
-      fr: "Applications internes FUCEC-TOGO",
-      en: "FUCEC-TOGO internal applications",
-    },
-    category: { fr: "Applications métier", en: "Business applications" },
-    summary: {
-      fr: "Ensemble anonymisé d’outils internes soutenant des opérations, des crédits, des comptes et le suivi administratif.",
-      en: "An anonymized set of internal tools supporting operations, loans, accounts and administrative tracking.",
-    },
-    problem: {
-      fr: "Soutenir plusieurs processus internes et assurer la continuité des applications existantes.",
-      en: "Support multiple internal processes and maintain continuity of existing applications.",
-    },
-    solution: {
-      fr: "Développement, support et maintenance d’applications, avec intégration aux bases SQL Server et MySQL.",
-      en: "Application development, support and maintenance, integrated with SQL Server and MySQL databases.",
-    },
-    technologies: [
-      "PHP",
-      "Laravel",
-      "JavaScript",
-      "jQuery",
-      "AJAX",
-      "SQL Server",
-      "MySQL",
-      "Bootstrap",
-      "CSS3",
-      "Tailwind CSS",
-    ],
-    features: [
-      { fr: "Gestion de comptes dormants", en: "Dormant account management" },
-      {
-        fr: "Suivi d’opérations et de crédits radiés",
-        en: "Operations and written-off loan tracking",
-      },
-      {
-        fr: "Suivi de stagiaires et support applicatif",
-        en: "Intern tracking and application support",
-      },
-    ],
-    impact: pending,
-    image: "/images/fucec.jpg",
-    projectUrl: "URL_DEMO_APPLICATIONS_INTERNES_A_REMPLACER",
-    githubUrl: "URL_GITHUB_APPLICATIONS_INTERNES_A_REMPLACER",
-    status: {
-      fr: "Projets confidentiels anonymisés",
-      en: "Anonymized confidential projects",
-    },
-    featured: false,
-    confidential: true,
-  },
-  {
     slug: "frig-auto",
     title: { fr: "FRIG’AUTO", en: "FRIG’AUTO" },
     category: {
@@ -671,6 +618,7 @@ export const projects: Project[] = [
     ],
     impact: pending,
     image: "/images/logo.png",
+    coverFit: "contain",
     projectUrl: "https://frigauto.com",
     githubUrl: "URL_GITHUB_FRIGAUTO_A_REMPLACER",
     status: pending,
@@ -828,14 +776,14 @@ export const projects: Project[] = [
   },
   {
     slug: "flash-production",
-    title: { fr: "Flash Production · Ressources et stocks", en: "Flash Production · Resources and inventory" },
+    title: { fr: "Flash Production · Applications de gestion", en: "Flash Production · Management applications" },
     category: {
       fr: "Applications web de gestion",
       en: "Management web applications",
     },
     summary: {
-      fr: "Développement d'une solution de gestion de projet publique, incluant la planification des ressources, le suivi des stocks et les statistiques en temps réel. Ce bloc présente également Flash Contrôle Routier, une application de gestion du contrôle routier, des amendes et des profils utilisateurs.",
-      en: "Development of a public project management solution, including resource planning, inventory tracking and real-time statistics. This section also presents Flash Contrôle Routier, an application for managing road checks, fines and user profiles.",
+      fr: "Applications de gestion sur mesure : planification des ressources et suivi des stocks, commandes et fidélisation client, ainsi que Flash Contrôle Routier pour le suivi des contrôles, des amendes et des profils utilisateurs.",
+      en: "Custom management applications: resource planning and inventory tracking, orders and customer loyalty, and Flash Contrôle Routier for tracking road checks, fines and user profiles.",
     },
     problem: pending,
     solution: pending,
@@ -850,7 +798,20 @@ export const projects: Project[] = [
       "Bootstrap",
       "CSS3",
     ],
-    features: [pending],
+    features: [
+      {
+        fr: "Planification des ressources, suivi des stocks et statistiques en temps réel",
+        en: "Resource planning, inventory tracking and real-time statistics",
+      },
+      {
+        fr: "Gestion des commandes et fidélisation client",
+        en: "Order management and customer loyalty",
+      },
+      {
+        fr: "Contrôle routier : suivi des amendes payées et des profils utilisateurs",
+        en: "Road checks: paid fine tracking and user profiles",
+      },
+    ],
     impact: pending,
     image: "/images/flash-controle-routier/dashboard.png",
     gallery: [
@@ -885,40 +846,8 @@ export const projects: Project[] = [
     featured: false,
     confidential: true,
   },
-  {
-    slug: "flash-production-gestion-projets",
-    title: { fr: "Flash Production · Commandes et fidélisation", en: "Flash Production · Orders and loyalty" },
-    category: {
-      fr: "Applications web de gestion",
-      en: "Management web applications",
-    },
-    summary: {
-      fr: "Conception et développement d'une plateforme de gestion des commandes et de la fidélisation client, automatisant le suivi des activités quotidiennes.",
-      en: "Design and development of an order management and customer loyalty platform, automating the monitoring of daily activities.",
-    },
-    problem: pending,
-    solution: pending,
-    technologies: [
-      "PHP",
-      "Laravel",
-      "JavaScript",
-      "jQuery",
-      "AJAX",
-      "SQL Server",
-      "MySQL",
-      "Bootstrap",
-      "CSS3",
-    ],
-    features: [pending],
-    impact: pending,
-    image: "/images/project-default.svg",
-    projectUrl: "URL_DEMO_GARAGE_A_REMPLACER",
-    githubUrl: "URL_GITHUB_GARAGE_A_REMPLACER",
-    status: {
-      fr: "Projets confidentiels anonymisés",
-      en: "Anonymized confidential projects",
-    },
-    featured: false,
-    confidential: true,
-  },
 ];
+
+export function getProject(slug: string): Project | undefined {
+  return projects.find((project) => project.slug === slug);
+}

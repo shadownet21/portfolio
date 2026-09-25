@@ -1,5 +1,6 @@
 "use client";
 
+import { Puzzle } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useId, useRef, useState, type CSSProperties } from "react";
 
@@ -38,63 +39,37 @@ const pieces = Array.from({ length: COLUMNS * ROWS }, (_, index) => {
       "--piece-x": `${(column - 1.5) * 95 + (row % 2 ? 30 : -30)}px`,
       "--piece-y": `${(row - 2) * 75 + (column % 2 ? 25 : -25)}px`,
       "--piece-rotation": `${((index * 7) % 19) - 9}deg`,
-      "--piece-delay": `${((index * 7) % 20) * 38}ms`,
+      "--piece-delay": `${((index * 7) % 20) * 18}ms`,
       transformOrigin: `${x + tileWidth / 2}px ${y + tileHeight / 2}px`,
     } as CSSProperties,
   };
 });
 
-export function PuzzlePortrait({ alt, ready }: { alt: string; ready: boolean }) {
-  const container = useRef<HTMLDivElement>(null);
+// The photo is always visible (it is the page's LCP); the puzzle is an opt-in flourish.
+export function PuzzlePortrait({ alt, playLabel }: { alt: string; playLabel: string }) {
   const portrait = useRef<HTMLImageElement>(null);
+  const timeout = useRef<ReturnType<typeof setTimeout>>(undefined);
   const id = useId().replace(/:/g, "");
-  const [phase, setPhase] = useState<"idle" | "assembling" | "complete">("idle");
+  const [phase, setPhase] = useState<"idle" | "assembling">("idle");
   const [source, setSource] = useState("");
 
-  useEffect(() => {
-    // Start only after every reveal in the adjacent text column has finished.
-    if (!ready) return;
-    const element = container.current;
-    const image = portrait.current;
-    if (!element || !image) return;
-    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let visible = false;
-    let played = false;
-    let timeout: ReturnType<typeof setTimeout> | undefined;
-    const start = () => {
-      if (played || !visible || !image.complete || !image.naturalWidth || preference.matches) return;
-      played = true;
-      setSource(image.currentSrc || image.src);
-      setPhase("assembling");
-      // Last piece finishes at 722 + 1050 ms; then restore the seamless image.
-      timeout = setTimeout(() => setPhase("complete"), 1850);
-    };
-    const observer = new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting;
-      start();
-    }, { threshold: .2 });
-    const reduce = () => {
-      if (preference.matches) {
-        played = true;
-        clearTimeout(timeout);
-        setPhase("complete");
-      }
-    };
-    observer.observe(element);
-    image.addEventListener("load", start);
-    preference.addEventListener("change", reduce);
-    return () => {
-      observer.disconnect();
-      image.removeEventListener("load", start);
-      preference.removeEventListener("change", reduce);
-      clearTimeout(timeout);
-    };
-  }, [ready]);
+  useEffect(() => () => clearTimeout(timeout.current), []);
 
-  return <div ref={container} className="puzzle-portrait" data-phase={phase}>
-    <noscript><style>{".puzzle-portrait .portrait-original { opacity: 1 !important; }"}</style></noscript>
+  function play() {
+    const image = portrait.current;
+    if (phase === "assembling" || !image?.naturalWidth) return;
+    setSource(image.currentSrc || image.src);
+    setPhase("assembling");
+    // Last piece finishes at 342 + 700 ms; then restore the seamless image.
+    timeout.current = setTimeout(() => setPhase("idle"), 1100);
+  }
+
+  return <div className="puzzle-portrait" data-phase={phase}>
     <Image ref={portrait} src="/images/profile.png" width={WIDTH} height={HEIGHT}
       sizes="(max-width: 1023px) calc(100vw - 32px), 500px" priority alt={alt} className="portrait-original" />
+    <button type="button" className="puzzle-play" onClick={play} aria-label={playLabel} title={playLabel} disabled={phase === "assembling"}>
+      <Puzzle size={18} aria-hidden="true" />
+    </button>
     {phase === "assembling" && <svg className="portrait-puzzle" viewBox={`0 0 ${WIDTH} ${HEIGHT}`} aria-hidden="true" focusable="false">
       <defs>
         {pieces.map((piece, index) => <clipPath key={index} id={`${id}-piece-${index}`} clipPathUnits="userSpaceOnUse"><path d={piece.path} /></clipPath>)}

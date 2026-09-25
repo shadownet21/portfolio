@@ -2,7 +2,7 @@ import { SITE } from "@/data/site";
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Marc Maurice Freeman — Support TI, IT Support et développement web";
+  "Marc Maurice Freeman — Développeur web full stack et support TI";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -29,12 +29,15 @@ export default function OpenGraphImage() {
           opacity: 0.8,
         }}
       >
-        Support TI · IT Support · Web
+        PHP · JavaScript · Laravel · SQL
       </div>
       <div style={{ fontSize: 78, fontWeight: 800, marginTop: 24 }}>
         Marc Maurice Freeman
       </div>
-      <div style={{ fontSize: 34, marginTop: 28 }}>
+      <div style={{ fontSize: 38, marginTop: 20, opacity: 0.9 }}>
+        {SITE.role.fr}
+      </div>
+      <div style={{ fontSize: 30, marginTop: 28 }}>
         {SITE.signature.fr}
       </div>
     </div>,

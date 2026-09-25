@@ -3,32 +3,27 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { About } from "@/components/sections/about";
 import { Contact } from "@/components/sections/contact";
-import { Expertise } from "@/components/sections/expertise";
 import { Hero } from "@/components/sections/hero";
 import { Journey } from "@/components/sections/journey";
 import { Projects } from "@/components/sections/projects";
 import { Skills } from "@/components/sections/skills";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
-import { LanguageSync } from "@/components/layout/language-sync";
-import { isLocale, locales } from "@/lib/i18n";
+import { isLocale } from "@/lib/i18n";
 import { getSiteUrl } from "@/lib/site-url";
 
-interface PageProps { params: Promise<{ locale: string }> }
-
-export function generateStaticParams() { return locales.map((locale) => ({ locale })); }
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps<"/[locale]">): Promise<Metadata> {
   const { locale: value } = await params;
   if (!isLocale(value)) return {};
   const fr = value === "fr";
   const siteUrl = getSiteUrl();
+  const title = fr ? "Marc Maurice Freeman — Développeur web full stack" : "Marc Maurice Freeman — Full-Stack Web Developer";
   return {
-    title: fr ? "Support TI & Développeur Web" : "IT Support & Web Developer",
-    description: fr ? "Portfolio de Marc Maurice Freeman : soutien TI, développement web, bases de données et coordination de projets technologiques à Longueuil, Québec." : "Marc Maurice Freeman’s portfolio: IT support, web development, databases and technology project coordination in Longueuil, Québec.",
+    title: fr ? "Développeur web full stack & Support TI" : "Full-Stack Web Developer & IT Support",
+    description: fr ? "Portfolio de Marc Maurice Freeman : développement web full stack (PHP, JavaScript, Laravel, SQL), bases de données et soutien TI à Longueuil, Québec." : "Marc Maurice Freeman’s portfolio: full-stack web development (PHP, JavaScript, Laravel, SQL), databases and IT support in Longueuil, Québec.",
     alternates: siteUrl ? { canonical: `${siteUrl}/${value}`, languages: { "fr-CA": `${siteUrl}/fr`, "en-CA": `${siteUrl}/en`, "x-default": `${siteUrl}/fr` } } : undefined,
     openGraph: {
-      title: fr ? "Marc Maurice Freeman — Support TI & Développeur Web" : "Marc Maurice Freeman — IT Support & Web Developer",
+      title,
       description: SITE.signature[value],
       url: siteUrl ? `${siteUrl}/${value}` : undefined,
       locale: fr ? "fr_CA" : "en_CA",
@@ -38,13 +33,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     twitter: {
       card: "summary_large_image",
-      title: fr ? "Marc Maurice Freeman — Support TI & Développeur Web" : "Marc Maurice Freeman — IT Support & Web Developer",
-      description: fr ? "Support TI, développement web et bases de données à Longueuil." : "IT support, web development and databases in Longueuil.",
+      title,
+      description: fr ? "Développement web full stack, bases de données et support TI à Longueuil." : "Full-stack web development, databases and IT support in Longueuil.",
     },
   };
 }
 
-export default async function PortfolioPage({ params }: PageProps) {
+export default async function PortfolioPage({ params }: PageProps<"/[locale]">) {
   const { locale: value } = await params;
   if (!isLocale(value)) notFound();
   const siteUrl = getSiteUrl();
@@ -54,16 +49,16 @@ export default async function PortfolioPage({ params }: PageProps) {
     name: SITE.name,
     jobTitle: SITE.role[value],
     homeLocation: SITE.location,
+    email: `mailto:${PLACEHOLDERS.email}`,
     sameAs: [PLACEHOLDERS.github, PLACEHOLDERS.linkedin],
     ...(siteUrl ? { url: `${siteUrl}/${value}` } : {}),
   };
   return (
-    <div lang={value === "fr" ? "fr-CA" : "en-CA"}>
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }} />
-      <LanguageSync locale={value} />
       <Header locale={value} />
-      <main id="contenu"><Hero locale={value} /><Projects locale={value} /><About locale={value} /><Expertise locale={value} /><Journey locale={value} /><Skills locale={value} /><Contact locale={value} /></main>
+      <main id="contenu"><Hero locale={value} /><Projects locale={value} /><Journey locale={value} /><Skills locale={value} /><About locale={value} /><Contact locale={value} /></main>
       <Footer locale={value} />
-    </div>
+    </>
   );
 }
