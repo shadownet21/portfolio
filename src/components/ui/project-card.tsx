@@ -121,7 +121,7 @@ export function ProjectCard({
         {project.aiAssistance ? <p className="muted mt-4 text-xs leading-5">{project.aiAssistance[locale]}</p> : null}
         {visibleTechnologies.length ? (
           <div className="mt-5 flex flex-wrap gap-2">
-            {visibleTechnologies.slice(0, 3).map((technology) => (
+            {visibleTechnologies.map((technology) => (
               <span className="tag" key={technology}>
                 {technology === "API IA" && !fr ? "AI API" : technology}
               </span>

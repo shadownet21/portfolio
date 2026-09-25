@@ -96,6 +96,7 @@ export const projects: Project[] = [
       "jQuery",
       "SQL Server",
       "Bootstrap",
+      "CSS3",
     ],
     features: [
       { fr: "Détection des échéances", en: "Due-date detection" },
@@ -191,6 +192,7 @@ export const projects: Project[] = [
       "DataTables",
       "SweetAlert2",
       "Git",
+      "CSS3",
     ],
 
     features: [
@@ -290,6 +292,7 @@ export const projects: Project[] = [
       "DataTables",
       "SweetAlert2",
       "Git",
+      "CSS3",
     ],
 
     features: [
@@ -622,6 +625,8 @@ export const projects: Project[] = [
       "SQL Server",
       "MySQL",
       "Bootstrap",
+      "CSS3",
+      "Tailwind CSS",
     ],
     features: [
       { fr: "Gestion de comptes dormants", en: "Dormant account management" },
@@ -708,6 +713,7 @@ export const projects: Project[] = [
       "SQL Server",
       "MySQL",
       "Bootstrap",
+      "CSS3",
     ],
 
     features: [
@@ -842,6 +848,7 @@ export const projects: Project[] = [
       "SQL Server",
       "MySQL",
       "Bootstrap",
+      "CSS3",
     ],
     features: [pending],
     impact: pending,
@@ -900,6 +907,7 @@ export const projects: Project[] = [
       "SQL Server",
       "MySQL",
       "Bootstrap",
+      "CSS3",
     ],
     features: [pending],
     impact: pending,

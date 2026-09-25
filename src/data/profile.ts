@@ -44,6 +44,10 @@ export const experiences: Experience[] = [
     },
     responsibilities: [
       {
+        fr: "Gérer les accréditations des utilisateurs : création de comptes utilisateurs, attribution et modification des gabarits d’accès.",
+        en: "Manage user access permissions: create user accounts, assign and update access templates.",
+      },
+      {
         fr: "Analyser les besoins des utilisateurs et collaborer avec les équipes métiers et techniques afin de traduire les enjeux opérationnels en solutions fonctionnelles et technologiques.",
         en: "Analyze user needs and collaborate with business and technical teams to translate operational challenges into functional and technology solutions.",
       },
