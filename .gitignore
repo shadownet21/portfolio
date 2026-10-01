@@ -32,3 +32,6 @@ pnpm-debug.log*
 
 # Private contact submissions
 /data/
+
+# Vercel CLI project link
+.vercel
