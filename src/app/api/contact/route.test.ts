@@ -1,7 +1,15 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { getContactEmailConfig, sendContactEmail } from "../../../lib/contact-mailer";
 import { saveContactMessage } from "../../../lib/contact-store";
 vi.mock("../../../lib/contact-store", () => ({ saveContactMessage: vi.fn() }));
-beforeEach(() => { vi.mocked(saveContactMessage).mockReset(); });
+vi.mock("../../../lib/contact-mailer", () => ({ getContactEmailConfig: vi.fn(), sendContactEmail: vi.fn() }));
+beforeEach(() => {
+  vi.mocked(saveContactMessage).mockReset();
+  vi.mocked(sendContactEmail).mockReset();
+  vi.mocked(getContactEmailConfig).mockReset().mockReturnValue(null);
+  vi.stubEnv("VERCEL", "");
+});
+afterEach(() => { vi.unstubAllEnvs(); });
 import { POST } from "./route";
 
 const endpoint = "http://localhost:3000/api/contact";
@@ -79,5 +87,39 @@ describe("contact persistence", () => {
     }
     expect((await POST(request(JSON.stringify(validMessage), "save-rate"))).status).toBe(429);
     expect(saveContactMessage).toHaveBeenCalledTimes(5);
+  });
+});
+const emailConfig = { apiKey: "re_test", to: "owner@example.com", from: "Portfolio <contact@example.com>" };
+
+describe("contact email delivery", () => {
+  it("emails the validated message instead of writing to disk when Resend is configured", async () => {
+    vi.mocked(getContactEmailConfig).mockReturnValue(emailConfig);
+    vi.mocked(sendContactEmail).mockResolvedValue(undefined);
+    const response = await POST(request(JSON.stringify(validMessage), "email-success"));
+    expect(response.status).toBe(200);
+    expect(sendContactEmail).toHaveBeenCalledExactlyOnceWith(emailConfig, validMessage);
+    expect(saveContactMessage).not.toHaveBeenCalled();
+  });
+
+  it("returns a server error when Resend rejects the email", async () => {
+    vi.mocked(getContactEmailConfig).mockReturnValue(emailConfig);
+    vi.mocked(sendContactEmail).mockRejectedValue(new Error("Resend responded with 403"));
+    const logger = vi.spyOn(console, "error").mockImplementation(() => {});
+    try {
+      const response = await POST(request(JSON.stringify(validMessage), "email-failure"));
+      expect(response.status).toBe(500);
+      expect(await response.json()).toEqual({ error: "send_failed" });
+    } finally { logger.mockRestore(); }
+  });
+
+  it("never writes to the read-only disk on Vercel when email is not configured", async () => {
+    vi.stubEnv("VERCEL", "1");
+    const logger = vi.spyOn(console, "error").mockImplementation(() => {});
+    try {
+      const response = await POST(request(JSON.stringify(validMessage), "email-missing"));
+      expect(response.status).toBe(500);
+      expect(await response.json()).toEqual({ error: "configuration" });
+      expect(saveContactMessage).not.toHaveBeenCalled();
+    } finally { logger.mockRestore(); }
   });
 });

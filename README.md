@@ -128,15 +128,20 @@ La couverture d’un projet montre l’écran le plus représentatif (tableau de
 
 ### Formulaire de contact
 
-Le formulaire appelle `POST /api/contact`, qui enregistre les messages dans `data/contact-messages.json` à la racine du projet. Le dossier et le fichier sont créés au premier message valide. Aucun courriel n’est envoyé et aucune clé Resend n’est nécessaire. Les visiteurs peuvent aussi écrire directement à l’adresse affichée dans la section Contact.
+Le formulaire appelle `POST /api/contact`. Le mode de réception dépend des variables d’environnement :
 
-Le fichier contient un tableau JSON : chaque entrée comprend `id`, `receivedAt` (date UTC), `name`, `email`, `subject` et `message`. Consulter ce fichier directement sur le serveur pour lire les demandes. Il reste hors de `public`, est exclu de Git et doit être sauvegardé avec les données du serveur.
+- **Courriel via Resend (production, obligatoire sur Vercel)** : si `RESEND_API_KEY`, `CONTACT_EMAIL` et `CONTACT_FROM_EMAIL` sont définies, chaque message est envoyé par courriel à `CONTACT_EMAIL`. « Répondre » écrit directement au visiteur. L’adresse de réception n’est jamais envoyée au navigateur.
+- **Fichier local (développement)** : sans ces variables, les messages sont enregistrés dans `data/contact-messages.json` à la racine du projet. Chaque entrée comprend `id`, `receivedAt` (date UTC), `name`, `email`, `subject` et `message`. Le fichier reste hors de `public` et est exclu de Git.
 
-La validation (côté client et côté serveur), le champ anti-spam et la limitation des tentatives restent actifs. Les écritures sont sérialisées dans le processus Node.js et remplacent le fichier de façon atomique. Si le fichier est illisible ou si l’écriture échoue, le formulaire signale une erreur, n’annonce pas de réception et n’écrase pas les données existantes.
+Sur Vercel, le système de fichiers est en lecture seule : sans les variables Resend, l’API refuse le message (`configuration`) au lieu d’échouer à l’écriture. Les erreurs détaillées (Resend ou disque) sont écrites dans les journaux du serveur.
+
+La validation (côté client et côté serveur), le champ anti-spam et la limitation des tentatives restent actifs. Si l’envoi ou l’enregistrement échoue, le formulaire signale une erreur et n’annonce pas de réception. Les visiteurs peuvent aussi écrire directement à l’adresse affichée dans la section Contact.
 
 ### Déploiement
 
-Utiliser un serveur Node.js unique avec un disque persistant et un accès en écriture au dossier `data`. Lancer `npm run build`, puis `npm start`. Sauvegarder et conserver `data` lors des mises à jour. Ce stockage local ne convient pas aux instances multiples ni à un hébergement sans disque persistant ; utiliser alors une base de données ou un stockage externe.
+**Vercel** : dans *Settings → Environment Variables*, ajouter `RESEND_API_KEY`, `CONTACT_EMAIL` et `CONTACT_FROM_EMAIL`, puis redéployer. `CONTACT_FROM_EMAIL` doit utiliser un domaine vérifié dans Resend (par exemple `Portfolio <contact@mondomaine.com>`). L’adresse de test `onboarding@resend.dev` n’envoie qu’à l’adresse du compte Resend.
+
+**Serveur Node.js** : lancer `npm run build`, puis `npm start`. Sans variables Resend, prévoir un disque persistant avec accès en écriture au dossier `data`, et le sauvegarder lors des mises à jour.
 
 Configurer `NEXT_PUBLIC_SITE_URL` avec le domaine final. Sans URL de production, les liens canoniques, les versions linguistiques et les entrées du sitemap ne sont pas générés. Vérifier les liens et métadonnées du site déployé.
 

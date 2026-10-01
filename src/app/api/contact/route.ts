@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { getContactEmailConfig, sendContactEmail } from "../../../lib/contact-mailer";
 import { saveContactMessage } from "../../../lib/contact-store";
 
 export const runtime = "nodejs";
@@ -159,11 +160,27 @@ export async function POST(request: Request) {
       );
     }
 
-    try {
-      await saveContactMessage({ name, email, subject, message });
-    } catch {
-      console.error("Unable to save contact message to local storage.");
-      return NextResponse.json({ error: "storage_failed" }, { status: 500 });
+    const contact = { name, email, subject, message };
+    const emailConfig = getContactEmailConfig();
+
+    if (emailConfig) {
+      try {
+        await sendContactEmail(emailConfig, contact);
+      } catch (error) {
+        console.error("Unable to send contact email:", error);
+        return NextResponse.json({ error: "send_failed" }, { status: 500 });
+      }
+    } else if (process.env.VERCEL) {
+      // Vercel functions have a read-only file system: local storage cannot work there.
+      console.error("Missing RESEND_API_KEY, CONTACT_EMAIL or CONTACT_FROM_EMAIL.");
+      return NextResponse.json({ error: "configuration" }, { status: 500 });
+    } else {
+      try {
+        await saveContactMessage(contact);
+      } catch (error) {
+        console.error("Unable to save contact message to local storage:", error);
+        return NextResponse.json({ error: "storage_failed" }, { status: 500 });
+      }
     }
 
     return NextResponse.json({

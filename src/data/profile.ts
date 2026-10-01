@@ -147,19 +147,19 @@ export const experiences: Experience[] = [
         en: "Contributed to the redesign and evolution of a management platform for École Internationale Mariam.",
       },
       {
-        fr: "Conception et développement d’une plateforme de gestion des commandes et de fidélisation client, automatisant le suivi des activités quotidiennes",
+        fr: "Concevoir et développer une plateforme de gestion des commandes et de fidélisation client, automatisant le suivi des activités quotidiennes.",
         en: "Designed and developed an order management and customer loyalty platform that automated daily activity tracking",
       },
       {
-        fr: "Développement d’une solution de gestion de projets intégrant la planification des ressources, le suivi des stocks et la production de statistiques en temps réel",
+        fr: "Développer une solution de gestion de projets intégrant la planification des ressources, le suivi des stocks et la production de statistiques en temps réel.",
         en: "Developed a project management solution integrating resource planning, inventory tracking and real-time statistics",
       },
       {
-        fr: "Organisation et suivi des tâches de l’équipe selon une méthodologie Agile afin de favoriser le respect des échéances",
+        fr: "Organiser et suivre les tâches de l’équipe selon une méthodologie Agile afin de favoriser le respect des échéances.",
         en: "Organized and monitored team tasks using an Agile methodology to support on-time delivery",
       },
       {
-        fr: "Mise en œuvre des procédures de sauvegarde et contribution à la sécurisation des données et des applications",
+        fr: "Mettre en œuvre les procédures de sauvegarde et contribuer à la sécurisation des données et des applications.",
         en: "Implemented backup procedures and contributed to securing data and applications",
       },
     ],
