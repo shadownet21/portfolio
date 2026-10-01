@@ -10,7 +10,7 @@ export function Hero({ locale }: { locale: Locale }) {
   const copy = fr
     ? {
         intro:
-          "Je conçois et maintiens des applications web métier en PHP, JavaScript, Laravel et SQL, de l’analyse du besoin jusqu’au support en production. Mon expérience en support TI m’aide à livrer des solutions adaptées au terrain.",
+          "Développeur web et spécialiste TI, je transforme les besoins opérationnels en applications métier robustes, développées en PHP, Laravel, JavaScript et SQL. De la conception des bases de données à la coordination des projets technologiques, en passant par le support en production, j'assure des solutions durables, sécurisées et adaptées à leurs utilisateurs.",
         projects: "Voir mes projets",
         cv: "Télécharger mon CV",
         contact: "Me contacter",
@@ -20,7 +20,7 @@ export function Hero({ locale }: { locale: Locale }) {
       }
     : {
         intro:
-          "I design and maintain business web applications in PHP, JavaScript, Laravel and SQL, from requirements through production support. My IT support background helps me deliver solutions grounded in everyday needs.",
+          "As a web developer and IT specialist, I turn operational needs into robust business applications built with PHP, Laravel, JavaScript, and SQL. From database design to technology project coordination and production support, I deliver solutions that are durable, secure, and built around the people who use them.",
         projects: "View my projects",
         cv: "Download my résumé",
         contact: "Contact me",
@@ -30,9 +30,22 @@ export function Hero({ locale }: { locale: Locale }) {
       };
 
   const stats = [
-    { value: fr ? "7 ans" : "7 years", label: fr ? "de développement web" : "of web development" },
-    { value: "120+", label: fr ? "agences couvertes par mes traitements SQL" : "branches covered by my SQL jobs" },
-    { value: "100+", label: fr ? "bases SQL Server consolidées" : "SQL Server databases consolidated" },
+    {
+      value: fr ? "7 ans" : "7 years",
+      label: fr ? "de développement web" : "of web development",
+    },
+    {
+      value: "120+",
+      label: fr
+        ? "agences couvertes par mes traitements SQL"
+        : "branches covered by my SQL jobs",
+    },
+    {
+      value: "100+",
+      label: fr
+        ? "bases SQL Server consolidées"
+        : "SQL Server databases consolidated",
+    },
   ];
 
   return (
@@ -52,9 +65,13 @@ export function Hero({ locale }: { locale: Locale }) {
           Montréal, Québec
         </p>
 
-        <p className="mt-6 max-w-2xl text-lg leading-8 md:text-xl">{copy.intro}</p>
+        <p className="mt-6 max-w-2xl text-lg leading-8 md:text-xl">
+          {copy.intro}
+        </p>
 
-        <p className="mt-5 font-extrabold tracking-wide text-[var(--brand)]">{SITE.signature[locale]}</p>
+        <p className="mt-5 font-extrabold tracking-wide text-[var(--brand)]">
+          {SITE.signature[locale]}
+        </p>
 
         <div className="mt-8 flex flex-wrap gap-3">
           <a className="button-primary" href="#projets">
@@ -62,7 +79,12 @@ export function Hero({ locale }: { locale: Locale }) {
             <ArrowDownRight size={18} aria-hidden="true" />
           </a>
 
-          <SafeLink className="button-secondary" href={PLACEHOLDERS.cv} download label={copy.cv}>
+          <SafeLink
+            className="button-secondary"
+            href={PLACEHOLDERS.cv}
+            download
+            label={copy.cv}
+          >
             <Download size={18} aria-hidden="true" />
             {copy.cv}
           </SafeLink>
@@ -77,7 +99,9 @@ export function Hero({ locale }: { locale: Locale }) {
           {stats.map(({ value, label }) => (
             <div key={value} className="flex flex-col gap-1">
               <dt className="muted text-sm leading-6">{label}</dt>
-              <dd className="order-first text-3xl font-extrabold tracking-tight text-[var(--brand)]">{value}</dd>
+              <dd className="order-first text-3xl font-extrabold tracking-tight text-[var(--brand)]">
+                {value}
+              </dd>
             </div>
           ))}
         </dl>
