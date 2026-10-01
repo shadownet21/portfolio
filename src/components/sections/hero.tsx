@@ -49,7 +49,7 @@ export function Hero({ locale }: { locale: Locale }) {
 
         <p className="muted mt-6 flex items-center gap-2 font-semibold">
           <MapPin size={18} aria-hidden="true" />
-          Longueuil, Québec
+          Montréal, Québec
         </p>
 
         <p className="mt-6 max-w-2xl text-lg leading-8 md:text-xl">{copy.intro}</p>

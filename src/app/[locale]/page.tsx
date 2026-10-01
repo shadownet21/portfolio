@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps<"/[locale]">): Prom
   const title = fr ? "Marc Maurice Freeman — Développeur web full stack" : "Marc Maurice Freeman — Full-Stack Web Developer";
   return {
     title: fr ? "Développeur web full stack & Support TI" : "Full-Stack Web Developer & IT Support",
-    description: fr ? "Portfolio de Marc Maurice Freeman : développement web full stack (PHP, JavaScript, Laravel, SQL), bases de données et soutien TI à Longueuil, Québec." : "Marc Maurice Freeman’s portfolio: full-stack web development (PHP, JavaScript, Laravel, SQL), databases and IT support in Longueuil, Québec.",
+    description: fr ? "Portfolio de Marc Maurice Freeman : développement web full stack (PHP, JavaScript, Laravel, SQL), bases de données et soutien TI à Montréal, Québec." : "Marc Maurice Freeman’s portfolio: full-stack web development (PHP, JavaScript, Laravel, SQL), databases and IT support in Montréal, Québec.",
     alternates: siteUrl ? { canonical: `${siteUrl}/${value}`, languages: { "fr-CA": `${siteUrl}/fr`, "en-CA": `${siteUrl}/en`, "x-default": `${siteUrl}/fr` } } : undefined,
     openGraph: {
       title,
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: PageProps<"/[locale]">): Prom
     twitter: {
       card: "summary_large_image",
       title,
-      description: fr ? "Développement web full stack, bases de données et support TI à Longueuil." : "Full-stack web development, databases and IT support in Longueuil.",
+      description: fr ? "Développement web full stack, bases de données et support TI à Montréal." : "Full-stack web development, databases and IT support in Montréal.",
     },
   };
 }

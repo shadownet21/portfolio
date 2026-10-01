@@ -9,7 +9,7 @@ export const PLACEHOLDERS = {
 
 export const SITE = {
   name: "Marc Maurice Freeman",
-  location: "Longueuil, Québec, Canada",
+  location: "Montréal, Québec, Canada",
 
   role: {
     fr: "Développeur web full stack · Support TI",

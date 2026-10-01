@@ -90,7 +90,7 @@ export function Contact({ locale }: { locale: Locale }) {
                     size={20}
                     aria-hidden="true"
                   />
-                  Longueuil, Québec
+                  Montréal, Québec
                 </span>
 
                 {/* LINKEDIN */}

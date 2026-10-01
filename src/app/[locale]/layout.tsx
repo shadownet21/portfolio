@@ -16,7 +16,7 @@ export function generateStaticParams() { return locales.map((locale) => ({ local
 export const metadata: Metadata = {
   metadataBase: siteUrl ? new URL(siteUrl) : undefined,
   title: { default: "Marc Maurice Freeman — Développeur web full stack", template: "%s | Marc Maurice Freeman" },
-  description: "Portfolio professionnel de Marc Maurice Freeman : développement web full stack, bases de données et soutien TI à Longueuil, Québec.",
+  description: "Portfolio professionnel de Marc Maurice Freeman : développement web full stack, bases de données et soutien TI à Montréal, Québec.",
   authors: [{ name: "Marc Maurice Freeman" }],
   creator: "Marc Maurice Freeman",
   applicationName: "Portfolio de Marc Maurice Freeman",
