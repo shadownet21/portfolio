@@ -398,6 +398,7 @@ export const projects: Project[] = [
     },
 
     featured: true,
+    confidential: true,
   },
   {
     slug: "excel-to-sql-data-correction",
