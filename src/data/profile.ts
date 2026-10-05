@@ -45,6 +45,10 @@ export const references: { name: string; work: LocalizedText }[] = [
     name: "École Internationale Mariam",
     work: { fr: "Refonte d’une plateforme de gestion", en: "Management platform redesign" },
   },
+  {
+    name: "Garage La Révélation",
+    work: { fr: "Trois applications de gestion : garage, casse automobile et boutique de pièces", en: "Three management applications: repair shop, salvage yard and parts store" },
+  },
 ];
 
 export const experiences: Experience[] = [
