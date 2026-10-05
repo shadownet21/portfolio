@@ -783,17 +783,24 @@ export const projects: Project[] = [
       en: "Management web applications",
     },
     summary: {
-      fr: "Applications de gestion sur mesure : planification des ressources et suivi des stocks, commandes et fidélisation client, ainsi que Flash Contrôle Routier pour le suivi des contrôles, des amendes et des profils utilisateurs.",
-      en: "Custom management applications: resource planning and inventory tracking, orders and customer loyalty, and Flash Contrôle Routier for tracking road checks, fines and user profiles.",
+      fr: "Applications de gestion sur mesure : planification des ressources et suivi des stocks, commandes et fidélisation client, ainsi que Flash Contrôle Routier, une plateforme unifiée qui réunit infractions, amendes, immatriculations, assurances, permis et dédouanements, entièrement repensée visuellement.",
+      en: "Custom management applications: resource planning and inventory tracking, orders and customer loyalty, and Flash Contrôle Routier, a unified platform bringing together offenses, fines, registrations, insurance, licences and customs clearance, with a complete visual redesign.",
     },
-    problem: pending,
-    solution: pending,
+    problem: {
+      fr: "Les administrations du contrôle routier (police, douanes, assurances, centres de visite technique, médecins agréés) travaillaient chacune sur leurs propres données, sans vérification croisée possible sur le terrain et avec une interface vieillissante.",
+      en: "Road-control administrations (police, customs, insurers, inspection centres, approved doctors) each worked on their own data, with no cross-checking in the field and an ageing interface.",
+    },
+    solution: {
+      fr: "Une plateforme web centralisée organisée en modules métier, avec un tableau de bord global, des rôles et groupes d’utilisateurs, des notifications internes, l’import, l’export et l’impression des registres, puis une refonte complète de l’interface : écran de connexion, accueil personnalisé, cartes de modules, graphiques et tableaux harmonisés.",
+      en: "A centralized web platform organized into business modules, with a global dashboard, user roles and groups, internal notifications, import, export and printing of records, followed by a full interface redesign: sign-in screen, personalized home page, module cards, charts and consistent tables.",
+    },
     technologies: [
       "PHP",
       "Laravel",
       "JavaScript",
       "jQuery",
       "AJAX",
+      "DataTables",
       "SQL Server",
       "MySQL",
       "Bootstrap",
@@ -809,32 +816,192 @@ export const projects: Project[] = [
         en: "Order management and customer loyalty",
       },
       {
-        fr: "Contrôle routier : suivi des amendes payées et des profils utilisateurs",
-        en: "Road checks: paid fine tracking and user profiles",
+        fr: "Contrôle routier : saisie des infractions, validation avec preuve photo et géolocalisation",
+        en: "Road checks: offense entry, validation with photo evidence and geolocation",
+      },
+      {
+        fr: "Encaissement des amendes, recettes par agent et libération des pièces confisquées",
+        en: "Fine collection, revenue per officer and release of confiscated documents",
+      },
+      {
+        fr: "Registres des immatriculations, assurances, permis, visites techniques et certificats médicaux",
+        en: "Registers for vehicle registrations, insurance, licences, technical inspections and medical certificates",
+      },
+      {
+        fr: "Vérification par numéro de châssis : dédouanements, mutations et signalements Interpol",
+        en: "Chassis-number checks: customs clearance, ownership transfers and Interpol alerts",
+      },
+      {
+        fr: "Laissez-passer frontaliers, procès-verbaux d’accidents et gestion des communes",
+        en: "Border passes, accident reports and municipality management",
+      },
+      {
+        fr: "Rôles et groupes d’utilisateurs, notifications internes et suivi des sessions connectées",
+        en: "User roles and groups, internal notifications and active-session monitoring",
       },
     ],
     impact: pending,
-    image: "/images/flash-controle-routier/dashboard.png",
+    image: "/images/flash-controle-routier/captures/03-tableau-de-bord.png",
     gallery: [
       {
-        src: "/images/flash-controle-routier/dashboard.png",
+        src: "/images/flash-controle-routier/captures/01-connexion.png",
         caption: {
-          fr: "Flash Contrôle Routier · tableau de bord et navigation",
-          en: "Flash Contrôle Routier · dashboard and navigation",
+          fr: "Flash Contrôle Routier · écran de connexion repensé",
+          en: "Flash Contrôle Routier · redesigned sign-in screen",
         },
       },
       {
-        src: "/images/flash-controle-routier/paiement.png",
+        src: "/images/flash-controle-routier/captures/02-accueil.png",
         caption: {
-          fr: "Flash Contrôle Routier · suivi des amendes payées",
-          en: "Flash Contrôle Routier · paid fine tracking",
+          fr: "Flash Contrôle Routier · accueil personnalisé, indicateurs et dernières infractions",
+          en: "Flash Contrôle Routier · personalized home, key figures and latest offenses",
         },
       },
       {
-        src: "/images/flash-controle-routier/profil.png",
+        src: "/images/flash-controle-routier/captures/03-tableau-de-bord.png",
         caption: {
-          fr: "Flash Contrôle Routier · profil utilisateur et accès",
-          en: "Flash Contrôle Routier · user profile and access",
+          fr: "Flash Contrôle Routier · tableau de bord de tous les modules et statistiques",
+          en: "Flash Contrôle Routier · all-module dashboard and statistics",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/04-infractions.png",
+        caption: {
+          fr: "Flash Contrôle Routier · historique des infractions",
+          en: "Flash Contrôle Routier · offense history",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/05-validations.png",
+        caption: {
+          fr: "Flash Contrôle Routier · validations avec preuve photo et coordonnées GPS",
+          en: "Flash Contrôle Routier · validations with photo evidence and GPS coordinates",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/06-paiements.png",
+        caption: {
+          fr: "Flash Contrôle Routier · amendes payées et total encaissé",
+          en: "Flash Contrôle Routier · paid fines and total collected",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/07-liberation-pieces.png",
+        caption: {
+          fr: "Flash Contrôle Routier · libération des pièces confisquées",
+          en: "Flash Contrôle Routier · release of confiscated documents",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/08-immatriculations.png",
+        caption: {
+          fr: "Flash Contrôle Routier · registre des immatriculations",
+          en: "Flash Contrôle Routier · vehicle registration register",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/09-assurances.png",
+        caption: {
+          fr: "Flash Contrôle Routier · registre des assurances",
+          en: "Flash Contrôle Routier · insurance register",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/10-permis.png",
+        caption: {
+          fr: "Flash Contrôle Routier · permis de conduire",
+          en: "Flash Contrôle Routier · driving licences",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/11-dedouanements.png",
+        caption: {
+          fr: "Flash Contrôle Routier · dédouanements et vérification Interpol par châssis",
+          en: "Flash Contrôle Routier · customs clearance and Interpol chassis check",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/12-interpol.png",
+        caption: {
+          fr: "Flash Contrôle Routier · signalements Interpol de véhicules volés",
+          en: "Flash Contrôle Routier · Interpol stolen-vehicle alerts",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/13-laissez-passer.png",
+        caption: {
+          fr: "Flash Contrôle Routier · laissez-passer frontaliers",
+          en: "Flash Contrôle Routier · border passes",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/14-certificats-medicaux.png",
+        caption: {
+          fr: "Flash Contrôle Routier · certificats médicaux et vérification des conducteurs",
+          en: "Flash Contrôle Routier · medical certificates and driver checks",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/15-visites-techniques.png",
+        caption: {
+          fr: "Flash Contrôle Routier · visites techniques et diagnostics",
+          en: "Flash Contrôle Routier · technical inspections and diagnostics",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/16-pv-accidents.png",
+        caption: {
+          fr: "Flash Contrôle Routier · procès-verbaux d’accidents avec photos de preuve",
+          en: "Flash Contrôle Routier · accident reports with photo evidence",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/17-mutations.png",
+        caption: {
+          fr: "Flash Contrôle Routier · mutations de propriété des véhicules",
+          en: "Flash Contrôle Routier · vehicle ownership transfers",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/18-communes.png",
+        caption: {
+          fr: "Flash Contrôle Routier · gestion des communes",
+          en: "Flash Contrôle Routier · municipality management",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/19-notifications.png",
+        caption: {
+          fr: "Flash Contrôle Routier · notifications reçues",
+          en: "Flash Contrôle Routier · received notifications",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/20-utilisateurs-connectes.png",
+        caption: {
+          fr: "Flash Contrôle Routier · utilisateurs connectés et déconnexion à distance",
+          en: "Flash Contrôle Routier · signed-in users and remote sign-out",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/avant/connexion.png",
+        caption: {
+          fr: "Avant la refonte · ancien écran de connexion",
+          en: "Before the redesign · former sign-in screen",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/avant/accueil.png",
+        caption: {
+          fr: "Avant la refonte · ancienne page d’accueil",
+          en: "Before the redesign · former home page",
+        },
+      },
+      {
+        src: "/images/flash-controle-routier/captures/avant/tableau-de-bord.png",
+        caption: {
+          fr: "Avant la refonte · ancien tableau de bord",
+          en: "Before the redesign · former dashboard",
         },
       },
     ],
