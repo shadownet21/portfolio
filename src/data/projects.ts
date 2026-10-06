@@ -841,7 +841,7 @@ export const projects: Project[] = [
       },
     ],
     impact: pending,
-    image: "/images/flash-controle-routier/captures/03-tableau-de-bord.png",
+    image: "/images/flash-controle-routier/captures/02-accueil.png",
     gallery: [
       {
         src: "/images/flash-controle-routier/captures/01-connexion.png",
