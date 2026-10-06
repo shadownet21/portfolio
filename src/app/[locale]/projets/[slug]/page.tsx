@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ExternalLink, LockKeyhole, Mail } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink, FlaskConical, LockKeyhole, Mail } from "lucide-react";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { BrandIcon } from "@/components/ui/brand-icon";
@@ -64,6 +64,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
               <div className="flex flex-wrap items-center gap-2">
                 <p className="eyebrow">{project.category[locale]}</p>
                 {project.confidential ? <span className="badge"><LockKeyhole size={12} aria-hidden="true" />{fr ? "Anonymisé" : "Anonymized"}</span> : null}
+                {project.fictionalData ? <span className="badge"><FlaskConical size={12} aria-hidden="true" />{fr ? "Données fictives" : "Fictional data"}</span> : null}
                 {!isPending(project.status[locale]) ? <span className="badge">{project.status[locale]}</span> : null}
               </div>
               <h1 className="section-title mt-4">{project.title[locale]}</h1>
@@ -121,6 +122,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
             <section aria-labelledby="interfaces" className="mt-16">
               <h2 id="interfaces" className="text-2xl font-extrabold">{fr ? "Interfaces" : "Interfaces"}</h2>
               {project.confidential ? <p className="muted mt-2 text-sm">{fr ? "Captures anonymisées : les données sensibles ont été masquées." : "Anonymized screenshots: sensitive data has been masked."}</p> : null}
+              {project.fictionalData ? <p className="muted mt-2 text-sm">{fr ? "Captures réalisées avec des données fictives générées pour la démonstration : aucune personne ni aucun véhicule réel." : "Screenshots taken with fictional data generated for the demo: no real people or vehicles."}</p> : null}
               <div className="mt-6"><ProjectGallery project={project} locale={locale} /></div>
             </section>
           ) : null}

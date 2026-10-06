@@ -633,11 +633,11 @@ export const projects: Project[] = [
     projectUrl: "URL_DEMO_GARAGE_A_REMPLACER",
     githubUrl: "URL_GITHUB_GARAGE_A_REMPLACER",
     status: {
-      fr: "Projets confidentiels anonymisés",
-      en: "Anonymized confidential projects",
+      fr: "Applications de gestion sur mesure",
+      en: "Custom management applications",
     },
     featured: true,
-    confidential: true,
+    fictionalData: true,
   },
   {
     slug: "initiative-avenir-basketball",

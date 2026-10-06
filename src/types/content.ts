@@ -26,6 +26,8 @@ export interface Project {
   status: LocalizedText;
   featured: boolean;
   confidential?: boolean;
+  /** Screenshots show generated demo records, not real people. */
+  fictionalData?: boolean;
   aiAssistance?: LocalizedText;
 }
 

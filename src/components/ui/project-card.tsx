@@ -1,5 +1,5 @@
 import { BrandIcon } from "@/components/ui/brand-icon";
-import { ArrowRight, ExternalLink, LockKeyhole } from "lucide-react";
+import { ArrowRight, ExternalLink, FlaskConical, LockKeyhole } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { isPending, isPlaceholder } from "@/data/site";
@@ -59,6 +59,12 @@ export function ProjectCard({ project, locale }: { project: Project; locale: Loc
             <span className="badge">
               <LockKeyhole size={12} aria-hidden="true" />
               {fr ? "Anonymisé" : "Anonymized"}
+            </span>
+          ) : null}
+          {project.fictionalData ? (
+            <span className="badge">
+              <FlaskConical size={12} aria-hidden="true" />
+              {fr ? "Données fictives" : "Fictional data"}
             </span>
           ) : null}
         </div>
