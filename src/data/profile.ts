@@ -49,6 +49,10 @@ export const references: { name: string; work: LocalizedText }[] = [
     name: "Garage La Révélation",
     work: { fr: "Trois applications de gestion : garage, casse automobile et boutique de pièces", en: "Three management applications: repair shop, salvage yard and parts store" },
   },
+  {
+    name: "FRIG’AUTO",
+    work: { fr: "Site vitrine automobile : présentation de l’entreprise, services et contact", en: "Automotive showcase website: company profile, services and contact" },
+  },
 ];
 
 export const experiences: Experience[] = [
