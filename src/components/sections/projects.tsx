@@ -27,8 +27,8 @@ export function Projects({ locale }: { locale: Locale }) {
             }
             description={
               fr
-                ? "Applications financières et automatisation : les besoins rencontrés, mes contributions et les résultats décrits dans chaque étude de cas."
-                : "Financial applications and automation: the needs, my contributions and the outcomes described in each case study."
+                ? "Applications financières et de gestion : les besoins rencontrés, mes contributions et les résultats décrits dans chaque étude de cas."
+                : "Financial and management applications: the needs, my contributions and the outcomes described in each case study."
             }
           />
         </Reveal>
