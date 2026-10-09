@@ -32,6 +32,7 @@ export function Contact({ locale }: { locale: Locale }) {
         {/* TITRE */}
         <Reveal direction="up" duration={0.8} distance={35}>
           <SectionHeading
+            index="05"
             eyebrow="Contact"
             title={
               fr

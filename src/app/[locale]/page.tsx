@@ -7,6 +7,7 @@ import { Hero } from "@/components/sections/hero";
 import { Journey } from "@/components/sections/journey";
 import { Projects } from "@/components/sections/projects";
 import { Skills } from "@/components/sections/skills";
+import { TechMarquee } from "@/components/ui/tech-marquee";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { isLocale } from "@/lib/i18n";
@@ -57,7 +58,7 @@ export default async function PortfolioPage({ params }: PageProps<"/[locale]">) 
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }} />
       <Header locale={value} />
-      <main id="contenu"><Hero locale={value} /><Projects locale={value} /><Journey locale={value} /><Skills locale={value} /><About locale={value} /><Contact locale={value} /></main>
+      <main id="contenu"><Hero locale={value} /><TechMarquee label={value === "fr" ? "Technologies utilisées" : "Technologies I use"} /><Projects locale={value} /><Journey locale={value} /><Skills locale={value} /><About locale={value} /><Contact locale={value} /></main>
       <Footer locale={value} />
     </>
   );

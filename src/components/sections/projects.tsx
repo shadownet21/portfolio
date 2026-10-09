@@ -5,6 +5,7 @@ import type { Locale } from "@/types/content";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ProjectCard } from "@/components/ui/project-card";
+import { ProjectCarousel } from "@/components/ui/project-carousel";
 
 export function Projects({ locale }: { locale: Locale }) {
   const fr = locale === "fr";
@@ -19,6 +20,7 @@ export function Projects({ locale }: { locale: Locale }) {
         {/* EN-TÊTE */}
         <Reveal direction="up" duration={0.8} distance={35}>
           <SectionHeading
+            index="01"
             eyebrow={fr ? "Projets sélectionnés" : "Selected projects"}
             title={
               fr
@@ -50,23 +52,13 @@ export function Projects({ locale }: { locale: Locale }) {
 
         {/* AUTRES RÉALISATIONS */}
         {secondaryProjects.length > 0 && (
-          <details className="more-projects mt-12 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-5 md:p-6">
+          <details className="more-projects mt-12 p-5 md:p-6">
             <summary className="cursor-pointer text-lg font-extrabold text-[var(--brand)]">
               {fr ? "Explorer mes autres réalisations" : "Explore my other projects"} ({secondaryProjects.length})
             </summary>
 
-            <div className="mt-7 grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {secondaryProjects.map((project, index) => (
-                <Reveal
-                  key={project.slug}
-                  direction="up"
-                  delay={Math.min(index * 0.06, 0.18)}
-                  duration={0.7}
-                  className="h-full [&>*]:h-full"
-                >
-                  <ProjectCard project={project} locale={locale} />
-                </Reveal>
-              ))}
+            <div className="mt-7">
+              <ProjectCarousel projects={secondaryProjects} locale={locale} />
             </div>
           </details>
         )}

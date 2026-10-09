@@ -608,27 +608,6 @@ export const projects: Project[] = [
           en: "Flash Contrôle Routier · signed-in users and remote sign-out",
         },
       },
-      {
-        src: "/images/flash-controle-routier/captures/avant/connexion.png",
-        caption: {
-          fr: "Avant la refonte · ancien écran de connexion",
-          en: "Before the redesign · former sign-in screen",
-        },
-      },
-      {
-        src: "/images/flash-controle-routier/captures/avant/accueil.png",
-        caption: {
-          fr: "Avant la refonte · ancienne page d’accueil",
-          en: "Before the redesign · former home page",
-        },
-      },
-      {
-        src: "/images/flash-controle-routier/captures/avant/tableau-de-bord.png",
-        caption: {
-          fr: "Avant la refonte · ancien tableau de bord",
-          en: "Before the redesign · former dashboard",
-        },
-      },
     ],
     projectUrl: "URL_DEMO_GARAGE_A_REMPLACER",
     githubUrl: "URL_GITHUB_GARAGE_A_REMPLACER",

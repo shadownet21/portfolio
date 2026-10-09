@@ -70,7 +70,7 @@ Le site FRIG’AUTO utilise [https://frigauto.com](https://frigauto.com).
 
 ## Flash Contrôle Routier
 
-L’étude de cas `flash-production` présente Flash Contrôle Routier, une plateforme qui réunit les données du contrôle routier : infractions, amendes, immatriculations, assurances, permis, dédouanements, Interpol, etc. La galerie compte 20 captures de l’interface repensée, suivies de 3 écrans d’avant la refonte.
+L’étude de cas `flash-production` présente Flash Contrôle Routier, une plateforme qui réunit les données du contrôle routier : infractions, amendes, immatriculations, assurances, permis, dédouanements, Interpol, etc. La galerie présente les 20 captures de l’interface actuelle.
 
 Toutes les données visibles sur ces captures sont **fictives** : noms, plaques, numéros de châssis, téléphones, etc. Elles ont été générées pour la démonstration. Rien n’est masqué, pour que la refonte reste lisible. À la place :
 

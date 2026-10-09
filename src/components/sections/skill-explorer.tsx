@@ -22,20 +22,21 @@ export function SkillExplorer({ locale }: { locale: Locale }) {
   const count = groups.reduce((total, group) => total + group.skills.length, 0);
   return <>
     <div className="mb-4 flex flex-wrap gap-3" role="group" aria-label={fr ? "Filtrer par niveau de maîtrise" : "Filter by proficiency"}>
-      {(["all", "professional", "operational", "learning"] as const).map(level => <button key={level} type="button" aria-pressed={selected === level} aria-controls="skill-results" onClick={() => setSelected(level === selected ? "all" : level)} className={`skill-filter rounded-full border px-4 py-3 text-sm font-bold ${level === "all" ? "border-[var(--border)]" : levelStyles[level]}`}>{labels[level]}</button>)}
+      {(["all", "professional", "operational", "learning"] as const).map(level => <button key={level} type="button" aria-pressed={selected === level} aria-controls="skill-results" onClick={() => setSelected(level === selected ? "all" : level)} className={`skill-filter border px-4 py-3 text-sm font-bold ${level === "all" ? "border-[var(--border)]" : levelStyles[level]}`}>{labels[level]}</button>)}
     </div>
     <p className="muted mb-6 text-sm" role="status" aria-live="polite">{count} {fr ? "compétences affichées" : "skills shown"} · {labels[selected]}</p>
-    <motion.div layout={!reduced} id="skill-results" className="grid items-start gap-5 md:grid-cols-2 xl:grid-cols-3">
-      <AnimatePresence mode="popLayout">
-        {groups.map(group => <motion.div layout={!reduced} key={group.category.fr} initial={{ opacity: 0, y: reduced ? 0 : 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: reduced ? 1 : .97 }} transition={{ duration: reduced ? 0 : .2 }} className="card p-6">
-          <h4 className="text-lg font-extrabold">{group.category[locale]}</h4>
-          <div className="mt-4 flex flex-wrap gap-2">
-            <AnimatePresence mode="popLayout">
-              {group.skills.map(skill => <motion.span layout={!reduced} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: reduced ? 0 : .15 }} key={skill.name} className={`rounded-md border px-2.5 py-1.5 text-sm font-semibold ${levelStyles[skill.level]}`} title={labels[skill.level]}>{skill.label?.[locale] ?? skill.name}</motion.span>)}
-            </AnimatePresence>
-          </div>
-        </motion.div>)}
+    {/* The whole result set fades out, then the filtered one fades in: no layout animation. */}
+    <div id="skill-results">
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.div key={selected} className="grid items-start gap-5 md:grid-cols-2 xl:grid-cols-3" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: reduced ? 0 : .25, ease: "easeInOut" }}>
+          {groups.map(group => <div key={group.category.fr} className="card p-6">
+            <h4 className="text-lg font-extrabold">{group.category[locale]}</h4>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {group.skills.map(skill => <span key={skill.name} className={`skill-chip border px-2.5 py-1.5 text-sm font-semibold ${levelStyles[skill.level]}`} title={labels[skill.level]}>{skill.label?.[locale] ?? skill.name}</span>)}
+            </div>
+          </div>)}
+        </motion.div>
       </AnimatePresence>
-    </motion.div>
+    </div>
   </>;
 }

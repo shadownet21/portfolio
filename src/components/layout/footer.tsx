@@ -6,7 +6,7 @@ import { SafeLink } from "@/components/ui/safe-link";
 
 export function Footer({ locale }: { locale: Locale }) {
   return (
-    <footer className="border-t border-[var(--border)] py-10">
+    <footer className="overflow-hidden border-t border-[var(--border)] pt-10">
       <div className="container-shell grid gap-7 md:grid-cols-[1fr_auto] md:items-end">
         <div><p className="text-lg font-extrabold">{SITE.name}</p><p className="muted mt-1 text-sm">{SITE.role[locale]}</p><p className="muted mt-2 text-sm">© {new Date().getFullYear()} · {locale === "fr" ? "Conçu avec Next.js et TypeScript" : "Built with Next.js and TypeScript"}</p></div>
         <div className="flex flex-wrap items-center gap-4 text-sm font-semibold">
@@ -16,6 +16,7 @@ export function Footer({ locale }: { locale: Locale }) {
           <SafeLink href={PLACEHOLDERS.linkedin} label="LinkedIn" newTab><BrandIcon brand="linkedin" size={20} /></SafeLink>
         </div>
       </div>
+      <p className="footer-wordmark" aria-hidden="true">Freeman</p>
     </footer>
   );
 }

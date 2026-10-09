@@ -1,5 +1,5 @@
 import { PuzzlePortrait } from "@/components/ui/puzzle-portrait";
-import { ArrowDownRight, Download, Mail, MapPin } from "lucide-react";
+import { ArrowDownRight, Download, Mail } from "lucide-react";
 import { PLACEHOLDERS, SITE } from "@/data/site";
 import type { Locale } from "@/types/content";
 import { SafeLink } from "@/components/ui/safe-link";
@@ -54,15 +54,16 @@ export function Hero({ locale }: { locale: Locale }) {
       className="container-shell grid min-h-[92vh] items-center gap-12 pb-20 pt-32 lg:grid-cols-[1.12fr_.88fr]"
     >
       <div>
-        <p className="eyebrow mb-5">{SITE.role[locale]}</p>
+        <p className="eyebrow mb-5"><span className="eyebrow-index">&gt;_</span>{SITE.role[locale]}</p>
 
         <h1 className="display-title">
-          Marc Maurice <span className="text-[var(--brand)]">Freeman</span>
+          Marc Maurice <span className="outline-word">Freeman</span>
         </h1>
 
-        <p className="muted mt-6 flex items-center gap-2 font-semibold">
-          <MapPin size={18} aria-hidden="true" />
-          Montréal, Québec
+        {/* Signature: the location written as the SQL query a database developer would run. */}
+        <p className="hero-query mt-7">
+          <span className="sql-keyword">SELECT</span> * <span className="sql-keyword">FROM</span> {fr ? "développeurs" : "developers"}{" "}
+          <span className="sql-keyword">WHERE</span> {fr ? "ville" : "city"} = <span className="sql-string">&apos;Montréal, QC&apos;</span>;
         </p>
 
         <p className="mt-6 max-w-2xl text-lg leading-8 md:text-xl">
@@ -95,11 +96,12 @@ export function Hero({ locale }: { locale: Locale }) {
           </a>
         </div>
 
-        <dl className="mt-10 grid gap-4 border-t border-[var(--border)] pt-6 sm:grid-cols-3">
+        <p className="query-result mt-10" aria-hidden="true">-- {fr ? "3 lignes retournées" : "3 rows returned"}</p>
+        <dl className="stats-grid mt-3 grid gap-4 sm:grid-cols-3">
           {stats.map(({ value, label }) => (
             <div key={value} className="flex flex-col gap-1">
               <dt className="muted text-sm leading-6">{label}</dt>
-              <dd className="order-first text-3xl font-extrabold tracking-tight text-[var(--brand)]">
+              <dd className="stat-value order-first">
                 {value}
               </dd>
             </div>
@@ -108,7 +110,6 @@ export function Hero({ locale }: { locale: Locale }) {
       </div>
 
       <div className="profile-card">
-        <div className="profile-glow" aria-hidden="true" />
 
         <div className="profile-image-wrapper">
           <PuzzlePortrait alt={copy.portrait} playLabel={copy.puzzle} />

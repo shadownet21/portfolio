@@ -76,7 +76,7 @@ export function ProjectCard({ project, locale }: { project: Project; locale: Loc
         </h3>
         <p className="muted mt-3 line-clamp-3 text-sm leading-6">{project.summary[locale]}</p>
         {project.featured && !isPending(project.impact[locale]) ? (
-          <div className="mt-4 rounded-lg bg-[var(--surface-muted)] p-4 text-sm leading-6">
+          <div className="mt-4 outcome-box p-4 text-sm leading-6">
             <p className="font-extrabold">{fr ? "Résultat" : "Outcome"}</p>
             <p className="muted mt-1 line-clamp-4">{project.impact[locale]}</p>
           </div>

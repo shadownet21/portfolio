@@ -23,6 +23,7 @@ export function About({ locale }: { locale: Locale }) {
         {/* TITRE DE LA SECTION */}
         <Reveal direction="up" duration={0.8} distance={35}>
           <SectionHeading
+            index="04"
             eyebrow={fr ? "À propos" : "About"}
             title={
               fr

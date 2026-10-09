@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Bricolage_Grotesque, JetBrains_Mono, Manrope } from "next/font/google";
 import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/lib/i18n";
 import { getSiteUrl } from "@/lib/site-url";
@@ -7,6 +7,9 @@ import { themeScript } from "@/lib/theme-script";
 import "../globals.css";
 
 const manrope = Manrope({ subsets: ["latin"], display: "swap" });
+// Display face for titles, monospace for the "technical drawing" labels (indexes, queries, tags).
+const display = Bricolage_Grotesque({ subsets: ["latin"], display: "swap", variable: "--font-display" });
+const mono = JetBrains_Mono({ subsets: ["latin"], display: "swap", variable: "--font-mono" });
 const siteUrl = getSiteUrl();
 
 export const dynamicParams = false;
@@ -31,7 +34,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[lo
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className={manrope.className}>{children}</body>
+      <body className={`${manrope.className} ${display.variable} ${mono.variable}`}>{children}</body>
     </html>
   );
 }

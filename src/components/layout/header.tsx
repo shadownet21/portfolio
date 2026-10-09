@@ -59,15 +59,17 @@ export function Header({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <a href="#contenu" className="fixed left-3 top-3 z-[100] -translate-y-24 rounded-md bg-[var(--brand)] px-4 py-2 text-white focus:translate-y-0">{copy.skip}</a>
+      <a href="#contenu" className="fixed left-3 top-3 z-[100] -translate-y-24 bg-[var(--brand)] px-4 py-2 text-white focus:translate-y-0">{copy.skip}</a>
       <header className="surface fixed inset-x-0 top-0 z-50 border-x-0 border-t-0 bg-[color:var(--surface)]/90 backdrop-blur-xl">
         <div className="reading-progress" aria-hidden="true" style={{ transform: `scaleX(${progress})` }} />
         <div className="container-shell flex h-20 items-center justify-between gap-4">
-          <Link href={`/${locale}`} className="text-lg font-extrabold tracking-[-.04em]" aria-label={locale === "fr" ? "Marc Maurice Freeman — accueil" : "Marc Maurice Freeman — home"}>
-            MM<span className="text-[var(--brand)]">F</span>
-          </Link>
+          {/* Plain mark, not a link. */}
+          <p className="brand-mark">
+            <span aria-hidden="true">MM<span className="text-[var(--brand)]">F</span></span>
+            <span className="sr-only">Marc Maurice Freeman</span>
+          </p>
           <nav aria-label={locale === "fr" ? "Navigation principale" : "Main navigation"} className="hidden items-center gap-6 lg:flex">
-            {NAV_ITEMS.map((item) => <a key={item.id} href={`/${locale}#${item.id}`} aria-current={active === item.id ? "location" : undefined} className="nav-link muted text-sm font-semibold hover:text-[var(--brand)]">{item.label[locale]}</a>)}
+            {NAV_ITEMS.map((item, index) => <a key={item.id} href={`/${locale}#${item.id}`} aria-current={active === item.id ? "location" : undefined} className="nav-link muted text-sm font-semibold hover:text-[var(--brand)]"><span className="nav-index" aria-hidden="true">0{index + 1}</span>{item.label[locale]}</a>)}
           </nav>
           <div className="flex items-center gap-2">
             <Link href={otherLocaleHref} className="button-secondary !h-10 !min-h-10 !px-3" hrefLang={otherLocale} aria-label={otherLocale === "fr" ? "Version française" : "English version"}>{otherLocale.toUpperCase()}</Link>
@@ -81,7 +83,7 @@ export function Header({ locale }: { locale: Locale }) {
         {open ? (
           <nav ref={mobileMenuRef} id="mobile-menu" className="container-shell border-t border-[var(--border)] py-4 lg:hidden" aria-label={locale === "fr" ? "Navigation mobile" : "Mobile navigation"}>
             <div className="grid gap-1">
-              {NAV_ITEMS.map((item) => <a key={item.id} href={`/${locale}#${item.id}`} onClick={() => setOpen(false)} aria-current={active === item.id ? "location" : undefined} className="rounded-md px-3 py-3 font-semibold hover:bg-[var(--surface-muted)]">{item.label[locale]}</a>)}
+              {NAV_ITEMS.map((item) => <a key={item.id} href={`/${locale}#${item.id}`} onClick={() => setOpen(false)} aria-current={active === item.id ? "location" : undefined} className="px-3 py-3 font-semibold hover:bg-[var(--surface-muted)]">{item.label[locale]}</a>)}
               <SafeLink href={PLACEHOLDERS.cv} className="button-primary mt-2 sm:hidden" download label={copy.cv}><Download size={17} aria-hidden="true" />{copy.cv}</SafeLink>
             </div>
           </nav>

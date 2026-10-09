@@ -13,6 +13,7 @@ export function Skills({ locale }: { locale: Locale }) {
       <div className="container-shell">
         <Reveal>
           <SectionHeading
+            index="03"
             eyebrow={fr ? "Compétences" : "Skills"}
             title={fr ? "Un profil hybride, de l’utilisateur jusqu’à la donnée" : "A hybrid profile, from user needs to data"}
             description={fr ? "Le développement web et les bases de données au cœur de mon travail, soutenus par une solide pratique du support et de la livraison." : "Web development and databases at the core of my work, backed by solid support and delivery experience."}
@@ -24,7 +25,7 @@ export function Skills({ locale }: { locale: Locale }) {
           {primary.map(({ icon: Icon, title, text }) => (
             <Reveal key={title.fr} className="h-full">
               <div className="card expertise-primary h-full p-7 md:p-8">
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-[var(--brand)] text-white">
+                <div className="expertise-icon">
                   <Icon aria-hidden="true" />
                 </div>
                 <h3 className="mt-6 text-xl font-extrabold md:text-2xl">{title[locale]}</h3>

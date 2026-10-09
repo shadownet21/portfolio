@@ -16,6 +16,7 @@ export function Journey({ locale }: { locale: Locale }) {
         {/* TITRE DE LA SECTION */}
         <Reveal direction="up" duration={0.8} distance={35}>
           <SectionHeading
+            index="02"
             eyebrow={fr ? "Expérience & formation" : "Experience & education"}
             title={
               fr

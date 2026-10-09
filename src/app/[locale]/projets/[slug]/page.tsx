@@ -76,7 +76,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
                 </div>
               ) : null}
             </div>
-            <div className="project-cover-frame relative aspect-[16/10] overflow-hidden rounded-2xl border border-[var(--border)]">
+            <div className="project-cover-frame relative aspect-[16/10] overflow-hidden border border-[var(--border)]">
               <Image src={project.image} alt="" fill priority sizes="(max-width: 1024px) 100vw, 580px" className={coverClass(project)} unoptimized={project.image.endsWith(".svg")} />
             </div>
           </header>
@@ -86,7 +86,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
               <h2 id="etude" className="sr-only">{fr ? "Étude de cas" : "Case study"}</h2>
               <ol className="grid gap-5 md:grid-cols-3">
                 {story.map(({ title, text }, index) => (
-                  <li key={title} className="surface rounded-2xl p-6">
+                  <li key={title} className="card p-6">
                     <p className="eyebrow">0{index + 1}</p>
                     <h3 className="mt-3 text-lg font-extrabold">{title}</h3>
                     <p className="muted mt-3 leading-7">{text}</p>
