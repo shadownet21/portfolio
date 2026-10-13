@@ -53,8 +53,8 @@ export function About({ locale }: { locale: Locale }) {
 
               <p>
                 {fr
-                  ? "À Montréal, je poursuis ma formation CyberCap : programmation, réseaux, cybersécurité et IA."
-                  : "Based in Montréal, I am continuing my CyberCap training: programming, networking, cybersecurity and AI."}
+                  ? "Établi à Montréal, j’ai terminé en 2026 la formation CyberCap : programmation, réseaux, cybersécurité et IA, en complément de mon expérience en développement."
+                  : "Based in Montréal, I completed the CyberCap training program in 2026: programming, networking, cybersecurity and AI, building on my development experience."}
               </p>
             </Reveal>
 
