@@ -32,7 +32,9 @@ export function Hero({ locale }: { locale: Locale }) {
   const stats = [
     {
       value: fr ? "7 ans" : "7 years",
-      label: fr ? "de développement web" : "of web development",
+      label: fr
+        ? "de développement web, de support informatique et de gestion de projets"
+        : "of web development, IT support and project management",
     },
     {
       value: "120+",
