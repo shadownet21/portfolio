@@ -63,7 +63,7 @@ export function Hero({ locale }: { locale: Locale }) {
         {/* Signature: the location written as the SQL query a database developer would run. */}
         <p className="hero-query mt-7">
           <span className="sql-keyword">SELECT</span> * <span className="sql-keyword">FROM</span> {fr ? "développeurs" : "developers"}{" "}
-          <span className="sql-keyword">WHERE</span> {fr ? "ville" : "city"} = <span className="sql-string">&apos;Montréal, QC&apos;</span>;
+          <span className="sql-keyword">WHERE</span> province = <span className="sql-string">&apos;Québec&apos;</span>;
         </p>
 
         <p className="mt-6 max-w-2xl text-lg leading-8 md:text-xl">
