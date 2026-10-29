@@ -174,7 +174,7 @@ export const experiences: Experience[] = [
   },
   {
     organization:
-      "FUCEC-TOGO, Garage La Révolution, École Cours Lumière, EcoHub — Togo",
+      "FUCEC-TOGO, Garage La Révélation, École Cours Lumière, EcoHub — Togo",
     role: {
       fr: "Analyste-développeur Web (stages académiques)",
       en: "Web Analyst and Developer (Academic Internships)",
